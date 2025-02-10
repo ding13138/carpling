@@ -97,7 +97,7 @@ main{
     height: 30vh; /* 全屏高度 */
     width: 30vh;
     margin-top: 50px;
-    margin-left: 350px;
+    margin-left: 25%;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
@@ -107,10 +107,10 @@ main{
 .cars-image6 {
     
     background-image: url('/static/image/376515.png'); /* 替换为你的图片路径 */
-    height: 15vh; /* 全屏高度 */
-    width: 40vh;
+    width: 70%;
+    height: 20%;
     margin-top: -150px;
-    margin-left: 600px;
+    margin-left: 60%;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
@@ -118,7 +118,7 @@ main{
 }
 .bodytype_text{
    margin-top: 150px;
-   margin-left: 490px;
+   margin-left: 50%;
    z-index:10;
 }
 /* 图片容器样式 */
