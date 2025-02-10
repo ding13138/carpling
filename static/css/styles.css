@@ -121,6 +121,9 @@ main{
    margin-left: 490px;
    z-index:10;
 }
+.bodytype_text{
+    width: 400px;
+}
 /* 图片容器样式 */
 .image-container {
     margin-top: 150px;
