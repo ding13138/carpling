@@ -21,6 +21,9 @@
         <h2>ログインページ</h2>
         <p>アカウントをお持ちの方は、こちらからログイン</p>
         <form action="/loginck" method="POST" enctype="multipart/form-data">
+            <label for="">
+                <input type="text">
+            </label>
             <table border="1">
                 <tr>
                     <td>ユーザーID</td>
@@ -38,6 +41,7 @@
                 </tr>
             </table>
             <br>
+            <input type="checkbox" >メールアドレスを保存
             <input type="submit" value="ログイン">
         </form>
     </main>
