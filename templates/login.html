@@ -12,31 +12,35 @@
 </head>
 
 <body>
-
-    <hr>
-    <h2>システムログイン</h2>
-    <form action="/loginck" method="POST" enctype="multipart/form-data">
-        <table border="1">
-            <tr>
-                <td>ユーザーID</td>
-                <td><input type="text" name="userid" value="{{rec.userid}}"></td>
-                <td>
-                    <font color="red">{{etbl.userid}}</font>
-                </td>
-            </tr>
-            <tr>
-                <td>パスワード</td>
-                <td><input type="text" name="userps" value="{{rec.userps}}"></td>
-                <td>
-                    <font color="red">{{etbl.userps}}</font>
-                </td>
-            </tr>
-        </table>
-        <br>
-        <input type="submit" value="ログイン">
-    </form>
-    <br>
-    <hr>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo">
+        </div>
+    </header>
+    <main>
+        <h2>ログインページ</h2>
+        <p>アカウントをお持ちの方は、こちらからログイン</p>
+        <form action="/loginck" method="POST" enctype="multipart/form-data">
+            <table border="1">
+                <tr>
+                    <td>ユーザーID</td>
+                    <td><input type="text" name="userid" value="{{rec.userid}}"></td>
+                    <td>
+                        <font color="red">{{etbl.userid}}</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type="text" name="userps" value="{{rec.userps}}"></td>
+                    <td>
+                        <font color="red">{{etbl.userps}}</font>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="ログイン">
+        </form>
+    </main>
 </body>
 
 </html>
