@@ -130,13 +130,12 @@ main{
 }
 
 .bodytype_text{
+   width: 400px; 
    margin-top: 150px;
    margin-left: 50%;
    z-index:10;
 }
-.bodytype_text{
-    width: 400px;
-}
+
 /* 图片容器样式 */
 .image-container {
     margin-top: 150px;
@@ -146,7 +145,13 @@ main{
     gap: 70px; /* 间距 */
     width: 520px; /* 总宽度：3 列 * 80px + 2 个间距 */
 }
+.item-text{
+    padding-top: 60%;
+    text-align: center;
+    width: 160px; /* 每块宽度 */
+    height: 120px; /* 每块高度 */
 
+}
 /* 单个分割块样式 */
 .image-item {
     width: 160px; /* 每块宽度 */
