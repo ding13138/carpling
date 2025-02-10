@@ -5,7 +5,9 @@ body {
     background-repeat: no-repeat, no-repeat;
     height: 390vh; /* 让背景填满整个屏幕 */
     width: 105vh;
-
+    font-family: "Yomogi", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -70,7 +72,7 @@ main{
 .cars-image3 {
     background-image: url('/static/image/fukidashi2.png'); /* 替换为你的图片路径 */
     margin-top:-450px ;
-    margin-left: 800px;
+    margin-left: 100%;
     height: 30vh; /* 全屏高度 */
     width:65vh;
     background-size: cover; /* 确保图片完全覆盖 */
@@ -83,7 +85,7 @@ main{
     background-image: url('/static/image/付箋A.png'); /* 替换为你的图片路径 */
     height: 65vh; /* 全屏高度 */
     width: 65vh;
-    margin-left: 700px;
+    margin-left: 100%;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
@@ -118,6 +120,9 @@ main{
    margin-top: 150px;
    margin-left: 490px;
    z-index:10;
+}
+.bodytype_text{
+    width: 400px;
 }
 /* 图片容器样式 */
 .image-container {

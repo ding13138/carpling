@@ -9,13 +9,12 @@
     <title>{% block title %}Carpling{% endblock %}</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 
 <body>
     <header>
-        <h1>こんにちは</h1>
         <nav class="navbar">
             <div class="logo">
                 <img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo">
