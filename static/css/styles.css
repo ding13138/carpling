@@ -8,6 +8,16 @@ body {
     font-family: "Yomogi", serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 16px;
+}
+h1{
+    font-size: 2rem;
+}
+h2{
+    font-size: 1.7rem;
+}
+p{
+    font-size: 1rem;
 }
 
 
@@ -60,13 +70,13 @@ main{
 .cars-image2 {
     background-image: url('/static/image/付箋B.png'); /* 替换为你的图片路径 */
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 15%;
     height: 75vh; /* 全屏高度 */
     width: 75vh;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
-    color: white;
+    color: rgb(0, 0, 0);
 
 }
 .cars-image3 {
