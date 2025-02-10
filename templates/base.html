@@ -22,7 +22,10 @@
             
             <input type="text" placeholder="車名で検索" id="simpleTextbox">
             <div class="login">
-            <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
+                <form action="/login" method="get">
+                    <button type="submit" class="login-link">ログイン</button>
+                    <!-- <a href="{{ url_for('login') }}" class="login-link">ログイン</a> -->
+                </form>
             </div>
         </nav>
     </header>
