@@ -1,47 +1,54 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends "base.html" %}
 
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    {% endblock %}
-</head>
+{% block title %}ログイン{% endblock %}
 
-<body>
-    <header>
-        <div class="logo">
-            <img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo">
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="login_text">
+            <h2>ログインページ</h2>
         </div>
-    </header>
-    <main>
-        <h2>ログインページ</h2>
         <p>アカウントをお持ちの方は、こちらからログイン</p>
-        <form action="/loginck" method="POST" enctype="multipart/form-data">
-            <table border="1">
+
+        <form action="/loginck" method="POST">
+            <table>
                 <tr>
                     <td>ユーザーID</td>
-                    <td><input type="text" name="userid" value="{{rec.userid}}"></td>
                     <td>
-                        <font color="red">{{etbl.userid}}</font>
+                        <input type="text" name="userid" value="{{ rec.userid if rec.userid is defined else '' }}">
                     </td>
                 </tr>
                 <tr>
+                    <td colspan="2">
+                        <span class="error-message">{{ etbl.userid if etbl.userid is defined else '' }}</span>
+                    </td>
+                </tr>
+
+                <tr>
                     <td>パスワード</td>
-                    <td><input type="text" name="userps" value="{{rec.userps}}"></td>
                     <td>
-                        <font color="red">{{etbl.userps}}</font>
+                        <input type="password" name="userps" value="{{ rec.userps if rec.userps is defined else '' }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="error-message">{{ etbl.userps if etbl.userps is defined else '' }}</span>
                     </td>
                 </tr>
             </table>
-            <br>
-            <input type="checkbox" >メールアドレスを保存
-            <input type="submit" value="ログイン">
-        </form>
-    </main>
-</body>
 
-</html>
+            <label class="checkbox-label">
+                <input type="checkbox" name="save_email"> メールアドレスを保存
+            </label>
+
+            <br>
+            <input class="login_button" type="submit" value="ログイン">
+        </form>
+    </div>
+</div>
+{% endblock %}
