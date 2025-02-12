@@ -1,0 +1,51 @@
+body {
+    background-image: url('/static/image/note.png'); 
+    background-size: 100%; 
+    height: 100vh; 
+    width: 100vw;
+}
+.login-wrapper {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    width: 100vw;             
+    height: 100vh;            
+}
+
+.login-container {
+    width: 30vw;
+    margin-bottom: 20%;
+}
+.login-container>p{
+    margin-top: -40px;
+}
+.login_text {
+    position: relative;
+    height: 20vh;
+    width: 80vh;
+    mix-blend-mode: multiply;
+    margin-left: 6vw;
+    top:3vh;
+}
+
+.login_text::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: -80px; /* 让背景向左移动 */
+    width: 120%;
+    height: 100%;
+    background-image: url('/static/image/まーかー.png');
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+    z-index: -1; /* 让背景位于 `.login_text` 后面 */
+}
+
+td{
+    padding: 10px;
+}
+
+footer{
+    padding-left: 550px;
+    margin-top: -30px;
+}
