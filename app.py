@@ -46,8 +46,11 @@ def home():
 
 @app.route('/cars')
 def cars():
-    return render_template('cars.html') 
+    return render_template('cars.html')
 
+@app.route('/match')
+def match():
+    return render_template('match1.html')
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
