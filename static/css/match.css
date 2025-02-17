@@ -1,10 +1,9 @@
-@charset "UTF-8";
 html {
   font-family: "Yomogi", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  background-image: url("/static/image/—Pngtree—set of colored masking tape_9090413.png");
+  background-size: 100% auto;
 }
 
 h1 {
@@ -13,4 +12,11 @@ h1 {
 
 h2 {
   font-size: 1.6rem;
+}
+
+#choices {
+  display: flex;
+}
+#choices img {
+  width: 100%;
 }/*# sourceMappingURL=match.css.map */
