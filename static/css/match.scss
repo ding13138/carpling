@@ -3,14 +3,19 @@ html{
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
-    background-image: url('/static/image/—Pngtree—set\ of\ colored\ masking\ tape_9090413.png');
+    background-size: 100% auto;
 }
 
 h1{
     font-size: 2rem;
 }
-
 h2{
     font-size: 1.6rem;
+}
+#choices{
+    display: flex;
+    img{
+        width: 100%;
+    }
 }
 
