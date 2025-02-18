@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} cars {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/css/destyle.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 id="title">理想の車とマッチング！</h1>
+
+<div id="match_main">
+    <ul id="charactor">
+        <li>
+            <div id="sd_charactor">
+                <img src="../static/image/sd_charactor.png" alt="">
+            </div>
+        </li>
+        <li>
+            <div id="fukidashi">
+                <img src="../static/image/fukidashi.png" alt="">
+                <div id="comment">
+                    <h2>まずはあなたの年齢と性別を</h2><br>
+                    <h2>教えてください！</h2>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
