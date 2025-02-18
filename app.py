@@ -1,108 +1,122 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, redirect, session, url_for
+import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import timedelta
-import mysql.connector
 
 app = Flask(__name__)
+app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
+app.permanent_session_lifetime = timedelta(minutes=3)  # ✅ セッションの有効時間を3分に設定
 
-#*** SESSION用初期設定
-app.secret_key = 'IH12xPY24_No08'
-app.permanent_session_lifetime = timedelta(minutes=3)
-dataf = "backup.csv"
 
+# ****************************************************
+# ** データベース接続関数 (DBに接続する) **
+# ****************************************************
 def con_db():
-    con = mysql.connector.connect(
-        host='localhost',
-        user='py24user',
-        passwd='py24pass',
-        db='py24db'
-    )
-    return con
+    try:
+        print("🛠️ データベース接続を試みています...")
+        conn = mariadb.connect(
+            host="localhost",
+            user="py24user",
+            password="py24pass",
+            database="py24db",
+            port=3306  # ✅ MariaDBのデフォルトポート
+        )
+        print("✅ データベース接続成功！")
+        return conn
+    except mariadb.Error as err:
+        print(f"❌ データベース接続失敗: {err}")
+        return None  # 接続に失敗した場合は None を返す
 
-def lunch_sel(sql, params=()):
-    con = con_db()
-    cursor = con.cursor(dictionary=True)
-    cursor.execute(sql, params)
-    result = cursor.fetchall()
-    con.close()
-    return result
 
-#****************************************************
-# SESSIONログイン状況
-#****************************************************
-def session_ck(tbl):
-    if not tbl:
-        return {"admn": "", "usname": "ゲスト"}
-    
-    admn = tbl["admn"]  #*** 管理者モード
-    usname = tbl["usname"]  #*** ユーザー名
-    if admn == "a":
-        usname += "（管理者）"
-    
-    return {"admn": admn, "usname": usname}
-
+# ****************************************************
+# ** ホームページ ('/') **
+# ****************************************************
 @app.route('/')
-def home():
-    return render_template('index.html')
+def index():
+    return render_template('index.html')  # ✅ `index.html` を表示（ログイン情報が表示される）
 
-@app.route('/cars')
-def cars():
-    return render_template('cars.html')
 
-@app.route('/match')
-def match():
-    return render_template('match1.html')
-#****************************************************
-# ログイン画面表示 （'/login'）
-#****************************************************
+# ****************************************************
+# ** ログインページ ('/login') **
+# ****************************************************
 @app.route('/login', methods=["GET"])
 def login():
-    rec = {}
-    etbl = {}
-    return render_template('login.html', rec=rec, etbl=etbl)
+    session.clear()  # ✅ 過去のログイン情報をクリア
+    return render_template('login.html', rec={}, etbl={})
 
-#****************************************************
-# ログイン処理 （'/loginck'）
-#****************************************************
+
+# ****************************************************
+# ** ログイン認証 ('/loginck') **
+# ****************************************************
 @app.route('/loginck', methods=["POST"])
 def loginck():
-    etbl = {}
-    rec = request.form
-    userid = request.form.get("userid", "").strip()
-    userps = request.form.get("userps", "").strip()
+    etbl = {}  # エラーメッセージを格納する辞書
+    userid = request.form.get("userid", "").strip()  # ユーザーIDを取得・空白削除
+    userps = request.form.get("userps", "").strip()  # パスワードを取得・空白削除
 
-    #*** 空白・未入力チェック ***
-    ecnt = 0
+    print(f"📌 ユーザー入力: userid={userid}, userps={userps}")
+
+    # ❌ ユーザーIDまたはパスワードが空の場合、エラーを表示
     if not userid:
         etbl["userid"] = "ユーザーIDが入力されていません"
-        ecnt += 1
     if not userps:
         etbl["userps"] = "パスワードが入力されていません"
-        ecnt += 1
 
-    #*** エラー判定 ***
-    if ecnt != 0:
-        return render_template('login.html', rec=rec, etbl=etbl)
+    # ✅ 入力にエラーがある場合は、再度ログインページを表示
+    if etbl:
+        return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
 
-    #*** ログイン認証（SQLインジェクション対策済み）***
-    sql = "SELECT * FROM user WHERE userid = %s AND userps = %s;"
-    tbl = lunch_sel(sql, (userid, userps))
+    # ✅ データベース接続
+    conn = con_db()
+    if not conn:
+        etbl["userid"] = "データベースに接続できません"
+        return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
 
-    if len(tbl) == 0:
-        etbl["userid"] = "ユーザーIDまたはパスワードが違います"
-        return render_template('login.html', rec=rec, etbl=etbl)
+    try:
+        cursor = conn.cursor(dictionary=True)
+        print("🔍 SQLクエリを実行中...")
 
-    #*** session保存 ***
-    session["admn"] = tbl[0]["admn"]
-    session["usname"] = tbl[0]["usname"]
-    return redirect('/')
+        # ✅ ユーザー情報を検索
+        sql = "SELECT * FROM user WHERE userid = %s"
+        cursor.execute(sql, (userid,))
+        user = cursor.fetchone()
+        print(f"📌 検索結果: {user}")
 
-#****************************************************
-# ログアウト処理 （'/logout'）
-#****************************************************
+        # ❌ ユーザーIDが見つからない場合、エラーを表示
+        if not user:
+            etbl["userid"] = "ユーザーIDまたはパスワードが違います"
+            return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
+
+        # ❌ パスワードが一致しない場合、エラーを表示
+        if user["userps"] != userps:
+            etbl["userps"] = "パスワードが間違っています"
+            return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
+
+        # ✅ 認証成功：セッションにユーザー情報を保存
+        session["usname"] = user["usname"]  # ユーザー名
+        session["userid"] = user["userid"]  # ユーザーID
+        print(f"✅ ログイン成功！Session: {session}")
+
+        return redirect('/')  # ✅ ホームページにリダイレクト
+
+    except mariadb.Error as err:
+        print(f"❌ SQLクエリエラー: {err}")
+        etbl["userid"] = "データベースエラーが発生しました"
+        return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+
+# ****************************************************
+# ** ログアウト ('/logout') **
+# ****************************************************
 @app.route('/logout')
 def logout():
-    session.clear()
-    return redirect('/login')
+    session.clear()  # ✅ セッションをクリア
+    return redirect(url_for('index'))  # ✅ ホームページに戻る
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
