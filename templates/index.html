@@ -1,106 +1,49 @@
 {% extends "base.html" %}
 
-{% block title %} cars {% endblock %}
+{% block title %} Cars {% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
 {% block content %}
-
     <div class="cars-image">
         <div class="cars-text">
         </div>
     </div>
+
     <div class="cars-image2">
         <div class="cars-text2">
             <h2>このサイトについて</h2>
-            <p>このサイトは、車を探したいすべての人に向けた「自動車マッチングサービス」です。</p><br>
-            <p>初めて車を買う人から、</p>
-            <p></p>
+            <p>このサイトは、車を探したいすべての人に向けた「自動車マッチングサービス」です。</p>
+            <p>初めて車を買う人から、最適な車を探すお手伝いをします。</p>
         </div>
     </div>
-    <div class="cars-image3">
-        <div class="cars-text3">
-        </div>
-    </div>
-    <div class="cars-image4">
-        <div class="cars-text4">
-        </div>
-    </div>
-    <div class="cars-image5">
-        <div class="cars-text5">
-        </div>
-    </div>
+
+    <!-- "今すぐマッチングする" 的表单 -->
     <form action="/match" method="get">
         <div class="cars-image6">
             <div class="cars-text6">
                 <h1>今すぐマッチングする</h1>
+                <button type="submit" class="match-button">マッチング開始</button>
             </div>
         </div>
     </form>
-    <h2  class="bodytype_text">ボディタイプから探す</h2>
-    <div class="image-container">
-        
-        <div class="image-item">
-            <div class="item-text">
-                <p>ミニバン</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>キャンピングカー</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>クーペ</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>ハッチバック</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>ハイブリッド</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>軽自動車</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>コンパクトカー</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>オーペンカー</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>セダン</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>ステーションワゴン</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>SUV・クロカン</p>
-            </div>
-        </div>
-        <div class="image-item">
-            <div class="item-text">
-                <p>トラック</p>
-            </div>
-        </div>
-    </div>
 
+    <h2 class="bodytype_text">ボディタイプから探す</h2>
+    
+    <div class="image-container">
+        <div class="image-item"><div class="item-text"><p>ミニバン</p></div></div>
+        <div class="image-item"><div class="item-text"><p>キャンピングカー</p></div></div>
+        <div class="image-item"><div class="item-text"><p>クーペ</p></div></div>
+        <div class="image-item"><div class="item-text"><p>ハッチバック</p></div></div>
+        <div class="image-item"><div class="item-text"><p>ハイブリッド</p></div></div>
+        <div class="image-item"><div class="item-text"><p>軽自動車</p></div></div>
+        <div class="image-item"><div class="item-text"><p>コンパクトカー</p></div></div>
+        <div class="image-item"><div class="item-text"><p>オープンカー</p></div></div>
+        <div class="image-item"><div class="item-text"><p>セダン</p></div></div>
+        <div class="image-item"><div class="item-text"><p>ステーションワゴン</p></div></div>
+        <div class="image-item"><div class="item-text"><p>SUV・クロカン</p></div></div>
+        <div class="image-item"><div class="item-text"><p>トラック</p></div></div>
+    </div>
 {% endblock %}
