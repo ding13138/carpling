@@ -2,11 +2,45 @@
 
 {% block title %} cars {% endblock %}
 {% block head %}
+<link rel="stylesheet" href="../static/css/destyle.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
 {% endblock %}
 
 {% block content %}
 
 <h1>理想の車とマッチング！</h1>
+
+<div id="sd_charactor">
+    <img src="../static/image/sd_charactor.png" alt="">
+</div>
+<div id="fukidashi">
+    <img src="../static/image/fukidashi2.png" alt="">
+</div>
+
+<div>
+    <ul id="choices">
+        <li>
+            <form action="" method="get">
+                <button type="submit">
+                    <img src="../static/image/376515.png" alt="">
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="" method="get">
+                <button type="submit">
+                    <img src="../static/image/376515.png" alt="">
+                </button>
+            </form>
+        </li>
+        <li>
+            <form action="" method="get">
+                <button type="submit">
+                    <img src="../static/image/376515.png" alt="">
+                </button>
+            </form>
+        </li>
+    </ul>
+</div>
 
 {% endblock %}
