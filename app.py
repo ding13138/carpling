@@ -50,7 +50,13 @@ def cars():
 
 @app.route('/match')
 def match():
-    return render_template('match1.html')
+    return render_template('matchtop.html')
+
+@app.route('/match_ages')
+def match_ages():
+    type=request.form
+    print(type)
+    return render_template('match_ages.html')
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
