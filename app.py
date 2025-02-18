@@ -88,7 +88,7 @@ def loginck():
         print("🔍 SQLクエリを実行中...")
 
         # ✅ ユーザー情報を検索
-        sql = "SELECT * FROM user WHERE userid = %s"
+        sql = "SELECT * FROM users WHERE userid = %s"
         cursor.execute(sql, (userid,))
         user = cursor.fetchone()
         print(f"📌 検索結果: {user}")
@@ -99,13 +99,14 @@ def loginck():
             return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
 
         # ❌ パスワードが一致しない場合、エラーを表示
-        if user["userps"] != userps:
+        if user["password"] != userps:
             etbl["userps"] = "パスワードが間違っています"
             return render_template('login.html', rec={"userid": userid, "userps": userps}, etbl=etbl)
 
         # ✅ 認証成功：セッションにユーザー情報を保存
-        session["usname"] = user["usname"]  # ユーザー名
+        session["usname"] = user["username"]  # ユーザー名
         session["userid"] = user["userid"]  # ユーザーID
+        session["userimg"]= user["avatar"]
         print(f"✅ ログイン成功！Session: {session}")
 
         return redirect('/')  # ✅ ホームページにリダイレクト
