@@ -3,7 +3,6 @@ html {
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  background-size: 100% auto;
 }
 
 h1 {
@@ -14,9 +13,39 @@ h2 {
   font-size: 1.6rem;
 }
 
+#title {
+  width: 180%;
+  text-align: center;
+  line-height: 6rem;
+  vertical-align: middle;
+}
+
 #choices {
   display: flex;
 }
 #choices img {
+  width: 110%;
+}
+#choices h2 {
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 50px;
+}
+
+#match_main {
   width: 100%;
+  margin-left: 40%;
+}
+
+#charactor {
+  margin-bottom: 50px;
+  display: flex;
+}
+#charactor #sd_charactor {
+  width: 400px;
+}
+#charactor #comment {
+  position: relative;
+  margin-top: -190px;
+  margin-left: 110px;
 }/*# sourceMappingURL=match.css.map */
