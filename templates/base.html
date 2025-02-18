@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,13 +19,20 @@
             <div class="logo">
                 <img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo">
             </div>
-            
+
             <input type="text" placeholder="車名で検索" id="simpleTextbox">
 
-                <div class="login">
-                    <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
-                </div>
-                
+<div class="login">
+    {% if session.get('usname') %}
+        <div class="user-menu">
+            <p class="username">{{ session['usname'] }}</p>
+            <a href="{{ url_for('logout') }}" class="logout-btn">ログアウト</a>
+        </div>
+    {% else %}
+        <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
+    {% endif %}
+</div>
+
 
         </nav>
     </header>
@@ -38,7 +44,9 @@
     <footer>
         <p>&copy; sk14 carpling</p>
     </footer>
-</body>
 
+
+</body>
 </html>
+
 
