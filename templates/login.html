@@ -14,41 +14,33 @@
             <h2>ログインページ</h2>
         </div>
         <p>アカウントをお持ちの方は、こちらからログイン</p>
-
-        <form action="/loginck" method="POST">
+        <form action="/loginck" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>ユーザーID</td>
                     <td>
-                        <input type="text" name="userid" value="{{ rec.userid if rec.userid is defined else '' }}">
+                        <input type="text" name="userid" value="{{rec.userid}}">
+                    </td>
+                    <td>
+                        <font color="red">{{etbl.userid}}</font>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">
-                        <span class="error-message">{{ etbl.userid if etbl.userid is defined else '' }}</span>
-                    </td>
-                </tr>
-
+        
                 <tr>
                     <td>パスワード</td>
                     <td>
-                        <input type="password" name="userps" value="{{ rec.userps if rec.userps is defined else '' }}">
+                        <input type="text" name="userps" value="{{rec.userps}}">
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <span class="error-message">{{ etbl.userps if etbl.userps is defined else '' }}</span>
+                    <td>
+                        <font color="red">{{etbl.userps}}</font>
                     </td>
                 </tr>
             </table>
-
-            <label class="checkbox-label">
-                <input type="checkbox" name="save_email"> メールアドレスを保存
-            </label>
-
+        
             <br>
-            <input class="login_button" type="submit" value="ログイン">
+            <button type="submit" class="login_button">ログイン</button>
         </form>
+        
     </div>
 </div>
 {% endblock %}
