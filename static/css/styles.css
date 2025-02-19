@@ -126,7 +126,7 @@ main{
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
-    top :20px;
+    top :50px;
     color: rgb(0, 0, 0);
 }
 #match_button{
