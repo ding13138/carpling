@@ -9,7 +9,7 @@ CREATE TABLE `users` (
   `username` VARCHAR(50) NOT NULL,             -- 用户名
   `password` VARCHAR(255) NOT NULL,            -- 密码（支持哈希存储）
   `email` VARCHAR(100) UNIQUE DEFAULT NULL,    -- 邮箱（唯一，可选）
-  `phone` VARCHAR(15) UNIQUE DEFAULT NULL,     -- 手机号（唯一，可选）
+  `phone` VARCHAR(15) UNIQUE DEFAULT NULL,    
   `avatar` VARCHAR(255) DEFAULT 'https://example.com/default_avatar.png', -- 头像URL
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- 账户创建时间
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
