@@ -47,3 +47,18 @@ h2{
         margin-left: 110px;
     }
 }
+
+#gender_and_age{
+    display: flex;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    #gender{
+        width: 200px;
+        border: solid 2px #000000;
+    }
+    #age{
+        width: 200px;
+        border: solid 2px #000000;
+    }
+}
