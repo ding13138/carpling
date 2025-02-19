@@ -10,6 +10,55 @@ body {
     font-style: normal;
     font-size: 16px;
 }
+.usname{
+    margin-top: -3px;
+    margin-left: 20px;
+}
+.userimg {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover; 
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    border: 2px solid #fff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+}
+/* 下拉菜单（默认隐藏） */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; /* 距离头像的间距 */
+    right: 0;
+    width: 120px;
+    background: #ffffff; /* 纯白色背景 */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 增强阴影 */
+    border: 1px solid #ccc; /* 轻微边框 */
+    z-index: 100;
+    padding: 8px 0;
+    text-align: center;
+    background: #ffffff !important; /* 强制纯白色，不透明 */
+    opacity: 1 !important; /* 强制去掉透明度 */
+}
+
+/* 菜单项 */
+.logout {
+    display: block;
+    padding: 10px;
+    color: rgb(6, 6, 6); /* 让“ログアウト”高亮 */
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+/* 悬停效果 */
+.logout:hover {
+    background: #f2f2f2;
+}
+
 h1{
     font-size: 2rem;
 }
@@ -32,7 +81,7 @@ p{
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
     color: white;
-    mix-blend-mode: multiply; 
+    
 }
 .login-link{
     margin-left: 55px;
