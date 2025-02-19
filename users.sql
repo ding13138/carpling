@@ -22,3 +22,22 @@ INSERT INTO `users` (`userid`, `username`, `password`, `email`, `phone`, `avatar
 
 COMMIT;
 
+
+
+
+
+
+
+
+-- 追加更新
+
+-- 年齢、性別、誕生日カラムを追加
+ALTER TABLE `users`
+ADD COLUMN `age` TINYINT UNSIGNED DEFAULT NULL COMMENT '年齢',
+ADD COLUMN `gender` ENUM('男', '女', 'その他') DEFAULT 'その他' COMMENT '性別',
+ADD COLUMN `birthday` DATE DEFAULT NULL COMMENT '誕生日';
+
+-- データを更新
+UPDATE `users` SET `age` = 30, `gender` = '男', `birthday` = '1993-05-15' WHERE `userid` = 'test01';
+UPDATE `users` SET `age` = 28, `gender` = '女', `birthday` = '1995-08-20' WHERE `userid` = 'test02';
+UPDATE `users` SET `age` = 35, `gender` = '男', `birthday` = '1988-12-10' WHERE `userid` = 'test03';
