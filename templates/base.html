@@ -33,6 +33,7 @@
             <img src="{{ session['userimg'] }}" class="userimg" id="userAvatar">
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="{{ url_for('logout') }}" class="logout">ログアウト</a>
+                <a href="{{ url_for('mypage') }}" class="mypage">マイページ</a>
             </div>
         </div>
     </div>
@@ -55,7 +56,7 @@
         <p>&copy; sk14 carpling</p>
     </footer>
     
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     
     </body>
     </html>
