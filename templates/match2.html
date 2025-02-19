@@ -2,11 +2,47 @@
 
 {% block title %} cars {% endblock %}
 {% block head %}
+<link rel="stylesheet" href="../static/css/match.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
 {% block content %}
 
+<div id="match_main">
+    <ul id="charactor">
+        <li>
+            <div id="sd_charactor">
+                <img src="../static/image/sd_charactor.png" alt="">
+            </div>
+        </li>
+        <li>
+            <div id="fukidashi">
+                <img src="../static/image/fukidashi.png" alt="">
+                <div id="comment">
+                    <h2>{{}}</h2>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <form action="" method="get">
+        <ul id="choices">
+            <li>
+                <img src="../static/image/376515.png" alt="">
+            </li>
+            <li>
+                <img src="../static/image/376515.png" alt="">
+            </li>
+        </ul>
+    </form>
+</div>
 
+<div id="button">
+    <footer>
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </footer>
+</div>
 
 {% endblock %}
