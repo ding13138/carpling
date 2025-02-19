@@ -27,10 +27,16 @@
             <input type="text" placeholder="車名で検索" id="simpleTextbox">
 <div class="login">
     {% if session.get('userimg') %}
-        <div class="user-menu">
-            <img src="{{ session['userimg'] }}"  class="userimg">
-            <a href="{{ url_for('logout') }}" class="logout-btn">ログアウト</a>
+    <div class="user-menu">
+        <p class="usname">{{ session['usname'] }}</p>
+        <div class="avatar-container">
+            <img src="{{ session['userimg'] }}" class="userimg" id="userAvatar">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="{{ url_for('logout') }}" class="logout">ログアウト</a>
+            </div>
         </div>
+    </div>
+    
     {% else %}
         <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
     {% endif %}
@@ -48,7 +54,12 @@
     <footer>
         <p>&copy; sk14 carpling</p>
     </footer>
-
+    
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    
+    </body>
+    </html>
+    
 
 </body>
 </html>
