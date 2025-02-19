@@ -74,8 +74,8 @@ main{
     background-image: url('/static/image/付箋B.png'); /* 替换为你的图片路径 */
     margin-top: 40px;
     margin-left: 15%;
-    height: 75vh; /* 全屏高度 */
-    width: 75vh;
+    height: 90vh; /* 全屏高度 */
+    /* width: 75vh; */
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
@@ -137,10 +137,15 @@ main{
     margin-top: -220px;
     margin-left: 60%;
 }
+
 .cars-image6 h1{
     margin-left: 20%;
 }
 
+.cars-text2{
+    width: 75vh;
+    margin-left: 10%;
+}
 .bodytype_text{
    width: 400px; 
    margin-top: 150px;
