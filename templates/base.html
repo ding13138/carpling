@@ -26,9 +26,9 @@
 
             <input type="text" placeholder="車名で検索" id="simpleTextbox">
 <div class="login">
-    {% if session.get('usname') %}
+    {% if session.get('userimg') %}
         <div class="user-menu">
-            <p class="username">{{ session['usname'] }}</p>
+            <img src="{{ session['userimg'] }}"  class="userimg">
             <a href="{{ url_for('logout') }}" class="logout-btn">ログアウト</a>
         </div>
     {% else %}

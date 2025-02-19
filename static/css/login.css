@@ -19,6 +19,10 @@ body {
 .login-container>p{
     margin-top: -40px;
 }
+.text{
+    padding:3px;
+    z-index:100;
+}
 .login_text {
     position: relative;
     height: 20vh;
