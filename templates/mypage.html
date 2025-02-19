@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mypage.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="avatar-container">
+    <img src="{{ session['userimg'] }}" class="usimg" id="userAvatar">
+</div>
+<div class="my_page">
+    <p >{{ session['usname'] }}</p>
+    <p >{{ session['useremail'] }}</p>
+    <p >{{ session['userphone'] }}</p>
+    <p >{{ session['userage'] }}</p>
+    <p >{{ session['usergender'] }}</p>
+    <p >{{ session['userbirthday'] }}</p>
+</div>
+{% endblock %}
