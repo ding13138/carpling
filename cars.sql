@@ -26,11 +26,6 @@ CREATE TABLE `cars` (
   `description` TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `users`(
-  `user_name` CHAR(5) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
-)
-
 INSERT INTO `cars` (`car_id`, `car_picture` , `brand`, `model`,`class`, `category` , `body_type`, `price`, `fuel_type`,`drive`,`length`,`width`,`height`,`weight`, `description_title`,`description`) VALUES
 ('10001', ' ../img/ ', 'Toyota', 'Prius', 'Normal', 'Family', 'クーペ', '2,750,000~4,600,000', 'ハイブリッド(ガソリン)','FF', 4600 , 1780, 1430 , 1400 ,'最新世代のハイブリッドクーペの決定版。',''),
 ('10002', ' ../img/ ', 'Hyundai', 'Inster', 'Normal', 'Celibate', 'コンパクト',  '2,850,000~3,570,000', '電気','FR', 4600 , 1780, 1430 , 1400 , '韓国発。コンパクトでお手頃な最新EV',''),
@@ -38,8 +33,6 @@ INSERT INTO `cars` (`car_id`, `car_picture` , `brand`, `model`,`class`, `categor
 ('10004', ' ../img/ ', 'Suzuki', 'Swift', 'Normal', 'Celibate', 'コンパクト',  '2800000', 'ガソリン(レギュラー)', 3860 , 1695 , 1525 , 970 ,'FF', '軽量高性能なコンパクトハッチ',''),
 ('10005', ' ../img/ ', 'Toyota', 'Urban Cruiser', 'Normal', 'Luxury', 'SUV', '6,000,000', '電気', 4600 , 1780, 1430 , 1400 ,'AWD', '電動クロスオーバーSUV','');
 
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_name`);
 
 ALTER TABLE `cars`
   ADD PRIMARY KEY (`car_id`);
