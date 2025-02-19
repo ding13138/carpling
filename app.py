@@ -17,7 +17,7 @@ def con_db():
             host="localhost",
             user="py24user",
             password="py24pass",
-            database="py24db",
+            database="carpling_db",
             port=3306  # ✅ MariaDBのデフォルトポート
         )
         print("✅ データベース接続成功！")
