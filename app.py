@@ -35,6 +35,9 @@ def con_db():
 def index():
     return render_template('index.html')  # ✅ `index.html` を表示（ログイン情報が表示される）
 
+@app.route('/mypage')
+def mypage():
+    return render_template('mypage.html')
 
 @app.route('/match')
 def match():
@@ -111,6 +114,12 @@ def loginck():
         session["usname"] = user["username"]  # ユーザー名
         session["userid"] = user["userid"]  # ユーザーID
         session["userimg"]= user["avatar"]
+        session["useremail"]=user["email"]
+        session["userphone"]=user["phone"]
+        session["userage"]=user["age"]
+        session["usergender"]=user["gender"]
+        session["userbirthday"]=user["birthday"].strftime("%Y年%m月%d日").lstrip("0").replace(" 0", " ")
+        
         print(f"✅ ログイン成功！Session: {session}")
 
         return redirect('/')  # ✅ ホームページにリダイレクト
