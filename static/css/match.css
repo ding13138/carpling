@@ -48,4 +48,19 @@ h2 {
   position: relative;
   margin-top: -190px;
   margin-left: 110px;
+}
+
+#gender_and_age {
+  display: flex;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+#gender_and_age #gender {
+  width: 200px;
+  border: solid 2px #000000;
+}
+#gender_and_age #age {
+  width: 200px;
+  border: solid 2px #000000;
 }/*# sourceMappingURL=match.css.map */
