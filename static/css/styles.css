@@ -122,6 +122,7 @@ main{
     height: 50%;
     width: 70%;
     margin-top: -150px;
+    margin-bottom: 50px;
     margin-left: 60%;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
