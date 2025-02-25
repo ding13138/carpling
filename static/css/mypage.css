@@ -21,7 +21,8 @@ body {
 }
 .avatar-container
 .avatar-container img{
-    padding-top: 50%;
+    width: 10%;
+    height: 10%;
 }
 .usimg {
     width: 200px; 
