@@ -4,7 +4,9 @@ body {
     height: 100vh; 
     width: 100vw;
 }
-
+main {
+    margin-bottom: 20%;
+}
 .usimg {
     width: 200px; 
     height: 200px;
