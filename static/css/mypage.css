@@ -39,12 +39,10 @@ body {
 
 .my_page{
     padding-top: 5px;
-    text-align: right;
-    padding-right: 50%;
 }
 .my_page p{
     font-size: 60px;
-    padding-left: 50%;
+    padding-left: 70%;
 }
 
 footer{
