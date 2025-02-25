@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %} cars {% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="../static/css/destyle.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
@@ -12,7 +13,7 @@
 
 <div id="match_main">
     <div class="match_content">
-        <form action="" method="get">
+        <form action="/match_result" method="get">
             <ul id="charactor">
                 <li>
                     <div id="sd_charactor">
@@ -31,12 +32,14 @@
             </ul>
             <ul id="gender_and_age">
                 <li>
+                    <h2>性別</h2><br>
                     <select name="" id="gender">
                         <option value="male"><p>男</p></option>
                         <option value="female"><p>女</p></option>
                     </select>
                 </li>
                 <li>
+                    <h2>年齢</h2><br>
                     <select name="" id="age">
                         <option value="1"><p>18~25</p></option>
                         <option value="2">26~35</option>
@@ -46,38 +49,178 @@
                     </select>
                 </li>
             </ul>
-        </form>
-    </div>
 
-    <div class="match_content">
-        <form action="" method="get">
-            <ul id="charactor">
-                <li>
-                    <div id="sd_charactor">
-                        <img src="../static/image/sd_charactor.png" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div id="fukidashi">
-                        <img src="../static/image/fukidashi.png" alt="">
-                        <div id="comment">
-                            <h2>まずはあなたの年齢と性別を</h2><br>
-                            <h2>教えてください！</h2>
+            <div class="match_content">
+                <ul id="charactor">
+                    <li>
+                        <div id="sd_charactor">
+                            <img src="../static/image/sd_charactor.png" alt="">
                         </div>
-                    </div>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <input type="checkbox" name="" id="">
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="">
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="">
-                </li>
-            </ul>
+                    </li>
+                    <li>
+                        <div id="fukidashi">
+                            <img src="../static/image/fukidashi.png" alt="">
+                            <div id="comment">
+                                <h2>希望する価格帯を</h2><br>
+                                <h2>教えてください！</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="selector">
+                    <li>
+                        <input type="radio" name="12" value="" id="s-1"  class="button">
+                        <label class="label" for="s-1">100~250万円</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="12" value="" id="s-2">
+                        <label for="s-2">250~450万円</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="12" value="" id="s-3">
+                        <label for="s-3">450万円~</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="match_content">
+                <ul id="charactor">
+                    <li>
+                        <div id="sd_charactor">
+                            <img src="../static/image/sd_charactor.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div id="fukidashi">
+                            <img src="../static/image/fukidashi.png" alt="">
+                            <div id="comment">
+                                <h2>燃費を重視しますか？</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="selector">
+                    <li>
+                        <input type="radio" name="13" value="" id="s-4"  class="button">
+                        <label class="label" for="s-4">重視する！</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="13" value="" id="s-5">
+                        <label for="s-5">どちらでもいい</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="13" value="" id="s-6">
+                        <label for="s-6">あまり気にしない</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="match_content">
+                <ul id="charactor">
+                    <li>
+                        <div id="sd_charactor">
+                            <img src="../static/image/sd_charactor.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div id="fukidashi">
+                            <img src="../static/image/fukidashi.png" alt="">
+                            <div id="comment">
+                                <h2>誰かと出かける事が</h2><br>
+                                <h2>多いですか？</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="selector">
+                    <li>
+                        <input type="radio" name="14" value="" id="s-7"  class="button">
+                        <label class="label" for="s-7">よく出かける</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="14" value="" id="s-8">
+                        <label for="s-8">あまり頻度は高くない</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="14" value="" id="s-9">
+                        <label for="s-9">一人でしか乗る気が無い！</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="match_content">
+                <ul id="charactor">
+                    <li>
+                        <div id="sd_charactor">
+                            <img src="../static/image/sd_charactor.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div id="fukidashi">
+                            <img src="../static/image/fukidashi.png" alt="">
+                            <div id="comment">
+                                <h2>スポーツ走行も</h2><br>
+                                <h2>してみたいですか？</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="selector">
+                    <li>
+                        <input type="radio" name="15" value="" id="s-10"  class="button">
+                        <label class="label" for="s-10">やってみたい</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="15" value="" id="s-11">
+                        <label for="s-11">興味はある</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="15" value="" id="s-12">
+                        <label for="s-12">全くやる予定が無い</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="match_content">
+                <ul id="charactor">
+                    <li>
+                        <div id="sd_charactor">
+                            <img src="../static/image/sd_charactor.png" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div id="fukidashi">
+                            <img src="../static/image/fukidashi.png" alt="">
+                            <div id="comment">
+                                <h2>荷物をたくさん</h2><br>
+                                <h2>載せたいですか？</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="selector">
+                    <li>
+                        <input type="radio" name="16" value="" id="s-13"  class="button">
+                        <label class="label" for="s-13">いっぱい載せる！</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="16" value="" id="s-14">
+                        <label for="s-14">買い物の荷物が中心</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="16" value="" id="s-15">
+                        <label for="s-15">人が乗れたら問題ない</label>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                    <button type="submit">
+                    <img src="../static/image/return.png" alt="">
+                    </button>
+                    </li>
+                    <li>
+                        結果を見る！
+                    </li>
+                </ul>
+            </div>
         </form>
     </div>
 </div>
