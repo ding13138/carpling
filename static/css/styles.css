@@ -168,7 +168,6 @@ main{
     color: white;
 }
 .cars-image5 {
-    
     background-image: url('/static/image/car.png'); /* 替换为你的图片路径 */
     height: 30vh; /* 全屏高度 */
     width: 30vh;
