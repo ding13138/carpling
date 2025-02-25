@@ -20,7 +20,7 @@ body {
     padding-left: 30px;
 }
 .avatar-container{
-    padding-top: 60%;
+    padding-top: 200px;
 }
 .usimg {
     width: 200px; 
@@ -38,9 +38,7 @@ body {
 }
 
 .my_page{
-    margin-top: 12%;
-    margin-left: 50%;
-
+    padding-top: 120px;
 }
 
 footer{
