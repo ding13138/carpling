@@ -4,7 +4,26 @@ body {
     height: 100vh; 
     width: 100vw;
 }
-
+.top{
+    display: flex;
+}
+.top h1{
+    text-align: center;
+    padding-top: 160px;
+    padding-left: 32%;
+    font-size: 50px;
+}
+.top img{
+    width: 8%;
+    height: 8%;
+    padding-top: 180px;
+    padding-left: 30px;
+}
+.avatar-container
+.avatar-container img{
+    width: 10%;
+    height: 10%;
+}
 .usimg {
     width: 200px; 
     height: 200px;
@@ -27,6 +46,7 @@ body {
 }
 
 footer{
-    padding-left: 550px;
+    padding-right: 42%;
     margin-top: -30px;
+    text-align: center;
 }

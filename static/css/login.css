@@ -11,19 +11,22 @@ body {
     width: 100vw;             
     height: 100vh;            
 }
-
+td{
+ margin: 40px;
+}
 .login-container {
-    width: 30vw;
+    width: 40vw;
     margin-bottom: 20%;
+    margin-left: 8%;
 }
 .login-container>p{
     margin-top: -40px;
 }
 .text{
-    padding:3px;
+    padding: 3px;
     z-index:100;
 }
-.login_text {
+.login_h2{
     position: relative;
     height: 20vh;
     width: 80vh;
@@ -32,7 +35,7 @@ body {
     top:3vh;
 }
 
-.login_text::before {
+.login_h2::before {
     content: "";
     position: absolute;
     top: 18px;
@@ -44,10 +47,10 @@ body {
     background-repeat: no-repeat;
     z-index: -1; /* 让背景位于 `.login_text` 后面 */
 }
-
 td{
-    padding: 10px;
+    padding: 20px;
 }
+
 
 footer{
     padding-left: 550px;
