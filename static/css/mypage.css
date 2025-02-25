@@ -19,10 +19,10 @@ body {
     padding-top: 180px;
     padding-left: 30px;
 }
-.avatar-container
 .avatar-container img{
     width: 10%;
     height: 10%;
+    padding-left: 40%;
 }
 .usimg {
     width: 200px; 
