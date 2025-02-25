@@ -15,6 +15,9 @@
 <div class="avatar-container">
     <img src="{{ session['userimg'] }}" class="usimg" id="userAvatar">
 </div>
+<div class="aisya">
+    <p>愛車について</p>
+</div>
 <div class="my_page">
     <p >氏名:{{ session['usname'] }}</p>
     <p >E-mail:{{ session['useremail'] }}</p>
@@ -23,7 +26,5 @@
     <p >性別:{{ session['usergender'] }}性</p>
     <p >{{ session['userbirthday'] }}生まれ</p>
 </div>
-<div class="aisya">
-    <p>愛車について</p>
-</div>
+
 {% endblock %}
