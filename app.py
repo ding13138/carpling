@@ -132,6 +132,32 @@ def loginck():
     finally:
         cursor.close()
         conn.close()
+@app.route('/search')
+def search():
+    car_type = request.args.get("type", "")  # ✅ 获取 URL 参数
+    conn = con_db()
+    
+    if not conn:
+        return render_template('error.html', message="データベースに接続できません")
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        print(f"🔍 SQL実行: 車種 '{car_type}' を検索中...")
+        
+        # ✅ 查询数据库，获取相应车型的数据
+        sql = "SELECT * FROM cars WHERE body_type = %s"
+        cursor.execute(sql, (car_type,))
+        cars = cursor.fetchall()
+
+        return render_template("search_results.html", cars=cars, car_type=car_type)
+
+    except mariadb.Error as err:
+        print(f"❌ SQLクエリエラー: {err}")
+        return render_template('error.html', message="データ取得エラーが発生しました")
+
+    finally:
+        cursor.close()
+        conn.close()
 
 
 # ****************************************************
