@@ -40,8 +40,9 @@ body {
     padding-left: 50%;
     text-decoration: underline;
 }
-
+.aisya{
+    margin-right: 60%;
+}
 .aisya p{
     font-size: 40px;
-    margin-right: 60%;
 }
