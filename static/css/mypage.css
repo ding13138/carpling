@@ -19,6 +19,9 @@ body {
     padding-top: 180px;
     padding-left: 30px;
 }
+.avatar-container{
+    padding-top: 200px;
+}
 .usimg {
     width: 200px; 
     height: 200px;
