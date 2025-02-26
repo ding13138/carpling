@@ -48,6 +48,10 @@ body {
 .aisya label{
     font-size: 40px;
 }
+.aisya img{
+    width: 25%;
+    height: auto;
+}
 .aisya textarea{
     width: 50%;
 }
