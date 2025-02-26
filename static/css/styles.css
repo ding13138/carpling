@@ -1,6 +1,6 @@
 body {
-    background-image: url('/static/image/note.png'), url('/static/image/p0098_l.png'); /* 第一张和第二张图片 */
-    background-size: 100% 60%, 100% 40%; /* 第一张占上半部分，第二张占下半部分 */
+    background-image: url('/sta40%tic/image/note.png'), url('/static/image/p0098_l.png'); /* 第一张和第二张图片 */
+    background-size: 100% 60%, 100% ; /* 第一张占上半部分，第二张占下半部分 */
     background-position: top, bottom; /* 第一张在顶部，第二张在底部 */
     background-repeat: no-repeat, no-repeat;
     height: 390vh; /* 让背景填满整个屏幕 */
