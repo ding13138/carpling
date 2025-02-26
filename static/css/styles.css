@@ -100,7 +100,7 @@ p{
     background-image: url('/static/image/—Pngtree—set\ of\ colored\ masking\ tape_9090413.png'); /* 替换为你的图片路径 */
     padding-top: 20px;
     margin-top: -45px;
-    margin-left: 750px;
+    margin-left: 700px;
     height: 6vh; /* 全屏高度 */
     width: 25vh;
     background-size: cover; /* 确保图片完全覆盖 */
@@ -108,17 +108,17 @@ p{
     position: relative; /* 相对定位，用于放置文字 */
     /* color: white; */
     font-weight: 600;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .login-link{
     margin-left: 55px;
     position: relative;
     z-index: 10;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 #simpleTextbox{
-    margin-left: 550px;
-    overflow: hidden;
+    margin-left: 500px;
+    /* overflow: hidden; */
 }
 .logo img {
     margin-left: 10px;
@@ -145,7 +145,7 @@ main{
     color: white;
     mix-blend-mode: multiply; 
     z-index: -1;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #car_list{
