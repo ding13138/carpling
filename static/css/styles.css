@@ -1,14 +1,26 @@
 body {
-    background-image: url('/sta40%tic/image/note.png'), url('/static/image/p0098_l.png'); /* 第一张和第二张图片 */
-    background-size: 100% 60%, 100% ; /* 第一张占上半部分，第二张占下半部分 */
+    background-image:url('/static/image/p0098_l.png'); /* 第一张和第二张图片 */
+    background-size: 100% 60%, 100% 40%; /* 第一张占上半部分，第二张占下半部分 */
     background-position: top, bottom; /* 第一张在顶部，第二张在底部 */
-    background-repeat: no-repeat, no-repeat;
+    /* background-repeat: no-repeat, no-repeat; */
     height: 390vh; /* 让背景填满整个屏幕 */
     width: 105vh;
     font-family: "Yomogi", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+}
+
+#text_and_login{
+    margin-left: 40%;
+}
+
+#simpleTextbox{
+    border: solid 1px #000000;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 180px;
 }
 .usname{
     margin-top: -3px;
@@ -94,16 +106,19 @@ p{
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
-    color: white;
-    
+    /* color: white; */
+    font-weight: 600;
+    overflow: hidden;
 }
 .login-link{
     margin-left: 55px;
     position: relative;
     z-index: 10;
+    overflow: hidden;
 }
 #simpleTextbox{
     margin-left: 550px;
+    overflow: hidden;
 }
 .logo img {
     margin-left: 10px;
@@ -115,11 +130,10 @@ p{
 }
 main{
     height: 100vh; /* 让 div 高度等于屏幕高度 */
-    width: 100%; /* 确保填充整个宽度 */
+    width: 100%;
 }
 
 .cars-image {
-    
     background-image: url('/static/image/cars1.png'); /* 替换为你的图片路径 */
     height: 100vh; /* 全屏高度 */
     width: 170vh;
@@ -131,21 +145,54 @@ main{
     color: white;
     mix-blend-mode: multiply; 
     z-index: -1;
+    overflow: hidden;
 }
 
-.cars-image2 {
-    background-image: url('/static/image/付箋B.png'); /* 替换为你的图片路径 */
-    margin-top: 40px;
-    margin-left: 15%;
+#car_list{
+    display: flex;
+    width: 190%;
+    margin-left: 10%;
     margin-bottom: 50px;
-    height: 90vh; /* 全屏高度 */
-    /* width: 75vh; */
-    background-size: cover; /* 确保图片完全覆盖 */
-    background-position: center; /* 居中显示 */
-    position: relative; /* 相对定位，用于放置文字 */
-    color: rgb(0, 0, 0);
-
+    overflow: hidden;
 }
+#car_list li{
+    width: 10%;
+    margin-left: 30px;
+    overflow: hidden;
+    border: solid 3px #f3dd6d;
+    border-radius:500px;
+}
+
+#intro{
+    display: flex;
+    width: 100vw;
+    margin-left: 20%;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+#intro li{
+    width: 40%;
+    height: 700px;
+    /* margin-left: 20%; */
+    overflow: hidden;
+}
+
+.cars-image2{
+    /* height: fit-content; */
+    background-image: url("../image/付箋B.png");
+    background-size: cover;
+    background-position: center; 
+    overflow: hidden;
+}
+
+#cars-image2-2{
+    background-image: url("../image/付箋A.png");
+    background-size: cover;
+    background-position: center; 
+    margin-top: 300px;
+    overflow: hidden;
+}
+
 .cars-image3 {
     background-image: url('/static/image/fukidashi2.png'); /* 替换为你的图片路径 */
     margin-top:-450px ;
@@ -167,6 +214,7 @@ main{
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
     color: white;
+    /* overflow: hidden; */
 }
 .cars-image5 {
     background-image: url('/static/image/car.png'); /* 替换为你的图片路径 */
@@ -179,6 +227,7 @@ main{
     position: relative; /* 相对定位，用于放置文字 */
     color: white;
     mix-blend-mode: multiply; 
+    /* overflow: hidden; */
 }
 .cars-image6 {
     background-image: url('/static/image/376515.png'); /* 替换为你的图片路径 */
@@ -197,12 +246,16 @@ main{
     position: relative;
     height: 50%;
     width: 70%;
-    margin-top: -200px;
+    margin-top: -30px;
     margin-left: 60%;
+    /* overflow: hidden; */
 }
 #match_button h2{
+    font-size: 3rem;
     position: relative;
-    margin-top: -100px;
+    margin-top: -130px;
+    margin-left: 20%;
+    overflow: hidden;
 }
 
 .cars-image6 h1{
@@ -210,19 +263,27 @@ main{
 }
 
 .cars-text2{
-    width: 75vh;
+    width: 80%;
+    margin-top: 70px;
     margin-left: 10%;
 }
-.bodytype_text{
+.cars-text2 h2{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.cars-text2 p{
+    margin-bottom: 10px;
+}
+/* .bodytype_text{
    width: 400px; 
    margin-top: 150px;
    margin-left: 50%;
    z-index:10;
-}
+} */
 
 /* 图片容器样式 */
 .image-container {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 200px;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 每行 3 列 */
@@ -259,7 +320,20 @@ main{
 .image-item:nth-child(11) { background-position: 0px -1000px; }
 .image-item:nth-child(12) { background-position: 0px -1100px; }
 
-footer{
+#body_type{
+    margin-top: 150px;
+    width: 125%;
+    height: 80%;
+    margin-left: 25%;
+    background-color: #f3dd6d;
+}
+#body_type h1{
+    line-height: 5rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* footer{
     padding-left: 550px;
     margin-top: 1900px;
-}
+} */

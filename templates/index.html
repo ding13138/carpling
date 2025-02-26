@@ -11,9 +11,18 @@
         <div class="cars-text">
         </div>
     </div>
-    <ul>
-        <li>
-            <div class="cars-image2">
+    <ul id="car_list">
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/ll/K0001546862.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001459500.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001635279.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001125679.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001231286.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001281697.jpg" alt=""></li>
+        <li><img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0000758192.jpg" alt=""></li>
+    </ul>
+    <ul id="intro">
+        <li  class="cars-image2">
+            <div>
                 <div class="cars-text2">
                     <h2>このサイトについて</h2>
                     <p>このサイトは、車を探したいすべての人に向けた「自動車マッチングサービス」です。</p><br>
@@ -27,8 +36,7 @@
                 </div>
             </div>
         </li>
-        <li>
-            
+        <li id="cars-image2-2">
         </li>
     </ul>
 
@@ -38,21 +46,22 @@
             <h2>今すぐマッチング！</h2>
         </button>
     </form> 
-    <h2  class="bodytype_text">車種から探す</h2>
-    <div class="image-container">
-        <div class="image-item"  data-car="ミニバン"><div class="item-text"><p>ミニバン</p></div></div>
-        <div class="image-item"  data-car="キャンピング"><div class="item-text"><p>キャンピングカー</p></div></div>
-        <div class="image-item"  data-car="クーペ"><div class="item-text"><p>クーペ</p></div></div>
-        <div class="image-item"  data-car="ハッチバック"><div class="item-text"><p>ハッチバック</p></div></div>
-        <div class="image-item"  data-car="ハイブリッド"><div class="item-text"><p>ハイブリッド</p></div></div>
-        <div class="image-item"  data-car="軽自動車"><div class="item-text"><p>軽自動車</p></div></div>
-        <div class="image-item"  data-car="コンパクト"><div class="item-text"><p>コンパクトカー</p></div></div>
-        <div class="image-item"  data-car="オープン"><div class="item-text"><p>オープンカー</p></div></div>
-        <div class="image-item"  data-car="セダン"><div class="item-text"><p>セダン</p></div></div>
-        <div class="image-item"  data-car="ステーションワゴン"><div class="item-text"><p>ステーションワゴン</p></div></div>
-        <div class="image-item"  data-car="SUV"><div class="item-text"><p>SUV・クロカン</p></div></div>
-        <div class="image-item"  data-car="トラック"><div class="item-text"><p>トラック</p></div></div>
-    </div>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-
+    <section id="body_type">
+        <h1  class="bodytype_text">車種から探す</h1>
+        <div class="image-container">
+            <div class="image-item"  data-car="ミニバン"><div class="item-text"><p>ミニバン</p></div></div>
+            <div class="image-item"  data-car="キャンピング"><div class="item-text"><p>キャンピングカー</p></div></div>
+            <div class="image-item"  data-car="クーペ"><div class="item-text"><p>クーペ</p></div></div>
+            <div class="image-item"  data-car="ハッチバック"><div class="item-text"><p>ハッチバック</p></div></div>
+            <div class="image-item"  data-car="ハイブリッド"><div class="item-text"><p>ハイブリッド</p></div></div>
+            <div class="image-item"  data-car="軽自動車"><div class="item-text"><p>軽自動車</p></div></div>
+            <div class="image-item"  data-car="コンパクト"><div class="item-text"><p>コンパクトカー</p></div></div>
+            <div class="image-item"  data-car="オープン"><div class="item-text"><p>オープンカー</p></div></div>
+            <div class="image-item"  data-car="セダン"><div class="item-text"><p>セダン</p></div></div>
+            <div class="image-item"  data-car="ステーションワゴン"><div class="item-text"><p>ステーションワゴン</p></div></div>
+            <div class="image-item"  data-car="SUV"><div class="item-text"><p>SUV・クロカン</p></div></div>
+            <div class="image-item"  data-car="トラック"><div class="item-text"><p>トラック</p></div></div>
+        </div>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </section>
 {% endblock %}
