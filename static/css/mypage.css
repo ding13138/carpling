@@ -56,6 +56,9 @@ body {
 .aisya p{
     font-size: 40px;
 }
+.aisya ul{
+    padding-left: 10%;
+}
 .aisya li{
     list-style: none;
 }
