@@ -15,6 +15,9 @@ body {
 h1{
     font-size: 2.5rem;
 }
+table{
+    width: 100%;
+}
 td{
  margin: 40px;
 }
@@ -27,9 +30,27 @@ td{
     margin-top: -40px;
 }
 .text{
-    padding: 3px;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     z-index:100;
+    border-radius: 1.5em;
+    border: 1px solid #000000;
+    line-height: 1.5em;
+    font-size: 1.5rem;
+    background-color: rgb(255 255 255 / 0.8);
 }
+form ::placeholder{     /*未入力のテキストボックスに表示する文字*/
+    color: #ff7700;
+    text-align: center;
+    opacity: 0.8;
+}
+.text:focus{
+    outline: 0;
+}
+
 .login_h2{
     position: relative;
     height: 20vh;
