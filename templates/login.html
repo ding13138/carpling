@@ -17,9 +17,8 @@
         <form action="/loginck" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>
-                    <td  class="input_area">
-                        <p>ユーザーID</p>
-                        <input class="text" name="userid" value="{{rec.userid}}">
+                    <td>
+                        <input  class="text" name="userid" value="{{rec.userid}}" placeholder="ユーザーIDはこちら">
                     </td>
                     <td>
                         <font color="red">{{etbl.userid}}</font>
@@ -27,15 +26,15 @@
                 </tr>
         
                 <tr>
-                    <td class="input_area">
-                        <p>パスワード</p>
-                        <input class="text" name="userps" value="{{rec.userps}}">
+                    <td>
+                        <input class="text" name="userps" value="{{rec.userps}}" placeholder="パスワードはこちら">
                     </td>
                     <td>
                         <font color="red">{{etbl.userps}}</font>
                     </td>
                 </tr>
             </table>
+
         
             <br>
             <button type="submit" class="login_button"><h2>ログイン</h2></button>
