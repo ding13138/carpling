@@ -59,18 +59,17 @@ body {
     width: 50%;
 }
 .aisya p{
-    padding-top: 10%;
     padding-left: 50%;
     font-size: 40px;
 }
-.aisya ul{
+.kininaru ul{
     padding-left: 10%;
 }
-.aisya li{
+.kininaru li{
     list-style: none;
     padding-left: 43%;
 }
-.aisya li img{
+.kininaru li img{
     width: auto;
     height: 50%;
 }
