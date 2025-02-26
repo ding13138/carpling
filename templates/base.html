@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>{% block title %}Carpling{% endblock %}</title>
-
+    <link rel="stylesheet" href="../static/css/destyle.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     
@@ -19,30 +19,30 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="index.html">
-                <img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo">
-                </a>
+                <form action="/">
+                    <button type="submit" id="button"><img src="{{ url_for('static', filename='image/LOGO.png') }}" alt="Logo"></button>
+                </form>
             </div>
-
-            <input type="text" placeholder="車名で検索" id="simpleTextbox">
-<div class="login">
-    {% if session.get('userimg') %}
-    <div class="user-menu">
-        <p class="usname">{{ session['usname'] }}</p>
-        <div class="avatar-container">
-            <img src="{{ session['userimg'] }}" class="userimg" id="userAvatar">
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a href="{{ url_for('logout') }}" class="logout">ログアウト</a>
-                <a href="{{ url_for('mypage') }}" class="mypage">マイページ</a>
-            </div>
-        </div>
-    </div>
+            <div id="text_and_login">
+                <input type="text" placeholder="車名で検索" id="simpleTextbox">
+                <div class="login">
+                    {% if session.get('userimg') %}
+                    <div class="user-menu">
+                        <p class="usname">{{ session['usname'] }}</p>
+                        <div class="avatar-container">
+                            <img src="{{ session['userimg'] }}" class="userimg" id="userAvatar">
+                            <div class="dropdown-menu" id="dropdownMenu">
+                                <a href="{{ url_for('logout') }}" class="logout">ログアウト</a>
+                                <a href="{{ url_for('mypage') }}" class="mypage">マイページ</a>
+                            </div>
+                        </div>
+                    </div>
     
-    {% else %}
-        <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
-    {% endif %}
-</div>
-
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="login-link">ログイン</a>
+                    {% endif %}
+                </div>
+            </div>
         </nav>
     </header>
 
