@@ -56,3 +56,7 @@ body {
 .aisya p{
     font-size: 40px;
 }
+.aisya li{
+    list-style: none;
+    background-image: url(../image/376515.png);
+}
