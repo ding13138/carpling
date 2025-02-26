@@ -42,7 +42,7 @@ td{
     font-size: 1.5rem;
     background-color: rgb(255 255 255 / 0.8);
 }
-form ::placeholder{
+form ::placeholder{     /*未入力のテキストボックスに表示する文字*/
     color: #ff7700;
     text-align: center;
     opacity: 0.8;
