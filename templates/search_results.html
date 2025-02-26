@@ -6,90 +6,92 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/search_results.css') }}">
 {% endblock %}
 {% block content %}
-    <h2>{{ car_type }} の一覧</h2>
-    
-    {% if cars %}
-        <div class="car-list">
-            {% for car in cars %}
-                <div class="car-item">
-                    <img class="car_img" src="{{ car['car_picture'] }}" alt="{{ car['model'] }}">
-                    </div>
-                    <div class="car_message">
-                    <p>
-                        <svg width="40" height="40" class="icon" viewBox="0 0 64 45" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 背景 -->
-                        <rect x="10" y="14" width="44" height="40" fill="#607D8B"/>
-                        
-                        <!-- 窗户 -->
-                        <rect x="16" y="20" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="28" y="20" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="40" y="20" width="6" height="6" fill="#B0BEC5"/>
-                        
-                        <rect x="16" y="30" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="28" y="30" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="40" y="30" width="6" height="6" fill="#B0BEC5"/>
-                        
-                        <rect x="16" y="40" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="28" y="40" width="6" height="6" fill="#B0BEC5"/>
-                        <rect x="40" y="40" width="6" height="6" fill="#B0BEC5"/>
-                        
-                        <!-- 门 -->
-                        <rect x="26" y="48" width="12" height="6" fill="#37474F"/>
-                        
-                        <!-- 楼顶 -->
-                        <rect x="20" y="10" width="24" height="4" fill="#455A64"/>
-                    </svg> {{ car['brand'] }}</p>
-                    <p><svg width="40" height="40" class="icon" width="40" height="40" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 车身 -->
-                        <path d="M8 32 Q16 20, 32 20 Q48 20, 56 32 L56 38 L8 38 Z" fill="#E53935"/>
-                        <rect x="10" y="32" width="44" height="6" fill="#B71C1C"/>
-                        
-                        <!-- 车窗 -->
-                        <polygon points="18,24 30,22 46,24 40,30 22,30" fill="#BBDEFB"/>
-                        
-                        <!-- 轮子 -->
-                        <circle cx="16" cy="42" r="6" fill="#37474F"/>
-                        <circle cx="48" cy="42" r="6" fill="#37474F"/>
-                    </svg>{{ car['model'] }}</p>
-                    <p><svg width="40" height="40" class="icon" viewBox="0 0 64 30" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 价格标签主体 -->
-                        <polygon points="10,20 40,10 54,24 24,44 10,34" fill="#FF9800"/>
-                        
-                        <!-- 孔洞 -->
-                        <circle cx="44" cy="18" r="4" fill="#FFF"/>
-                    
-                        <!-- 价格符号 -->
-                        <text x="18" y="36" font-size="16" fill="#FFF" font-weight="bold">$</text>
-                        </svg>{{ car['price'] }}</p>
-                    <p><svg  width="40" height="40"class="icon" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 火焰主体 -->
-                        <path d="M32 10 Q42 24 36 38 Q40 44 32 54 Q24 44 28 38 Q22 24 32 10" fill="#FF5722"/>
-                        
-                        <!-- 内部火焰 -->
-                        <path d="M32 18 Q38 28 34 36 Q36 40 32 48 Q28 40 30 36 Q26 28 32 18" fill="#FF9800"/>
-                    </svg>{{ car['fuel_type'] }}</p>
-                    <p><svg width="40" height="40" class="icon" viewBox="0 0 64 30" xmlns="http://www.w3.org/2000/svg">
-                        <!-- 车身 -->
-                        <rect x="10" y="20" width="44" height="16" fill="#455A64" rx="4"/>
-                        <!-- 轮子 -->
-                        <circle cx="16" cy="42" r="6" fill="#37474F"/>
-                        <circle cx="48" cy="42" r="6" fill="#37474F"/>
-                        <!-- 方向箭头（四轮驱动） -->
-                        <line x1="16" y1="30" x2="16" y2="38" stroke="#FFEB3B" stroke-width="3"/>
-                        <line x1="48" y1="30" x2="48" y2="38" stroke="#FFEB3B" stroke-width="3"/>
-                        <line x1="16" y1="42" x2="16" y2="50" stroke="#FFEB3B" stroke-width="3"/>
-                        <line x1="48" y1="42" x2="48" y2="50" stroke="#FFEB3B" stroke-width="3"/>
-                    </svg>
-                    駆動方式: {{ car['drive'] }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p>該当する車が見つかりませんでした。</p>
-    {% endif %}
+<h2>{{ car_type }} の一覧</h2>
 
-    <a class="return" href="/">
-        <img  src="{{ url_for('static', filename='image/return.png') }}" alt="返回首页">
-    </a>
-    
+{% if cars %}
+<div class="car-list">
+    {% for car in cars %}
+    <div class="car-item">
+        <img class="car_img" src="{{ car['car_picture'] }}" alt="{{ car['model'] }}">
+
+    <div class="car_message">
+        <p>
+            <svg width="40" height="40" class="icon" viewBox="0 0 64 45" xmlns="http://www.w3.org/2000/svg">
+                <!-- 背景 -->
+                <rect x="10" y="14" width="44" height="40" fill="#607D8B" />
+
+                <!-- 窗户 -->
+                <rect x="16" y="20" width="6" height="6" fill="#B0BEC5" />
+                <rect x="28" y="20" width="6" height="6" fill="#B0BEC5" />
+                <rect x="40" y="20" width="6" height="6" fill="#B0BEC5" />
+
+                <rect x="16" y="30" width="6" height="6" fill="#B0BEC5" />
+                <rect x="28" y="30" width="6" height="6" fill="#B0BEC5" />
+                <rect x="40" y="30" width="6" height="6" fill="#B0BEC5" />
+
+                <rect x="16" y="40" width="6" height="6" fill="#B0BEC5" />
+                <rect x="28" y="40" width="6" height="6" fill="#B0BEC5" />
+                <rect x="40" y="40" width="6" height="6" fill="#B0BEC5" />
+
+                <!-- 门 -->
+                <rect x="26" y="48" width="12" height="6" fill="#37474F" />
+
+                <!-- 楼顶 -->
+                <rect x="20" y="10" width="24" height="4" fill="#455A64" />
+            </svg> {{ car['brand'] }}
+        </p>
+        <p><svg width="40" height="40" class="icon" width="40" height="40" viewBox="0 0 64 40"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- 车身 -->
+                <path d="M8 32 Q16 20, 32 20 Q48 20, 56 32 L56 38 L8 38 Z" fill="#E53935" />
+                <rect x="10" y="32" width="44" height="6" fill="#B71C1C" />
+
+                <!-- 车窗 -->
+                <polygon points="18,24 30,22 46,24 40,30 22,30" fill="#BBDEFB" />
+
+                <!-- 轮子 -->
+                <circle cx="16" cy="42" r="6" fill="#37474F" />
+                <circle cx="48" cy="42" r="6" fill="#37474F" />
+            </svg>{{ car['model'] }}</p>
+        <p><svg width="40" height="40" class="icon" viewBox="0 0 64 30" xmlns="http://www.w3.org/2000/svg">
+                <!-- 价格标签主体 -->
+                <polygon points="10,20 40,10 54,24 24,44 10,34" fill="#FF9800" />
+
+                <!-- 孔洞 -->
+                <circle cx="44" cy="18" r="4" fill="#FFF" />
+
+                <!-- 价格符号 -->
+                <text x="18" y="36" font-size="16" fill="#FFF" font-weight="bold">$</text>
+            </svg>{{ car['price'] }}</p>
+        <p><svg width="40" height="40" class="icon" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
+                <!-- 火焰主体 -->
+                <path d="M32 10 Q42 24 36 38 Q40 44 32 54 Q24 44 28 38 Q22 24 32 10" fill="#FF5722" />
+
+                <!-- 内部火焰 -->
+                <path d="M32 18 Q38 28 34 36 Q36 40 32 48 Q28 40 30 36 Q26 28 32 18" fill="#FF9800" />
+            </svg>{{ car['fuel_type'] }}</p>
+        <p><svg width="40" height="40" class="icon" viewBox="0 0 64 30" xmlns="http://www.w3.org/2000/svg">
+                <!-- 车身 -->
+                <rect x="10" y="20" width="44" height="16" fill="#455A64" rx="4" />
+                <!-- 轮子 -->
+                <circle cx="16" cy="42" r="6" fill="#37474F" />
+                <circle cx="48" cy="42" r="6" fill="#37474F" />
+                <!-- 方向箭头（四轮驱动） -->
+                <line x1="16" y1="30" x2="16" y2="38" stroke="#FFEB3B" stroke-width="3" />
+                <line x1="48" y1="30" x2="48" y2="38" stroke="#FFEB3B" stroke-width="3" />
+                <line x1="16" y1="42" x2="16" y2="50" stroke="#FFEB3B" stroke-width="3" />
+                <line x1="48" y1="42" x2="48" y2="50" stroke="#FFEB3B" stroke-width="3" />
+            </svg>駆動方式: {{ car['drive'] }}</p>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<p>該当する車が見つかりませんでした。</p>
+{% endif %}
+
+<a class="return" href="/">
+    <img src="{{ url_for('static', filename='image/return.png') }}" alt="返回首页">
+</a>
+
 {% endblock %}
