@@ -49,7 +49,7 @@ body {
     margin-bottom: 30px;
 }
 .aisya label{
-    font-size: 40px;
+    font-size: 35px;
 }
 .aisya img{
     width: 105%;
@@ -60,16 +60,13 @@ body {
 }
 .kininaru p{
     padding-left: 45%;
-    font-size: 40px;
-}
-.kininaru ul{
-    padding-left: 10%;
+    font-size: 35px;
 }
 .kininaru li{
     list-style: none;
-    padding-left: 43%;
 }
 .kininaru li img{
+    padding-left: 15%;
     width: auto;
     height: 50%;
 }
