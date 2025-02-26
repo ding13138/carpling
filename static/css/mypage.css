@@ -41,7 +41,6 @@ body {
     text-decoration: underline;
 }
 .aisya {
-    width: 50%;
     display: flex;
     flex-flow: column wrap;
     margin-bottom: 30px;
