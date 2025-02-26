@@ -1,0 +1,41 @@
+html {
+  background-image: url("/static/image/p0098_l.png");
+  background-size: 100% 40%;
+  background-position: top, bottom;
+  width: 100%;
+  font-family: "Yomogi", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+#match_top_content {
+  height: 100vh;
+  background-size: 100% 60%, 100% 40%;
+  background-position: top, bottom;
+}
+
+#choices {
+  display: flex;
+}
+#choices img {
+  width: 110%;
+}
+#choices h2 {
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 50px;
+}
+
+#charactor {
+  margin-bottom: 50px;
+  display: flex;
+}
+#charactor #sd_charactor {
+  width: 400px;
+}
+#charactor #comment {
+  position: relative;
+  margin-top: -190px;
+  margin-left: 110px;
+}/*# sourceMappingURL=matchtop.css.map */
