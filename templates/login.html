@@ -11,15 +11,15 @@
 <div class="login-wrapper">
     <div class="login-container">
         <div class="login_h2">
-            <h2>ログインページ</h2>
+            <h1>ログインページ</h1>
         </div>
         <p>アカウントをお持ちの方は、こちらからログイン</p>
         <form action="/loginck" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>
-                    <td>ユーザーID</td>
-                    <td>
-                        <input  class="text" name="userid" value="{{rec.userid}}">
+                    <td  class="input_area">
+                        <p>ユーザーID</p>
+                        <input class="text" name="userid" value="{{rec.userid}}">
                     </td>
                     <td>
                         <font color="red">{{etbl.userid}}</font>
@@ -27,8 +27,8 @@
                 </tr>
         
                 <tr>
-                    <td>パスワード</td>
-                    <td>
+                    <td class="input_area">
+                        <p>パスワード</p>
                         <input class="text" name="userps" value="{{rec.userps}}">
                     </td>
                     <td>
@@ -38,8 +38,14 @@
             </table>
         
             <br>
-            <button type="submit" class="login_button">ログイン</button>
+            <button type="submit" class="login_button"><h2>ログイン</h2></button>
         </form>
+        <div id="pass_missing">
+            <p>ユーザーID/パスワードをお忘れの方は　<a href="">こちら</a></p>
+        </div>
+        <div id="regist">
+            <p>アカウントを持っていませんか？新規登録の方は　<a href="">こちら</a></p>
+        </div>
         
     </div>
 </div>
