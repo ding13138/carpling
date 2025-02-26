@@ -10,7 +10,7 @@ body {
 .top h1{
     text-align: center;
     padding-top: 11%;
-    padding-left: 29%;
+    padding-left: 30%;
     font-size: 50px;
 }
 .top img{
@@ -32,7 +32,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     cursor: pointer; 
     margin-right: 60%;
-    margin-top: 25%;
+    margin-top: 23%;
 }
 
 .my_page p{
@@ -52,7 +52,7 @@ body {
     width: 50%;
 }
 .aisya p{
-    padding-left: 60%;
+    padding-left: 50%;
     font-size: 40px;
 }
 .aisya ul{
