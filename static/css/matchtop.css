@@ -1,12 +1,29 @@
 html {
-  background-image: url("/static/image/p0098_l.png");
-  background-size: 100% 40%;
-  background-position: top, bottom;
-  width: 100%;
   font-family: "Yomogi", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+#simpleTextbox {
+  border: solid 1px #000000;
+  background-color: #FFFFFF;
+}
+
+#title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 6rem;
+  vertical-align: middle;
 }
 
 #match_top_content {
@@ -16,26 +33,38 @@ html {
 }
 
 #choices {
+  margin-left: 10%;
+  margin-bottom: 50px;
   display: flex;
 }
 #choices img {
-  width: 110%;
+  width: 100%;
 }
 #choices h2 {
   position: absolute;
-  margin-top: -70px;
-  margin-left: 50px;
+  margin-top: -90px;
+  margin-left: 90px;
 }
 
 #charactor {
   margin-bottom: 50px;
   display: flex;
+  width: 50%;
+  margin-left: 20%;
 }
 #charactor #sd_charactor {
   width: 400px;
+}
+#charactor #fukidashi {
+  width: 120%;
 }
 #charactor #comment {
   position: relative;
   margin-top: -190px;
   margin-left: 110px;
+}
+
+#guide {
+  width: 50%;
+  margin-left: 25%;
 }/*# sourceMappingURL=matchtop.css.map */
