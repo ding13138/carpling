@@ -76,4 +76,5 @@ body {
 .car{
     display: flex;
     flex-flow: row nowrap;
+    padding-left: 20%;
 }
