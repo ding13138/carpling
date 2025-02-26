@@ -10,8 +10,9 @@ body {
 .top h1{
     text-align: center;
     padding-top: 12%;
-    padding-left: 32%;
+    padding-left: 34%;
     font-size: 50px;
+    font-weight: bold;
 }
 .top img{
     width: 8%;
@@ -19,10 +20,17 @@ body {
     padding-top: 180px;
     padding-left: 30px;
 }
+.top p{
+    text-decoration: underline;
+    font-size: 20px;
+    padding-top: 14%;
+    font-weight: bold;
+    
+}
 
 .usimg {
-    width: 270px; 
-    height: 270px;
+    width: 280px; 
+    height: 280px;
     border-radius: 50%;
     object-fit: cover; 
     position: absolute;
@@ -31,7 +39,7 @@ body {
     border: 2px solid #fff; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     cursor: pointer; 
-    margin-right: 58%;
+    margin-right: 57%;
     margin-top: 25%;
 }
 .my_page{
@@ -40,7 +48,7 @@ body {
 
 .my_page p{
     font-size: 40px;
-    padding-left: 50%;
+    padding-left: 51%;
     text-decoration: underline;
     padding-bottom: 10px;
 }
@@ -54,7 +62,7 @@ body {
     padding-left: 15%;
 }
 .aisya img{
-    width: 107%;
+    width: 125%;
     height: auto;
 }
 .aisya textarea{
@@ -63,6 +71,7 @@ body {
 .kininaru p{
     padding-left: 28%;
     font-size: 40px;
+    padding-bottom: 10px;
 }
 .kininaru li{
     list-style: none;
@@ -70,7 +79,7 @@ body {
 .kininaru li img{
     padding-left: 15%;
     width: auto;
-    height: 10%;
+    height: 130px;
 }
 .car{
     display: flex;
