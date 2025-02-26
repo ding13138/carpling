@@ -23,5 +23,15 @@
     <p >性別:{{ session['usergender'] }}性</p>
     <p >{{ session['userbirthday'] }}生まれ</p>
 </div>
-
+<div class="aisya">
+    <label for="comment">あなたの愛車について</label>
+    <textarea name="コメント" id="comment" rows="5" cols="33">
+        ここに入力した内容を表示。
+    </textarea>
+    <p>あなたの気になる車</p>
+    <ul>
+        <li><img src="/static/image/376515.png" alt=""></li>
+        <li><img src="/static/image/376515.png" alt=""></li>
+    </ul>
+</div>
 {% endblock %}

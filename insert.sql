@@ -29,3 +29,6 @@ INSERT INTO `cars` (`car_id`, `car_picture` , `brand`, `model`,`class`, `categor
 ('50003', ' https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001064306.jpg ', 'スズキ', 'ジムニー   ', 'Normal', 'Celibate', '軽自動車', '1,650,000~2,000,000', 'ガソリン(レギュラー)', 3395 , 1475, 1725 , 1190 ,'4WD', 'これはダミーテキストです','これはダミーテキストです。');
 ('50004', ' https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001583813.jpg ', 'スズキ', 'スペーシアカスタム', 'Normal', 'Celibate', '軽自動車', '1,800,000~2,190,000', 'ハイブリッド(ガソリン)', 3395 , 1475, 1785 , 950 ,'FF / 4WD', 'これはダミーテキストです','これはダミーテキストです。');
 
+
+
+

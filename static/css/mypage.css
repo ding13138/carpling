@@ -40,3 +40,23 @@ body {
     padding-left: 50%;
     text-decoration: underline;
 }
+.aisya {
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: 30px;
+    padding-left: 20%;
+}
+.aisya label{
+    font-size: 40px;
+}
+.aisya textarea{
+    width: 50%;
+}
+.aisya p{
+    font-size: 40px;
+}
+.aisya li{
+    list-style: none;
+    padding-left: 5%;
+}
