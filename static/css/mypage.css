@@ -34,6 +34,9 @@ body {
     margin-right: 60%;
     margin-top: 23%;
 }
+.my_page{
+    padding-bottom: 50px;
+}
 
 .my_page p{
     font-size: 40px;
