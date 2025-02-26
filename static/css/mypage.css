@@ -60,4 +60,9 @@ body {
 }
 .aisya li{
     list-style: none;
+    padding-left: 50%;
+}
+.aisya li img{
+    width: auto;
+    height: 50%;
 }
