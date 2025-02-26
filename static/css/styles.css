@@ -1,18 +1,16 @@
 body {
-    background-image:url('/static/image/p0098_l.png'); /* 第一张和第二张图片 */
-    background-size: 100% 60%, 100% 40%; /* 第一张占上半部分，第二张占下半部分 */
-    background-position: top, bottom; /* 第一张在顶部，第二张在底部 */
-    /* background-repeat: no-repeat, no-repeat; */
-    height: 390vh; /* 让背景填满整个屏幕 */
-    width: 105vh;
+    background-image:url('/static/image/p0098_l.png');
+    background-size: cover;
+    width: 100%;
     font-family: "Yomogi", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 #text_and_login{
-    margin-left: 40%;
+    margin-left: 30%;
 }
 
 #simpleTextbox{
@@ -24,16 +22,16 @@ body {
 }
 .usname{
     margin-top: -3px;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 .userimg {
-    width: 40px; 
-    height: 40px;
+    width: 50px; 
+    height: 50px;
     border-radius: 50%;
     object-fit: cover; 
     position: absolute;
+    right: 30px;
     top: 10px;
-    right: 10px; 
     border: 2px solid #fff; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     cursor: pointer; 
@@ -65,7 +63,6 @@ body {
     text-decoration: none;
     transition: background 0.3s;
     border-bottom: 1px solid #ccc; /* 添加底部边缘线 */
-
 }
 
 /* 悬停效果 */
@@ -102,23 +99,20 @@ p{
     margin-top: -45px;
     margin-left: 700px;
     height: 6vh; /* 全屏高度 */
-    width: 25vh;
+    width: 20%;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
     /* color: white; */
     font-weight: 600;
-    /* overflow: hidden; */
 }
 .login-link{
-    margin-left: 55px;
+    margin-left: 70px;
     position: relative;
     z-index: 10;
-    /* overflow: hidden; */
 }
 #simpleTextbox{
     margin-left: 500px;
-    /* overflow: hidden; */
 }
 .logo img {
     margin-left: 10px;
@@ -136,9 +130,8 @@ main{
 .cars-image {
     background-image: url('/static/image/cars1.png'); /* 替换为你的图片路径 */
     height: 100vh; /* 全屏高度 */
-    width: 170vh;
-    margin-top: -60px;
-    margin-left: 60px;
+    width: 100vW;
+    margin-top:30px;
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
@@ -150,23 +143,22 @@ main{
 
 #car_list{
     display: flex;
-    width: 190%;
-    margin-left: 10%;
+    width: 100vw;
+    margin-left: 10vw;
     margin-bottom: 50px;
-    overflow: hidden;
 }
 #car_list li{
     width: 10%;
-    margin-left: 30px;
     overflow: hidden;
+    margin-left: 1vw;
     border: solid 3px #f3dd6d;
     border-radius:500px;
 }
 
 #intro{
     display: flex;
-    width: 100vw;
-    margin-left: 20%;
+    width: 80%;
+    margin-left: 10%;
     margin-bottom: 50px;
     overflow: hidden;
 }
@@ -192,19 +184,6 @@ main{
     margin-top: 300px;
     overflow: hidden;
 }
-
-.cars-image3 {
-    background-image: url('/static/image/fukidashi2.png'); /* 替换为你的图片路径 */
-    margin-top:-450px ;
-    margin-left: 100%;
-    height: 30vh; /* 全屏高度 */
-    width:65vh;
-    background-size: cover; /* 确保图片完全覆盖 */
-    background-position: center; /* 居中显示 */
-    position: relative; /* 相对定位，用于放置文字 */
-    color: white;
-    mix-blend-mode: multiply; 
-}
 .cars-image4 {
     background-image: url('/static/image/付箋A.png'); /* 替换为你的图片路径 */
     height: 65vh; /* 全屏高度 */
@@ -214,19 +193,6 @@ main{
     background-position: center; /* 居中显示 */
     position: relative; /* 相对定位，用于放置文字 */
     color: white;
-    /* overflow: hidden; */
-}
-.cars-image5 {
-    background-image: url('/static/image/car.png'); /* 替换为你的图片路径 */
-    height: 30vh; /* 全屏高度 */
-    width: 30vh;
-    margin-top: 50px;
-    margin-left: 25%;
-    background-size: cover; /* 确保图片完全覆盖 */
-    background-position: center; /* 居中显示 */
-    position: relative; /* 相对定位，用于放置文字 */
-    color: white;
-    mix-blend-mode: multiply; 
     /* overflow: hidden; */
 }
 .cars-image6 {
@@ -244,11 +210,9 @@ main{
     background: none;
     border: none;
     position: relative;
-    height: 50%;
-    width: 70%;
+    /* height:300px; */
+    width: 600px;
     margin-top: -30px;
-    margin-left: 60%;
-    /* overflow: hidden; */
 }
 #match_button h2{
     font-size: 3rem;
@@ -284,7 +248,7 @@ main{
 /* 图片容器样式 */
 .image-container {
     margin-top: 100px;
-    margin-left: 200px;
+    margin-left: 25%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 每行 3 列 */
     gap: 70px; /* 间距 */
@@ -295,14 +259,13 @@ main{
     text-align: center;
     width: 160px; /* 每块宽度 */
     height: 120px; /* 每块高度 */
-
 }
 /* 单个分割块样式 */
 .image-item {
     width: 160px; /* 每块宽度 */
     height: 100px; /* 每块高度 */
     background-image: url('/static/image/bodytype.png'); /* 替换为图片路径 */
-    background-size: 160px 1200px; /* 背景大小与图片原始大小一致 */
+    background-size: 160px 1200px;
     background-repeat: no-repeat;
 }
 
@@ -322,9 +285,8 @@ main{
 
 #body_type{
     margin-top: 150px;
-    width: 125%;
+    width: 100%;
     height: 80%;
-    margin-left: 25%;
     background-color: #f3dd6d;
 }
 #body_type h1{

@@ -3,11 +3,11 @@
 {% block title %} cars {% endblock %}
 {% block head %}
 <link rel="stylesheet" href="../static/css/destyle.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/match.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/matchtop.css') }}">
 {% endblock %}
 
 {% block content %}
-
+<section id="match_top_content">
     <h1 id="title">理想の車とマッチング！</h1>
 
     <div id="match_main">
@@ -63,5 +63,5 @@
             <p></p>
         </div>
     </div>
-
+</section>
 {% endblock %}
