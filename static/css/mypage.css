@@ -66,6 +66,7 @@ body {
 .kininaru p{
     padding-left: 28%;
     font-size: 40px;
+    padding-bottom: 10px;
 }
 .kininaru li{
     list-style: none;
