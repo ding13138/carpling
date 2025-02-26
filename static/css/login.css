@@ -3,6 +3,7 @@ body {
     background-size: 100%; 
     height: 60%; 
     width: 100vw;
+    overflow: hidden;
 }
 .login-wrapper {
     display: flex;
@@ -36,7 +37,7 @@ td{
     mix-blend-mode: multiply;
     margin-left: 6vw;
     top:3vh;
-    margin-bottom: 50px;
+    /* margin-bottom: px; */
 }
 
 .login_h2::before {
