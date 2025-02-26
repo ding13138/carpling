@@ -45,7 +45,6 @@ body {
     display: flex;
     flex-flow: column wrap;
     margin-bottom: 30px;
-    padding-left: 20%;
 }
 .aisya label{
     font-size: 40px;
@@ -54,6 +53,7 @@ body {
     width: 50%;
 }
 .aisya p{
+    padding-left: 50%;
     font-size: 40px;
 }
 .aisya ul{
