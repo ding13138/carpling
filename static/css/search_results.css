@@ -28,18 +28,24 @@ h2 {
     padding-bottom: 60px;
     border-bottom: 1.5px solid rgb(0, 0, 0);
 }
-
-/* 车辆图片 */
 .car_img {
     width: 40vh;
     height: 40vh;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     border: 2px solid #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    position: static; 
+    transition: transform 0.3s ease-out, object-position 0.1s ease-out;
 }
+
+/* 悬停时8放大更多 */
+.car_img:hover {
+    transform: scale(0.5); /* 放大2倍 */
+}
+
+
 
 .car_message {
     padding-left: 15%;

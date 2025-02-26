@@ -49,31 +49,29 @@ body {
     margin-bottom: 30px;
 }
 .aisya label{
-    font-size: 40px;
+    font-size: 35px;
 }
 .aisya img{
-    width: 100%;
+    width: 105%;
     height: auto;
 }
 .aisya textarea{
     width: 50%;
 }
 .kininaru p{
-    padding-left: 50%;
-    font-size: 40px;
-}
-.kininaru ul{
-    padding-left: 10%;
+    padding-left: 45%;
+    font-size: 35px;
 }
 .kininaru li{
     list-style: none;
-    padding-left: 43%;
 }
 .kininaru li img{
+    padding-left: 15%;
     width: auto;
     height: 50%;
 }
 .car{
     display: flex;
     flex-flow: row nowrap;
+    padding-left: 20%;
 }
