@@ -19,6 +19,9 @@ body {
     padding-top: 180px;
     padding-left: 30px;
 }
+.top p{
+    text-decoration: underline;
+}
 
 .usimg {
     width: 270px; 
