@@ -1,44 +1,73 @@
 body {
     background-image: url('/static/image/note.png'); 
-    background-size: 100%; 
-    height: 100vh; 
-    width: 100vw;
+    background-size: 100% 200%;
+    background-position: top; 
+    background-repeat: no-repeat;  /* 确保图片不会重复 */
+    background-attachment: fixed;  /* 背景固定，不随滚动 */
+    height: 100%;
+    width: 100%;
 }
-h2{
+
+h2 {
     width: 30vw;
-    margin-left: 40%;
+    margin: 20px auto;
+    text-align: center;
 }
-.car_message>p{
+.car-list{
+    width:100vw ;
+    height: 100vh;
+    
+    
+}
+.car-item {
+    padding-left: 20%;
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
     border-bottom: 1.5px solid rgb(0, 0, 0);
 }
-.car_img{
+
+/* 车辆图片 */
+.car_img {
     width: 40vh;
     height: 40vh;
     border-radius: 50%;
-    object-fit: cover; 
-    position: absolute;
-    top: 10px;
-    right: 10px; 
-    border: 2px solid #fff; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    cursor: pointer; 
-    margin-right: 60%;
-    margin-top: 20%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: static; 
 }
-.car_message{
-    width: 20vw; 
-    height: 40vh;
-    margin-top: 6%;
-    margin-left: 55%;
+
+.car_message {
+    padding-left: 15%;
+    width: 20vw;
+    height: auto;  
+}
+
+.car_message p {
     border-bottom: 1.5px solid rgb(0, 0, 0);
 }
-.return>img{
+
+.return {
+    display: flex;
+    justify-content: center;
     margin-top: 5%;
-    margin-left: 20%;
+}
+
+.return>img {
+    margin-left: 50%;
+    margin-top: 83%;
     height: 10%;
     width: 6%;
+    cursor: pointer;
 }
-footer{
-    padding-left: 550px;
-    margin-top: -30px;
+
+footer {
+
+    text-align: center;
+    margin-right: 45%;
+    margin-top: 80rem;
 }
