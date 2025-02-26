@@ -4,7 +4,7 @@ from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
-app.permanent_session_lifetime = timedelta(minutes=3)  # ✅ セッションの有効時間を3分に設定
+app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -35,7 +35,10 @@ def index():
 
 @app.route('/mypage')
 def mypage():
-    return render_template('mypage.html')
+    if not session:
+        return render_template('index.html')
+    else:
+        return render_template('mypage.html')
 
 @app.route('/match')
 def match():
