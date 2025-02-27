@@ -57,7 +57,9 @@ h1{
 .my_page{
     padding-bottom: 50px;
 }
-
+.car{
+    padding-left: 20px;
+}
 .my_page p{
     padding-top: 5px;
     font-size: 40px;
