@@ -9,19 +9,24 @@
 
 {% block content %}
 <div class="top">
+    <form action="/" method="get">
+        <button type="submit"><img src="/static/image/return.png" alt=""></button>
+    </form>
     <h1>マイページ</h1>
-    <p>編集</p>
+    <form action="" method="get">
+        <button type="submit" id="edit"><p>編集</p></button>
+    </form>
 </div>
 <div class="avatar-container">
     <img src="{{ session['userimg'] }}" class="usimg" id="userAvatar">
 </div>
 <div class="my_page">
-    <p >氏名:{{ session['usname'] }}</p>
-    <p >E-mail:{{ session['useremail'] }}</p>
-    <p >連絡:{{ session['userphone'] }}</p>
-    <p >年齢:{{ session['userage'] }}歳</p>
-    <p >性別:{{ session['usergender'] }}性</p>
-    <p >{{ session['userbirthday'] }}生まれ</p>
+    <p >氏名 : {{ session['usname'] }}</p>
+    <p >E-mail : {{ session['useremail'] }}</p>
+    <p >連絡 : {{ session['userphone'] }}</p>
+    <p >年齢 : {{ session['userage'] }}歳</p>
+    <p >性別 : {{ session['usergender'] }}性</p>
+    <p >誕生日 : {{ session['userbirthday'] }}</p>
 </div>
 <div class="car">
     <div class="aisya">
