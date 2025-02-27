@@ -67,4 +67,8 @@ h2 {
 #guide {
   width: 50%;
   margin-left: 25%;
+}
+
+.select {
+  display: none;
 }/*# sourceMappingURL=matchtop.css.map */
