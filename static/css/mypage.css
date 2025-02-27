@@ -68,7 +68,7 @@ h1{
     display: flex;
     flex-flow: column wrap;
     margin-bottom: 30px;
-    padding-left: 2.5%;
+    padding-left: 1%;
 }
 .car p{
     font-weight: bold;
