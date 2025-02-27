@@ -57,6 +57,9 @@ body {
     flex-flow: column wrap;
     margin-bottom: 30px;
 }
+.aisya p{
+    padding-left: 20%;
+}
 .aisya label{
     font-size: 40px;
     padding-left: 15%;
@@ -64,7 +67,6 @@ body {
 .aisya img{
     width: 150%;
     height: auto;
-    padding-left: 1px;
 }
 .aisya label{
     background-color: #FFD324;
