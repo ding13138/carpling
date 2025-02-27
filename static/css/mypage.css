@@ -78,9 +78,10 @@ h1{
     font-size: 40px;
     padding-left: 15%;
 }
-.aisya img{
+.aisya p img{
     width: 150%;
     height: auto;
+    margin-left: 20px;
 }
 .aisya label{
     background-color: #FFD324;
