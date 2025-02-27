@@ -66,18 +66,22 @@ h2 {
 }
 #gender_and_age #gender {
   width: 200px;
+  background-color: rgb(255, 255, 255);
   border: solid 2px #000000;
+  border-radius: 5px;
   margin-right: 300px;
   padding: 10px;
 }
 #gender_and_age #age {
   width: 200px;
+  background-color: rgb(255, 255, 255);
   border: solid 2px #000000;
+  border-radius: 5px;
   padding: 10px;
 }
 
 .match_content {
-  margin-bottom: 25%;
+  margin-bottom: 200px;
 }
 .match_content .selector {
   display: flex;
@@ -106,4 +110,27 @@ h2 {
   background-color: rgb(255, 255, 255);
   border: solid 2px #000000;
   border-radius: 5px;
+}
+
+#nav_bar {
+  display: flex;
+}
+
+.nav_button {
+  display: flex;
+}
+.nav_button img {
+  height: 150px;
+}
+
+.nav_button h2 {
+  margin-top: 50px;
+}
+
+#submit {
+  margin-left: 35vw;
+}
+
+#return {
+  margin-top: -150px;
 }/*# sourceMappingURL=match.css.map */
