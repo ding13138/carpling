@@ -40,8 +40,8 @@ h1{
 }
 
 .usimg {
-    width: 280px; 
-    height: 280px;
+    width: 290px; 
+    height: 290px;
     border-radius: 50%;
     object-fit: cover; 
     position: absolute;
