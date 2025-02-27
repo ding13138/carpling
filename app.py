@@ -6,6 +6,8 @@ app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
 app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
+type=[]
+
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
 # ****************************************************
@@ -44,11 +46,19 @@ def mypage():
 def match():
     return render_template('matchtop.html')
 
-@app.route('/match_ages')
+@app.route('/match_ages', methods=["POST"])
 def match_ages():
-    type=request.form
+    # type.clear()
+    type=request.form.get("type")
     print(type)
     return render_template('match_ages.html')
+
+@app.route('/match_result', methods=["GET"])
+def match_result():
+    rec=request.form
+
+    
+    return render_template('match_result.html')
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
