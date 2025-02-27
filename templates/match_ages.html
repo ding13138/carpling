@@ -210,18 +210,38 @@
                 </ul>
             </div>
             <div>
-                <ul>
+                <ul id="nav_bar">
                     <li>
-                    <button type="submit">
-                    <img src="../static/image/return.png" alt="">
-                    </button>
-                    </li>
-                    <li>
-                        結果を見る！
+                        <div id="submit">
+                            <ul class="nav_button">
+                                <li>
+                                    <h2>結果を見る！</h2>
+                                </li>
+                                <li>
+                                <button type="submit">
+                                <img src="../static/image/arrow.png" alt="">
+                                </button>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
         </form>
+        <div id="return">
+            <ul class="nav_button">
+                <li>
+                    <form action="/match" method="get">
+                    <button type="submit">
+                        <img src="../static/image/return.png" alt="">
+                    </button>
+                    </form>
+                </li>
+                <li>
+                    <h2>もどる</h2>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
