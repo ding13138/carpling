@@ -83,6 +83,7 @@ h1{
 }
 .aisya label{
     background-color: #FFD324;
+    font-weight: bold;
 }
 .aisya textarea{
     width: 50%;
