@@ -65,12 +65,15 @@ h1{
     flex-flow: column wrap;
     margin-bottom: 30px;
 }
+.aisya p{
+    margin-left: 10px;
+}
 .aisya label{
     font-size: 40px;
     padding-left: 15%;
 }
 .aisya img{
-    width: 125%;
+    width: 150%;
     height: auto;
 }
 .aisya label{
