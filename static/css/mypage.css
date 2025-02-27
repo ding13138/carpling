@@ -73,6 +73,9 @@ h1{
 .car p{
     font-weight: bold;
 }
+.aisya{
+    width: 50%;
+}
 .aisya label{
     font-size: 40px;
     padding-left: 15%;
