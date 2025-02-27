@@ -64,7 +64,7 @@ body {
 .aisya img{
     width: 150%;
     height: auto;
-    padding-left: 5px;
+    padding-left: 1px;
 }
 .aisya label{
     background-color: #FFD324;
