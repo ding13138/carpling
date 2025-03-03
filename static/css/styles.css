@@ -240,6 +240,20 @@ main{
 .cars-text2 p{
     margin-bottom: 10px;
 }
+
+.cars-text3{
+    width: 80%;
+    margin-top: 70px;
+    margin-left: 10%;
+}
+.cars-text3 h2{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.cars-text3 p{
+    margin-bottom: 10px;
+}
+
 /* .bodytype_text{
    width: 400px; 
    margin-top: 150px;
