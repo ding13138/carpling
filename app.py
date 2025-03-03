@@ -108,11 +108,11 @@ def match_result():
             price_select_sql='max_price >= 4500000 '
 
         if rec2[1]=="A-2":
-            fuel_select_sql='fuel_type = "ハイブリッド"'
+            fuel_select_sql='fuel_type in ("ハイブリッド" , "ガソリン / ハイブリッド")'
         elif rec2[1]=="B-2":
             fuel_select_sql='fuel_type = "ガソリン(レギュラー)"'
         elif rec2[1]=="C-2":
-            fuel_select_sql='fuel_type = "ガソリン(ハイオク)"'
+            fuel_select_sql='fuel_type in ("ガソリン(ハイオク) " , "ガソリン(レギュラー)") ORDER BY fuel_type DESC'
 
         if rec2[2]=="A-3":
             capasity_select_sql='capasity >= "4"'
@@ -130,9 +130,8 @@ def match_result():
         cursor = conn.cursor()
         select_sql = 'SELECT * FROM cars WHERE '
         select_dock_sql=" AND "
-        select_dock2_sql=" OR "
-        select_end_sql='"'
-        sql=select_sql+body_select_sql+select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql
+        select_end_sql=';'
+        sql=select_sql+body_select_sql+select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql+select_end_sql
         # +select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql+select_dock_sql+capasity_select_sql+
         print(sql)
         cursor.execute(sql)
