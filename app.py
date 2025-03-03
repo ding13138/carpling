@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
 app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
-type={"body_type":""}
+type=[]
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -18,6 +18,8 @@ def con_db():
             host="localhost",
             user="py24user",
             password="py24pass",
+            #user="root",
+            #password="",
             database="carpling_db",
 
             port=3306  # ✅ MariaDBのデフォルトポート
@@ -49,93 +51,16 @@ def match():
 @app.route('/match_ages', methods=["POST"])
 def match_ages():
     # type.clear()
-    type["body_type"]=request.form.get("type")
-    return render_template('match_ages.html',e_tbl={})
+    type=request.form.get("type")
+    print(type)
+    return render_template('match_ages.html')
 
-@app.route('/match_result', methods=["POST"])
+@app.route('/match_result', methods=["GET"])
 def match_result():
-    rec2=[]
-    e_tbl={}
-    count=0
     rec=request.form
-    for key,value in rec:
-        print(key,value)
-        count=count+1
 
-    gender = request.form.get("10")
-    age = request.form.get("11")
-    s1 = request.form.get("12")
-    rec2.append(s1)
-    s2 = request.form.get("13")
-    rec2.append(s2)
-    s3 = request.form.get("14")
-    rec2.append(s3)
-    s4 = request.form.get("15")
-    rec2.append(s4)
-    s5 = request.form.get("16")
-    rec2.append(s5)
-
-    print(rec2)
-    for i in range (0,5):
-        if not rec2[i]:
-            print("NOT")
-            tbl_key=str(i)
-            e_tbl[tbl_key]="選択されていません"
-    print(e_tbl)
-        
-
-
-    print(gender)
-
-    if count==7:
-        print("OK")
-        print(type["body_type"])
-
-        if type["body_type"]=="Celibate":
-            body_select_sql="category = Celibate"
-        elif type["body_type"]=="Family":
-            body_select_sql="category = Family"
-        elif type["body_type"]=="Luxury":
-            body_select_sql="category = Luxury"
-
-        if rec2[0]=="A-1":
-            price_select_sql='max_price <= 2500000 '
-        elif rec2[0]=="B-1":
-            price_select_sql='max_price <= 4500000 '
-        else:
-            price_select_sql='max_price >= 4500000 '
-
-        if rec2[1]=="A-2":
-            fuel_select_sql='fuel_type == "ハイブリッド"'
-
-        if rec2[2]=="A-3":
-            capasity_select_sql='capasity >= "4"'
-        elif rec2[2]=="C-3":
-            capasity_select_sql='capasity >= "2"'
-        
-        if rec2[3]=="A-4":
-            sport_select_sql='turbo == "yes"'
-        elif rec2[3]=="A-4":
-            sport_select_sql='turbo == "yes"'
-        else:
-            sport_select_sql='turbo == "N/A"'    
-
-        conn = con_db()
-        cursor = conn.cursor(dictionary=True)
-        select_sql = 'SELECT * FROM cars WHERE "'
-        select_dock_sql=" AND "
-        select_dock2_sql=" OR "
-        select_end_sql='"'
-        sql=select_sql+body_select_sql+select_end_sql
-        print(sql)
-        cursor.execute(sql)
-        car_result = cursor.fetchall()
-        print(car_result)
-
-        return render_template('result.html')
     
-    else:
-        return render_template('match_ages.html',e_tbl=e_tbl)
+    return render_template('match_result.html')
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
@@ -247,6 +172,7 @@ def search():
         cursor.close()
         conn.close()
 
+
 # ****************************************************
 # ** ログアウト ('/logout') **
 # ****************************************************
@@ -255,6 +181,14 @@ def logout():
     session.clear()  # ✅ セッションをクリア
     return redirect(url_for('index'))  # ✅ ホームページに戻る
 
+
 if __name__ == '__main__':
     app.run(debug=True)
 
+# ****************************************************
+# ** マッチ結果 ('/loginck') **
+# ****************************************************
+@app.route('/match_result', methods=["POST"])
+def match_result():
+    return render_template('result.html')
+# ****************************************************
