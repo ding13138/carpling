@@ -1,24 +1,51 @@
 html {
-  background-image: url("/static/image/p0098_l.png");
-  background-size: 100% 60%, 100% 40%;
-  background-position: top, bottom;
-  height: 390vh;
-  width: 100%;
   font-family: "Yomogi", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+#title {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
 #charactor {
   margin-bottom: 50px;
   display: flex;
+  width: 50%;
+  margin-left: 20%;
 }
 #charactor #sd_charactor {
   width: 400px;
+}
+#charactor #fukidashi {
+  width: 120%;
 }
 #charactor #comment {
   position: relative;
   margin-top: -190px;
   margin-left: 110px;
+}
+
+#car_info {
+  width: 70%;
+  margin-left: 15%;
+}
+
+.nav_button {
+  display: flex;
+  margin-left: 15%;
+}
+.nav_button img {
+  height: 150px;
 }/*# sourceMappingURL=match_result.css.map */
