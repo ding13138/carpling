@@ -13,7 +13,7 @@
 
 <div id="match_main">
     <div class="match_content">
-        <form action="/match_result" method="get">
+        <form action="/match_result" method="post">
             <ul id="charactor">
                 <li>
                     <div id="sd_charactor">
@@ -33,14 +33,14 @@
             <ul id="gender_and_age">
                 <li>
                     <label for="">性別</label>
-                    <select name="" id="gender">
+                    <select name="10" id="gender">
                         <option value="male"><p>男</p></option>
                         <option value="female"><p>女</p></option>
                     </select>
                 </li>
                 <li>
                     <label for="">年齢</label>
-                    <select name="" id="age">
+                    <select name="11" id="age">
                         <option value="1"><p>18~25</p></option>
                         <option value="2">26~35</option>
                         <option value="3">36~45</option>
@@ -69,18 +69,21 @@
                 </ul>
                 <ul class="selector">
                     <li>
-                        <input type="radio" name="12" value="" id="s-1"  class="button">
+                        <input type="radio" name="12" value="A-1" id="s-1"  class="button">
                         <label class="label" for="s-1">100~250万円</label>
                     </li>
                     <li>
-                        <input type="radio" name="12" value="" id="s-2">
+                        <input type="radio" name="12" value="B-1" id="s-2">
                         <label for="s-2">250~450万円</label>
                     </li>
                     <li>
-                        <input type="radio" name="12" value="" id="s-3">
+                        <input type="radio" name="12" value="C-1" id="s-3">
                         <label for="s-3">450万円~</label>
                     </li>
                 </ul>
+                <div class="error_content">
+                    <p>{{e_tbl.0}}</p>
+                </div>
             </div>
             <div class="match_content">
                 <ul id="charactor">
@@ -100,18 +103,21 @@
                 </ul>
                 <ul class="selector">
                     <li>
-                        <input type="radio" name="13" value="" id="s-4"  class="button">
+                        <input type="radio" name="13" value="A-2" id="s-4"  class="button">
                         <label class="label" for="s-4">重視する！</label>
                     </li>
                     <li>
-                        <input type="radio" name="13" value="" id="s-5">
+                        <input type="radio" name="13" value="B-2" id="s-5">
                         <label for="s-5">どちらでもいい</label>
                     </li>
                     <li>
-                        <input type="radio" name="13" value="" id="s-6">
+                        <input type="radio" name="13" value="C-2" id="s-6">
                         <label for="s-6">あまり気にしない</label>
                     </li>
                 </ul>
+                <div class="error_content">
+                    <p>{{e_tbl.1}}</p>
+                </div>
             </div>
             <div class="match_content">
                 <ul id="charactor">
@@ -132,18 +138,21 @@
                 </ul>
                 <ul class="selector">
                     <li>
-                        <input type="radio" name="14" value="" id="s-7"  class="button">
+                        <input type="radio" name="14" value="A-3" id="s-7"  class="button">
                         <label class="label" for="s-7">よく出かける</label>
                     </li>
                     <li>
-                        <input type="radio" name="14" value="" id="s-8">
+                        <input type="radio" name="14" value="B-3" id="s-8">
                         <label for="s-8">あまり頻度は高くない</label>
                     </li>
                     <li>
-                        <input type="radio" name="14" value="" id="s-9">
+                        <input type="radio" name="14" value="C-3" id="s-9">
                         <label for="s-9">一人でしか乗る気が無い！</label>
                     </li>
                 </ul>
+                <div class="error_content">
+                    <p>{{e_tbl.2}}</p>
+                </div>
             </div>
             <div class="match_content">
                 <ul id="charactor">
@@ -164,18 +173,21 @@
                 </ul>
                 <ul class="selector">
                     <li>
-                        <input type="radio" name="15" value="" id="s-10"  class="button">
+                        <input type="radio" name="15" value="A-4" id="s-10"  class="button">
                         <label class="label" for="s-10">やってみたい</label>
                     </li>
                     <li>
-                        <input type="radio" name="15" value="" id="s-11">
+                        <input type="radio" name="15" value="B-4" id="s-11">
                         <label for="s-11">興味はある</label>
                     </li>
                     <li>
-                        <input type="radio" name="15" value="" id="s-12">
+                        <input type="radio" name="15" value="C-4" id="s-12">
                         <label for="s-12">全くやる予定が無い</label>
                     </li>
                 </ul>
+                <div class="error_content">
+                    <p>{{e_tbl.3}}</p>
+                </div>
             </div>
             <div class="match_content">
                 <ul id="charactor">
@@ -196,18 +208,21 @@
                 </ul>
                 <ul class="selector">
                     <li>
-                        <input type="radio" name="16" value="" id="s-13"  class="button">
+                        <input type="radio" name="16" value="A-5" id="s-13"  class="button">
                         <label class="label" for="s-13">いっぱい載せる！</label>
                     </li>
                     <li>
-                        <input type="radio" name="16" value="" id="s-14">
+                        <input type="radio" name="16" value="B-5" id="s-14">
                         <label for="s-14">買い物の荷物が中心</label>
                     </li>
                     <li>
-                        <input type="radio" name="16" value="" id="s-15">
+                        <input type="radio" name="16" value="C-5" id="s-15">
                         <label for="s-15">人が乗れたら問題ない</label>
                     </li>
                 </ul>
+                <div class="error_content">
+                    <p>{{e_tbl.4}}</p>
+                </div>
             </div>
             <div>
                 <ul id="nav_bar">
