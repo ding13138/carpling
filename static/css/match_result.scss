@@ -19,7 +19,6 @@ h2{
 }
 
 #charactor{
-    margin-bottom: 50px;
     display: flex;
     width: 50%;
     margin-left: 20%;
@@ -39,6 +38,102 @@ h2{
 #car_info{
     width: 70%;
     margin-left: 15%;
+    #car_picture{
+        border-radius: 50px;
+        border: solid 2px #000000;
+    }
+    #car_desc{
+        width: 60%;
+        height: 200px;
+        text-align: center;
+        position: relative;
+        margin-bottom: -10%;
+        margin-left: 50%;
+        background-image: url(../image/376515.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 80px;
+    }
+}
+
+#car_name{
+    position: relative;
+    margin-top: -85px;
+    margin-left: 30px;
+}
+
+#car_tag{
+    display: flex;
+    text-align: center;
+    margin-top: -85px;
+    margin-left: 33%;
+    margin-right: 2%;
+    li{
+        width: 50%;
+        height: 80px;
+        margin-left: 5%;
+        border-radius: 40px;
+        background-color: #aaaaaa;
+        h2{
+            line-height: 80px;
+            margin-left: 10px;
+        }
+    }
+}
+#car_price{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    line-height: 5rem;
+    border-bottom: solid 2px #000000;
+    h1{
+        font-size: 35px;
+        span{
+            font-weight: 600;
+            font-size: 50px;
+        }
+    }
+}
+
+#car_disp{
+    width: 70vw;
+    height: 140vh;
+    background-repeat: no-repeat;
+    background-size: 100%,100%,100%,100%;
+    background-image: url(../image/付箋A.png);
+    h1{
+        text-align: center;
+    }
+}
+#car_disp_content{
+    margin-left: 15%;
+    margin-top: 50px;
+    h1{
+        margin-bottom: 30px;
+        margin-left: -20%;
+    }
+}
+#statement{
+    display: flex;
+    margin-left: 10%;
+    margin-bottom: 30px;
+    width: 70%;
+    justify-content: space-between;
+    span{
+        font-size: 2.2rem;
+    }
+    ul{
+        li{
+            h2{
+                margin-bottom: 20px;
+            }  
+        }
+    }
+    img{
+        width: 50px;
+    }
 }
 
 .nav_button{
@@ -46,5 +141,10 @@ h2{
     margin-left: 15%;
     img{
         height: 150px;
+    }
+    h2{
+        padding-top: 60px;
+        margin-left: 10px;
+        vertical-align: middle;
     }
 }
