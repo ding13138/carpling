@@ -24,6 +24,8 @@ INSERT INTO `cars` (`car_id`, `car_picture` , `brand`, `model`,`class`, `categor
 ('50003', ' https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001064306.jpg ', 'スズキ', 'ジムニー   ', 'Normal', 'Celibate', '軽自動車', '1,650,000~2,000,000', 'ガソリン(レギュラー)', 3395 , 1475, 1725 , 1190 ,'4WD', 'これはダミーテキストです','これはダミーテキストです。');
 ('50004', ' https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001583813.jpg ', 'スズキ', 'スペーシアカスタム', 'Normal', 'Celibate', '軽自動車', '1,800,000~2,190,000', 'ハイブリッド(ガソリン)', 3395 , 1475, 1785 , 950 ,'FF / 4WD', 'これはダミーテキストです','これはダミーテキストです。');
 
-
-
-
+('', ' https://toyota.jp/tcv/resources/crown/013_p_001/images/assy/4y6/azsh32-cevgb_0_30.png ', 'Toyota', 'クラウン', 'Normal', 'Luxury', 'セダン', '7,300,000~7,300,000', 'ハイブリッド', '', 5030 , 1890 , 1475 , 2020 ,'FR', 'これはダミーテキストです','これはダミーテキストです。', '5');
+('', ' https://www.suzuki.co.jp/car/swift/detail/img/tmb_mz_WB1.jpg ', 'Suzuki', 'スイフト', 'Normal', 'Celibate', 'コンパクト', '1,727,000~2,332,000', 'ハイブリッド(マイルド)', '',3840 , 1735, 1500 , 910 ,'XG', 'これはダミーテキストです','これはダミーテキストです。', '5');
+('', ' https://www.honda.co.jp/Fit/common/images/type/ehev_home_black_style/c_crystal_red.webp ', 'Honda', 'フィット', 'Normal', 'Family', 'コンパクト', '1,720,400~2,846,800', 'ハイブリッド', 3395 , 1475, 1680 , 1190 ,'e:HEV HOME', 'これはダミーテキストです','これはダミーテキストです。', '5');
+('', ' https://www.hyogotoyota.co.jp/file/cms/-1/5981338/a201a-gbsf_0_30.jpg ', 'Toyota', 'ライズ', 'Normal', 'Family', 'SUV', '1,800,700~2,442,000', 'ハイブリッド',  3995 , 1695 , 1620 , 1070 ,'Z', 'これはダミーテキストです','これはダミーテキストです。', '5');
+('', ' https://www.daihatsu.co.jp/lineup/copen/h4o2fg0000013e5l-img/copen_01_grade-01.jpg ', 'Daihatu', 'コペン', 'Normal', 'Celibate', '軽自動車', '1,983,300~2,567,400', 'ガソリン(レギュラー)', 3395 , 1475 , 1280 , 850 ,'Robe', 'これはダミーテキストです','これはダミーテキストです。', '2');
