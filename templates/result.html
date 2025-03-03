@@ -2,12 +2,13 @@
 
 {% block title %} cars {% endblock %}
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="../static/css/destyle.css">
+<link rel="stylesheet" href="../static/css/match_result.css">
 {% endblock %}
 
 {% block content %}
 
-<h1>この車とマッチングしました！</h1>
+<h1 id="title">この車とマッチングしました！</h1>
 <div>
     <ul id="charactor">
         <li>
@@ -22,6 +23,27 @@
                     <h2>あなたに最適な一台は<br>これです！</h2><br>
                 </div>
             </div>
+        </li>
+    </ul>
+</div>
+<div id="car_info">
+    <img src="https://img1.kakaku.k-img.com/images/productimage/fullscale/K0001064306.jpg" alt="" id="car_picture">
+    <div id="car_disp">
+        <img src="../static/image/付箋A.png" alt="">
+    </div>
+</div>
+
+<div id="return">
+    <ul class="nav_button">
+        <li>
+            <form action="/match" method="get">
+            <button type="submit">
+                <img src="../static/image/return.png" alt="">
+            </button>
+            </form>
+        </li>
+        <li>
+            <h2>もどる</h2>
         </li>
     </ul>
 </div>
