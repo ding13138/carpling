@@ -126,7 +126,7 @@ def match_result():
         select_dock_sql=" AND "
         select_dock2_sql=" OR "
         select_end_sql='"'
-        sql=select_sql+body_select_sql+select_end_sql
+        sql=select_sql+body_select_sql+select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql+select_dock_sql+capasity_select_sql+select_end_sql
         print(sql)
         cursor.execute(sql)
         car_result = cursor.fetchall()
