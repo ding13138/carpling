@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
 app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
-type={"body_type":""}
+type=[]
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -18,6 +18,8 @@ def con_db():
             host="localhost",
             user="py24user",
             password="py24pass",
+            #user="root",
+            #password="",
             database="carpling_db",
 
             port=3306  # ✅ MariaDBのデフォルトポート
@@ -49,18 +51,19 @@ def match():
 @app.route('/match_ages', methods=["POST"])
 def match_ages():
     # type.clear()
-    type["body_type"]=request.form.get("type")
-    return render_template('match_ages.html',e_tbl={})
+    type=request.form.get("type")
+    print(type)
+    return render_template('match_ages.html')
 
-@app.route('/match_result', methods=["POST"])
+@app.route('/match_result', methods=["GET"])
 def match_result():
-    rec2=[]
     e_tbl={}
+    rec2=[]
     count=0
     rec=request.form
-    for key,value in rec:
-        print(key,value)
+    for key,value in rec():
         count=count+1
+        print(key,value)
 
     gender = request.form.get("10")
     age = request.form.get("11")
@@ -82,8 +85,6 @@ def match_result():
             tbl_key=str(i)
             e_tbl[tbl_key]="選択されていません"
     print(e_tbl)
-        
-
 
     print(gender)
 
@@ -134,8 +135,7 @@ def match_result():
 
         return render_template('result.html')
     
-    else:
-        return render_template('match_ages.html',e_tbl=e_tbl)
+    return render_template('match_result.html')
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
@@ -247,6 +247,7 @@ def search():
         cursor.close()
         conn.close()
 
+
 # ****************************************************
 # ** ログアウト ('/logout') **
 # ****************************************************
@@ -255,6 +256,14 @@ def logout():
     session.clear()  # ✅ セッションをクリア
     return redirect(url_for('index'))  # ✅ ホームページに戻る
 
+
 if __name__ == '__main__':
     app.run(debug=True)
 
+# ****************************************************
+# ** マッチ結果 ('/loginck') **
+# ****************************************************
+@app.route('/match_result', methods=["POST"])
+def match_result():
+    return render_template('result.html')
+# ****************************************************
