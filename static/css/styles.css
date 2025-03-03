@@ -19,6 +19,7 @@ body {
     background-color: #FFFFFF;
     height: 30px;
     width: 180px;
+    font-weight: bold;
 }
 .usname{
     margin-top: -3px;
