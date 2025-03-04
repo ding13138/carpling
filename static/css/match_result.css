@@ -1,24 +1,151 @@
+@charset "UTF-8";
 html {
-  background-image: url("/static/image/p0098_l.png");
-  background-size: 100% 60%, 100% 40%;
-  background-position: top, bottom;
-  height: 390vh;
-  width: 100%;
   font-family: "Yomogi", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+#title {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
 #charactor {
-  margin-bottom: 50px;
   display: flex;
+  width: 50%;
+  margin-left: 20%;
 }
 #charactor #sd_charactor {
   width: 400px;
+}
+#charactor #fukidashi {
+  width: 120%;
 }
 #charactor #comment {
   position: relative;
   margin-top: -190px;
   margin-left: 110px;
+}
+
+#car_info {
+  width: 70%;
+  margin-left: 15%;
+}
+#car_info #car_picture {
+  border-radius: 50px;
+  border: solid 2px #000000;
+}
+#car_info #car_desc {
+  width: 60%;
+  height: 200px;
+  text-align: center;
+  position: relative;
+  margin-bottom: -10%;
+  margin-left: 50%;
+  background-image: url(../image/376515.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 80px;
+}
+
+#car_name {
+  position: relative;
+  margin-top: -85px;
+  margin-left: 30px;
+}
+
+#car_tag {
+  display: flex;
+  text-align: center;
+  margin-top: -85px;
+  margin-left: 33%;
+  margin-right: 2%;
+}
+#car_tag li {
+  width: 50%;
+  height: 80px;
+  margin-left: 5%;
+  border-radius: 40px;
+  background-color: #aaaaaa;
+}
+#car_tag li h2 {
+  line-height: 80px;
+  margin-left: 10px;
+}
+
+#car_price {
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 5rem;
+  border-bottom: solid 2px #000000;
+}
+#car_price h1 {
+  font-size: 35px;
+}
+#car_price h1 span {
+  font-weight: 600;
+  font-size: 50px;
+}
+
+#car_disp {
+  width: 70vw;
+  height: 140vh;
+  background-repeat: no-repeat;
+  background-size: 100%, 100%, 100%, 100%;
+  background-image: url(../image/付箋A.png);
+}
+#car_disp h1 {
+  text-align: center;
+}
+
+#car_disp_content {
+  margin-left: 15%;
+  margin-top: 50px;
+}
+#car_disp_content h1 {
+  margin-bottom: 30px;
+  margin-left: -20%;
+}
+
+#statement {
+  display: flex;
+  margin-left: 10%;
+  margin-bottom: 30px;
+  width: 70%;
+  justify-content: space-between;
+}
+#statement span {
+  font-size: 2.2rem;
+}
+#statement ul li h2 {
+  margin-bottom: 20px;
+}
+#statement img {
+  width: 50px;
+}
+
+.nav_button {
+  display: flex;
+  margin-left: 15%;
+}
+.nav_button img {
+  height: 150px;
+}
+.nav_button h2 {
+  padding-top: 60px;
+  margin-left: 10px;
+  vertical-align: middle;
 }/*# sourceMappingURL=match_result.css.map */

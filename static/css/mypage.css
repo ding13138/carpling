@@ -1,8 +1,9 @@
 body {
     background-image: url('/static/image/note.png'); 
     background-size: 100%; 
-    height: 100vh; 
+    background-position: top;
     width: 100vw;
+    height: 100vh; 
 }
 html{
     font-size: 16px;
@@ -82,8 +83,7 @@ h1{
     text-align: center;
 }
 .aisya p img{
-    width: 160%;
-    height: 170;
+    width: 180%;
     padding-right: 30%;
 }
 .aisya label{
@@ -97,6 +97,9 @@ h1{
     padding-left: 28%;
     font-size: 40px;
     padding-bottom: 10px;
+}
+.kininaru{
+    margin-left: 10%;
 }
 .kininaru li{
     list-style: none;

@@ -10,15 +10,15 @@ body {
 }
 
 #text_and_login{
-    margin-left: 30%;
+    margin-left: 30vw;
 }
-
 #simpleTextbox{
     border: solid 1px #000000;
     border-radius: 8px;
     background-color: #FFFFFF;
     height: 30px;
     width: 180px;
+    font-weight: bold;
 }
 .usname{
     margin-top: -3px;
@@ -95,30 +95,31 @@ p{
 
 .login{
     background-image: url('/static/image/—Pngtree—set\ of\ colored\ masking\ tape_9090413.png'); /* 替换为你的图片路径 */
+    background-size: cover; /* 确保图片完全覆盖 */
+    background-position: center; /* 居中显示 */
     padding-top: 20px;
     margin-top: -45px;
     margin-left: 700px;
-    height: 6vh; /* 全屏高度 */
     width: 20%;
-    background-size: cover; /* 确保图片完全覆盖 */
-    background-position: center; /* 居中显示 */
-    position: relative; /* 相对定位，用于放置文字 */
+    height: 6vh; /* 全屏高度 */
+    position: relative; /*相对定位，用于放置文字 */
     /* color: white; */
     font-weight: 600;
 }
 .login-link{
     margin-left: 70px;
-    position: relative;
+    /* position: relative; */
     z-index: 10;
 }
 #simpleTextbox{
     margin-left: 500px;
 }
 .logo img {
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 350px; /* 控制 Logo 图片的宽度 */
-    height: 52px; /* 保持图片的比例 */
+    margin-left: 1vw;
+    margin-top: max(2.073vw,15px);
+    width: 23vw; /* 控制 Logo 图片的宽度 */
+    min-width: 170px;
+    /* ロゴ画像のheightが405 widthが2640  比率は27:176*/
     display: block; /* 避免多余的空白 */
     mix-blend-mode: multiply; 
 }
@@ -239,6 +240,20 @@ main{
 .cars-text2 p{
     margin-bottom: 10px;
 }
+
+.cars-text3{
+    width: 80%;
+    margin-top: 70px;
+    margin-left: 10%;
+}
+.cars-text3 h2{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.cars-text3 p{
+    margin-bottom: 10px;
+}
+
 /* .bodytype_text{
    width: 400px; 
    margin-top: 150px;

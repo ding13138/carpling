@@ -2,12 +2,13 @@
 
 {% block title %} cars {% endblock %}
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="../static/css/destyle.css">
+<link rel="stylesheet" href="../static/css/match_result.css">
 {% endblock %}
 
 {% block content %}
 
-<h1>この車とマッチングしました！</h1>
+<h1 id="title">この車とマッチングしました！</h1>
 <div>
     <ul id="charactor">
         <li>
@@ -19,9 +20,68 @@
             <div id="fukidashi">
                 <img src="../static/image/fukidashi.png" alt="">
                 <div id="comment">
-                    <h2>あなたに最適な一台は<br>これです！</h2><br>
+                    <h1>あなたに合う車は<br>これです！</h1><br>
                 </div>
             </div>
+        </li>
+    </ul>
+</div>
+<div id="car_info">
+    <h1 id="car_desc">{{car_result[0][16]}}</h1>
+    <img src="{{car_result[0][1]}}" alt="" id="car_picture">
+    <div id="car_name">
+        <h2>{{car_result[0][2]}}</h2>
+        <h1>{{car_result[0][3]}}</h1>
+        <ul id="car_tag">
+            <li><h2>#{{car_result[0][19]}}</h2></li>
+            <li><h2>#{{car_result[0][20]}}</h2></li>
+        </ul>
+    </div>
+    <div id="car_price">
+        <h1>価格：　<span>{{car_result[0][7]}}円 ~ {{car_result[0][8]}}円</span></h1>
+    </div>
+    <div id="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div id="car_disp_content">
+            <ul id="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[0][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[0][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[0][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[0][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[0][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[0][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[0][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[0][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div>
+                {{car_result[0][17]}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="return">
+    <ul class="nav_button">
+        <li>
+            <form action="/match" method="get">
+            <button type="submit">
+                <img src="../static/image/return.png" alt="">
+            </button>
+            </form>
+        </li>
+        <li>
+            <h2>マッチングトップへもどる</h2>
         </li>
     </ul>
 </div>
