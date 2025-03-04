@@ -7,7 +7,6 @@ html {
 
 h1 {
   font-size: 2.5rem;
-  font-weight: bold;
 }
 
 h2 {
@@ -57,12 +56,12 @@ h2 {
   width: 400px;
 }
 #charactor #fukidashi {
-  width: 120%;
+  width: 35vw;
 }
 #charactor #comment {
   position: relative;
-  margin-top: -169px;
-  margin-left: 103px;
+  margin-top: -190px;
+  margin-left: 110px;
 }
 
 #guide {
