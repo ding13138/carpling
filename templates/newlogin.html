@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/newlogin.css') }}">
+{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('newloginck') }}" method="post">
+    <div class="newlogin">
+        <div class="newlogin_text">
+            <h2>新規登録</h2>
+        </div>
+
+        <div class="input-group">
+            <label>名前:</label>
+            <input type="text" name="username" value="{{ rec.username if rec else '' }}"  placeholder="名前を入力してください"  required>
+            <span class="error">{{ etbl.username if etbl.username else '' }}</span>
+        </div>
+
+        <div class="input-group">
+            <label>パスワード：</label>
+            <input type="password" name="userps" placeholder="パスワードを入力してください" required>
+            <span class="error">{{ etbl.userps if etbl.userps else '' }}</span>
+        </div>
+
+        <div class="input-group">
+            <label>メールアドレス：</label>
+            <input type="email" name="useremail" value="{{ rec.useremail if rec else '' }}"  placeholder="メールアドレスを入力してください"  required >
+            <span class="error">{{ etbl.useremail if etbl.useremail else '' }}</span>
+        </div>
+
+        <div class="input-group">
+            <label>電話番号：</label>
+            <input type="text" name="userphone" value="{{ rec.userphone if rec else '' }}"  placeholder="電話番号を入力してください"　required>
+            <span class="error">{{ etbl.userphone if etbl.userphone else '' }}</span>
+        </div>
+
+        <div class="input-group">
+            <label>性別：</label>
+            <select name="gender">
+                <option value="" >選択してください</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <span class="error">{{ etbl.gender if etbl.gender else '' }}</span>
+        </div>
+
+        <div class="input-group">
+            <label>誕生日：</label>
+            <input type="date" name="birthday"  required>
+            <span class="error">{{ etbl.birthday if etbl.birthday else '' }}</span>
+        </div>
+
+        <button type="submit" class="newlogin_button">登録</button>
+    </div>
+</form>
+
+    {% endblock %}
