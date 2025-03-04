@@ -7,6 +7,7 @@ app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキ
 app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
 type={"body_type":""}
+select_rec=[]
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -51,19 +52,33 @@ def match():
 @app.route('/match_ages', methods=["POST"])
 def match_ages():
     # type.clear()
+    select_rec.clear()
     type["body_type"]=request.form.get("type")
-    return render_template('match_ages.html',e_tbl={})
+    if type["body_type"]=="Celibate":
+        select_rec.append("100~250万円")
+        select_rec.append("250~350万円")
+        select_rec.append("350万円~")
+    if type["body_type"]=="Family":
+        select_rec.append("200~350万円")
+        select_rec.append("350~550万円")
+        select_rec.append("550万円~")
+    if type["body_type"]=="Luxury":
+        select_rec.append("300~450万円")
+        select_rec.append("450~650万円")
+        select_rec.append("650万円~")
+    print(select_rec)
+    return render_template('match_ages.html',e_tbl={},select_rec=select_rec)
 
 @app.route('/match_result', methods=["POST"])
 def match_result():
     e_tbl={}
     rec2=[]
     count=0
+    desc_flag = "0"
     rec=request.form
     for key,value in rec:
         count=count+1
         print(key,value)
-
     gender = request.form.get("10")
     age = request.form.get("11")
     s1 = request.form.get("12")
@@ -90,58 +105,85 @@ def match_result():
     if count==7:
         print("OK")
         print(type["body_type"])
-
+        select_sql = 'SELECT * FROM cars WHERE '
         if type["body_type"]=="Celibate":
-            body_select_sql='category = "Celibate"'
+            select_sql+='category = "Celibate"'
+            if rec2[0]=="A-1":
+                select_sql+='AND max_price <= 2500000 '
+            elif rec2[0]=="B-1":
+                select_sql+='AND max_price <= 3500000 '
+            else:
+                desc_flag="1"
+                desc_append="ORDER BY price DESC"
+
         elif type["body_type"]=="Family":
-            body_select_sql='category = "Family"'
+            select_sql+='category = "Family"'
+            if rec2[0]=="A-1":
+                select_sql+='AND max_price <= 3500000 '
+            elif rec2[0]=="B-1":
+                select_sql+='AND max_price <= 5500000 '
+            else:
+                desc_flag="1"
+                desc_append="ORDER BY price DESC"
+
         elif type["body_type"]=="Luxury":
-            body_select_sql='category = "Luxury"'
-
-        print(body_select_sql)
-
-        if rec2[0]=="A-1":
-            price_select_sql='max_price <= 2500000 '
-        elif rec2[0]=="B-1":
-            price_select_sql='max_price <= 4500000 '
-        else:
-            price_select_sql='max_price >= 4500000 '
+            select_sql+='category = "Luxury"'
+            if rec2[0]=="A-1":
+                select_sql+='AND max_price <= 4500000 '
+            elif rec2[0]=="B-1":
+                select_sql+='AND max_price <= 6500000 '
+            else:
+                desc_flag="1"
+                desc_append="ORDER BY price DESC"
 
         if rec2[1]=="A-2":
-            fuel_select_sql='fuel_type in ("ハイブリッド" , "ガソリン / ハイブリッド")'
+            select_sql+='AND fuel_type in ("ハイブリッド" , "ガソリン / ハイブリッド")'
         elif rec2[1]=="B-2":
-            fuel_select_sql='fuel_type = "ガソリン(レギュラー)"'
+            select_sql+='AND fuel_type = "ガソリン(レギュラー)"'
         elif rec2[1]=="C-2":
-            fuel_select_sql='fuel_type in ("ガソリン(ハイオク) " , "ガソリン(レギュラー)") ORDER BY fuel_type DESC'
+            select_sql+='AND fuel_type in ("ガソリン(ハイオク) " , "ガソリン(レギュラー)")'
+
+            if desc_flag =="1":
+                desc_append+=', fuel_type DESC'
+            else:
+                desc_flag = "1"
+                desc_append = "ORDER BY fuel_type DESC"                
 
         if rec2[2]=="A-3":
-            capasity_select_sql='capasity >= "4"'
+            capasity_select_sql='AND capasity >= "4"'
         elif rec2[2]=="C-3":
-            capasity_select_sql='capasity >= "2"'
+            capasity_select_sql='AND capasity >= "2"'
         
         if rec2[3]=="A-4":
-            sport_select_sql='turbo = "yes"'
+            sport_select_sql='AND turbo = "yes"'
         elif rec2[3]=="A-4":
-            sport_select_sql='turbo = "yes"'
+            sport_select_sql='AND turbo = "yes"'
         else:
-            sport_select_sql='turbo = "N/A"'    
+            sport_select_sql='AND turbo = "N/A"'
 
-        conn = con_db()
-        cursor = conn.cursor()
-        select_sql = 'SELECT * FROM cars WHERE '
-        select_dock_sql=" AND "
-        select_end_sql=';'
-        sql=select_sql+body_select_sql+select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql+select_end_sql
-        # +select_dock_sql+price_select_sql+select_dock_sql+fuel_select_sql+select_dock_sql+capasity_select_sql+
-        print(sql)
-        cursor.execute(sql)
-        car_result = cursor.fetchall()
-        print(car_result)
+        if desc_flag == "1":
+            conn = con_db()
+            cursor = conn.cursor()
+            select_end_sql=';'
+            sql=select_sql+desc_append+select_end_sql
+            print(sql)
+            cursor.execute(sql)
+            car_result = cursor.fetchall()
+            print(car_result)
+        else:
+            conn = con_db()
+            cursor = conn.cursor()
+            select_end_sql=';'
+            sql=select_sql+select_end_sql
+            print(sql)
+            cursor.execute(sql)
+            car_result = cursor.fetchall()
+            print(car_result)            
 
         return render_template('result.html',car_result=car_result)
     
     else:
-        return render_template('match_ages.html',e_tbl=e_tbl)
+        return render_template('match_ages.html',e_tbl=e_tbl,select_rec=select_rec)
 #****************************************************
 # ログイン画面表示 （'/login'）
 #****************************************************
