@@ -114,7 +114,7 @@ def match_result():
                 select_sql+='AND max_price <= 3500000 '
             else:
                 desc_flag="1"
-                desc_append="ORDER BY price DESC"
+                desc_append="ORDER BY max_price DESC"
 
         elif type["body_type"]=="Family":
             select_sql+='category = "Family"'
@@ -124,7 +124,7 @@ def match_result():
                 select_sql+='AND max_price <= 5500000 '
             else:
                 desc_flag="1"
-                desc_append="ORDER BY price DESC"
+                desc_append="ORDER BY max_price DESC"
 
         elif type["body_type"]=="Luxury":
             select_sql+='category = "Luxury"'
@@ -134,7 +134,7 @@ def match_result():
                 select_sql+='AND max_price <= 6500000 '
             else:
                 desc_flag="1"
-                desc_append="ORDER BY price DESC"
+                desc_append="ORDER BY max_price DESC"
 
         if rec2[1]=="A-2":
             select_sql+='AND fuel_type in ("ハイブリッド" , "ガソリン / ハイブリッド")'
