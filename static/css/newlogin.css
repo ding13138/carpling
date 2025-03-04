@@ -4,10 +4,17 @@ body {
     height: 60%; 
     width: 100vw;
     overflow: hidden;
+    font-size: 16px;
+}
+h2{
+    font-size: 1.8rem;
+}
+h2{
+    font-size: 2rem;
 }
 .newlogin {
-    width: 500px;
-    margin: auto;
+    width: 40vw;
+    margin: 50px auto auto auto;
     padding: 10px;
     z-index: 100; /* 让背景位于 `.login_text` 后面 */
 }
@@ -15,9 +22,11 @@ body {
 .newlogin_text{
     position: relative;
     height: 15vh;
-    width: 80vh;
+    width: 20%;
+    text-align: center;
+    margin-left: 45%;
+    margin-bottom: 50px;
     mix-blend-mode: multiply;
-    margin-left: 15vw;
     top:2vh;
     z-index: -1; /* 让背景位于 `.login_text` 后面 */
 }
@@ -26,11 +35,11 @@ body {
     content: "";
     position: absolute;
     top: 15px;
-    left: -100px; /* 让背景向左移动 */
-    width: 120%;
-    height: 100%;
+    left: -50px;
+    width: 170%;
+    height: 150%;
     background-image: url('/static/image/まーかー.png');
-    background-size: 50% auto;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     z-index: -1; /* 让背景位于 `.login_text` 后面 */
     margin-bottom: 50px;
