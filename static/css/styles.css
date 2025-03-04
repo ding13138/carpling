@@ -17,12 +17,13 @@ body {
     border-radius: 8px;
     background-color: #FFFFFF;
     height: 30px;
-    width: 180px;
+    width: min(180px,calc(100vw - (235px + max(170px,23vw))));
     font-weight: bold;
 }
 .usname{
-    margin-top: -3px;
-    margin-left: 50px;
+    position: absolute;
+    top: 16px;
+    left: 60px;
 }
 .userimg {
     width: 50px; 
@@ -30,8 +31,8 @@ body {
     border-radius: 50%;
     object-fit: cover; 
     position: absolute;
-    right: 30px;
-    top: 10px;
+    right: 25px;
+    top: -1px;
     border: 2px solid #fff; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     cursor: pointer; 
@@ -92,27 +93,38 @@ p{
     font-size: 1rem;
 }
 
-
+/*マスキングテープの場所*/
 .login{
     background-image: url('/static/image/—Pngtree—set\ of\ colored\ masking\ tape_9090413.png'); /* 替换为你的图片路径 */
     background-size: cover; /* 确保图片完全覆盖 */
     background-position: center; /* 居中显示 */
-    padding-top: 20px;
-    margin-top: -45px;
-    margin-left: 700px;
-    width: 20%;
-    height: 6vh; /* 全屏高度 */
-    position: relative; /*相对定位，用于放置文字 */
+    /* padding-top: 20px; */
+    /* margin-top: -45px; */
+    /* margin-left: 700px; */
+    width: 200px;
+    height: 51px;
+    /* height: 6vh; 全屏高度 */
+    /* position: relative; 相对定位，用于放置文字 */
+    /* 背景画像の縦1274 横5000 比は637:2500*/
+    position: absolute;
+    top: max(calc(3.838vw - 25.5px),3px);
+    right: 0px;
     /* color: white; */
     font-weight: 600;
 }
 .login-link{
-    margin-left: 70px;
+    /* margin-left: 70px; */
     /* position: relative; */
     z-index: 10;
+    position: absolute;
+    top: 16px;
+    left: 60px;
 }
 #simpleTextbox{
-    margin-left: 500px;
+    /* margin-left: 500px; */
+    position: absolute;
+    top:max(calc(3.838vw - 15px),13px);
+    right: 200px;
 }
 .logo img {
     margin-left: 1vw;
