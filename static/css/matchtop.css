@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-family: "Yomogi", serif;
   font-weight: 400;
@@ -59,14 +60,30 @@ h2 {
   width: 35vw;
 }
 #charactor #comment {
+  text-align: center;
   position: relative;
-  margin-top: -190px;
-  margin-left: 110px;
+  margin-top: -200px;
 }
 
 #guide {
+  width: 80vw;
+  height: 100vh;
+  margin-left: 10vw;
+  background-image: url(../image/付箋B.png);
+  background-repeat: no-repeat;
+  background-size: 100%, 100%, 100%, 100%;
   width: 50%;
   margin-left: 25%;
+}
+
+#guide_text {
+  padding: 10%;
+  position: relative;
+}
+#guide_text h2 {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: solid 2px #000000;
 }
 
 .select {
