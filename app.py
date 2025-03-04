@@ -1,13 +1,26 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import datetime, timedelta 
+from flask_mail import Mail, Message
+import random
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
 app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの有効時間を3分に設定
 
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'ulysses22903@gmail.com'
+app.config['MAIL_PASSWORD'] = 'kurokawa114514'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
+
+mail = Mail(app)
+
 type={"body_type":""}
 select_rec=[]
+signup_rec={}
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -199,8 +212,209 @@ def login():
     return render_template('login.html', rec={}, etbl={})
 
 
+@app.route("/confirmation", methods=["POST"])
+
+def generate_code(length=6):
+    # 数字のみの確認コードを生成
+    digits = '0123456789'
+    return ''.join(random.choice(digits) for _ in range(length))
+
+def confirmation():
+    # 送信された情報がPOSTで送られているかの確認
+    if request.method == 'POST':
+        etbl = {}
+        # 送信された情報を取得
+        username = request.form.get("username", "").strip()
+        userps = request.form.get("userps", "").strip()
+        useremail = request.form.get("useremail", "").strip()
+        userphone = request.form.get("userphone", "").strip()
+        gender = request.form.get("gender", "").strip()
+        birthday = request.form.get("birthday", "").strip()
+        signup_rec.update(username,userps,useremail,userphone,gender,birthday)
+
+        print(f"📌 入力内容: {username}, {useremail}, {userphone}, {gender}, {birthday}")
+        # 入力チェック
+        if not username:
+            etbl["username"] = "ユーザー名が入力されていません"
+        if not userps:
+            etbl["userps"] = "パスワードが入力されていません"
+        if not useremail:
+            etbl["useremail"] = "メールアドレスが入力されていません"
+        if not userphone:
+            etbl["userphone"] = "電話番号が入力されていません"
+        if not gender:
+            etbl["gender"] = "性別が選択されていません"
+        if not birthday:
+            etbl["birthday"] = "誕生日が入力されていません"
+        if etbl:
+            return render_template('newlogin.html', rec=request.form, etbl=etbl)
+        # ✅ 计算年龄
+        try:
+            birth_date = datetime.strptime(birthday, "%Y-%m-%d")
+            today = datetime.today()
+            age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+        except ValueError:
+            etbl["birthday"] = "誕生日の形式が正しくありません（YYYY-MM-DD）"
+            return render_template('newlogin.html', rec=request.form, etbl=etbl)
+        # ✅ 头像 & 注册时间
+        avatar_url = "https://th.bing.com/th/id/OIP.default_avatar.jpg"
+        created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
+
+        conn = con_db()
+        if not conn:
+            etbl["userid"] = "データベースに接続できません"
+            return render_template('newlogin.html', rec=request.form, etbl=etbl)
+        
+        # try:
+        #     cursor = conn.cursor(dictionary=True)
+        #     print("🔍 既存のユーザーIDを取得中..."
+        #     # ✅ 获取数据库中所有 `textXX` 格式的 `userid`
+        #     cursor.execute("SELECT userid FROM users WHERE userid LIKE 'test%'")
+        #     existing_users = cursor.fetchall(
+        #     # ✅ 提取所有已使用编号，并过滤掉 text01, text02, text03
+        #     existing_numbers = set()
+        #     for user in existing_users:
+        #         try:
+        #             num = int(user["userid"].replace("test", ""))
+        #             if num >= 4:  # 从 text04 开始
+        #                 existing_numbers.add(num)
+        #         except ValueError:
+        #             continue  # 格式错误，跳过
+                
+        #     # ✅ 找到最小的可用 `XX`（从 4 开始递增）
+        #     new_number = 4
+        #     while new_number in existing_numbers:
+        #         new_number += 1  # 递增直到找到未使用的编
+        #     new_id = f"test{new_number:02d}
+        #     print(f"✅ 新しいユーザーID: {new_id}"
+        #     # ✅ **并发检查，确保 `userid` 仍然唯一**
+        #     cursor.execute("SELECT COUNT(*) as count FROM users WHERE userid = %s", (new_id,))
+        #     result = cursor.fetchone()
+        #     if result["count"] > 0:
+        #         raise Exception(f"❌ ユーザーID {new_id} が既に存在します！")    
+        #     # メールアドレスを取得
+        #     email = useremail
+        #     code = generate_code()
+        #     # sessionに確認コードを設定
+        #     session["check"] = code
+        #     print(session["check"])
+        #     # メッセージの各種設定
+        #     # 最初の一文：メールヘッダ
+        #     # sender：送信元メールアドレス
+        #     # recipients：送信先メールアドレス
+        #     msg = Message('Carpling 登録認証コード',recipients=[email])
+
+        #     # メール本文の編集
+        #     msg.body = 'あなたの認証コード：{}　偽サイトへの入力誘導が発生しております。このメールに心当たりがない場合は削除してください。発行元：CarplingⒸⒸ'.format(code)
+
+        #     # メールを送信する一文
+        #     mail.send(msg)
+        #     # return 'Email sent!'
+        #     return render_template("confirmation.html",code=code)
+        # except Exception:
+        #     print("エラーが発生しました。")
+        #     return render_template("index.html")  
+
+
+@app.route("/entry_fn" ,methods=["POST"])
+def entry_fn():
+    print("SIGNUP OK")
+    # セッションが存在していない場合の処理
+    if not session:
+        return render_template("newlogin.html")
+    # セッションが存在している場合の処理
+    else:
+        try:
+            # 取得したコードをスタックに格納
+            stack = request.form
+            print(stack)
+            # からの変数を作成
+            source = ""
+            for key,value in stack.items():
+                # 配列の確認コードを連結
+                source += value
+            print(source)
+            # coreにsessionから確認コードを取得
+            core = session["check"]
+            print(core)
+            print(core == source)
+            # 確認コードが一致していた場合に入る処理
+            # try:
+            if core == source:
+                etbl={}
+                # ✅ 连接数据库
+                conn = con_db()
+                if not conn:
+                    etbl["userid"] = "データベースに接続できません"
+                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
+
+                try:
+                    cursor = conn.cursor(dictionary=True)
+                    print("🔍 既存のユーザーIDを取得中...")
+
+                    # ✅ 获取数据库中所有 `textXX` 格式的 `userid`
+                    cursor.execute("SELECT userid FROM users WHERE userid LIKE 'test%'")
+                    existing_users = cursor.fetchall()
+
+                    # ✅ 提取所有已使用编号，并过滤掉 text01, text02, text03
+                    existing_numbers = set()
+                    for user in existing_users:
+                        try:
+                            num = int(user["userid"].replace("test", ""))
+                            if num >= 4:  # 从 text04 开始
+                                existing_numbers.add(num)
+                        except ValueError:
+                            continue  # 格式错误，跳过
+                        
+                    # ✅ 找到最小的可用 `XX`（从 4 开始递增）
+                    new_number = 4
+                    while new_number in existing_numbers:
+                        new_number += 1  # 递增直到找到未使用的编号
+
+                    new_id = f"test{new_number:02d}"
+
+                    print(f"✅ 新しいユーザーID: {new_id}")
+
+                    # ✅ **并发检查，确保 `userid` 仍然唯一**
+                    cursor.execute("SELECT COUNT(*) as count FROM users WHERE userid = %s", (new_id,))
+                    result = cursor.fetchone()
+                    if result["count"] > 0:
+                        raise Exception(f"❌ ユーザーID {new_id} が既に存在します！")
+
+                    # ✅ 插入新用户数据
+                    sql_insert = """
+                        INSERT INTO users (userid, username, password, email, phone, avatar, age, gender, birthday, created_at)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    """
+                    cursor.execute(sql_insert, (new_id, signup_rec["username"], signup_rec["userps"], signup_rec["useremail"], signup_rec["userphone"], signup_rec["avatar_url"], select_rec["age"], signup_rec["gender"], signup_rec["birthday"], signup_rec["created_at"]))
+                    conn.commit()
+                    print(f"✅ 新規ユーザー登録成功！userid: {new_id}")
+
+                    return redirect(url_for('login'))  # ✅ 登録後ログインページへリダイレクト
+
+                except mariadb.Error as err:
+                    print(f"❌ SQLエラー: {err}")
+                    etbl["userid"] = "データベースエラーが発生しました"
+                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
+
+                except Exception as e:
+                    print(str(e))
+                    etbl["userid"] = "ユーザーIDの生成中にエラーが発生しました"
+                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
+
+                finally:
+                    cursor.close()
+                    conn.close()
+
+            else:
+                error = "確認コードが間違っています。もう一度お試しください"
+                return render_template("confirmation.html",error=error)
+            
+        except Exception:
+            print("エラーが発生しました。")
+            return render_template("index.html")
 
 # ****************************************************
 # ** 新規登録ページ ('/newlogin') **
