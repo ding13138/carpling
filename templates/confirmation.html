@@ -13,16 +13,11 @@
         <p>
             登録認証コードがお客様のメールアドレス宛てに送信されました。<br>
             メールに記載されている、6桁の認証コードを入力してください。<br>
-        </p>
-        <p><a href="https://www.google.com">認証コードが届かない場合はこちら</a></p>
+        </p><br>
+        <p>認証コードが届かない場合は<a href="https://www.google.com">こちら</a></p>
         <form action="/entry_fn" method="POST" id="test">
-            <div class="flex">
-                <input type="text" class="code-input" maxlength="1" id="code1" name="code1">
-                <input type="text" class="code-input" maxlength="1" id="code2" name="code2">
-                <input type="text" class="code-input" maxlength="1" id="code3" name="code3">
-                <input type="text" class="code-input" maxlength="1" id="code4" name="code4">
-                <input type="text" class="code-input" maxlength="1" id="code5" name="code5">
-                <input type="text" class="code-input" maxlength="1" id="code6" name="code6">
+            <div id="code_text">
+                <input type="text" class="code-input" id="code1" name="code1">
             </div>
             <input type="submit" value="送信する" id="login_button">
         </form>
