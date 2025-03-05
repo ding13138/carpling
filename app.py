@@ -10,8 +10,8 @@ app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'ulysses22903@gmail.com'
-app.config['MAIL_PASSWORD'] = 'kurokawa114514'
+app.config['MAIL_USERNAME'] = 'serica.wx508@gmail.com'
+app.config['MAIL_PASSWORD'] = 'becotlkmjkaolfhc'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
@@ -214,11 +214,6 @@ def login():
 
 @app.route("/confirmation", methods=["POST"])
 
-def generate_code(length=6):
-    # 数字のみの確認コードを生成
-    digits = '0123456789'
-    return ''.join(random.choice(digits) for _ in range(length))
-
 def confirmation():
     # 送信された情報がPOSTで送られているかの確認
     if request.method == 'POST':
@@ -230,7 +225,7 @@ def confirmation():
         userphone = request.form.get("userphone", "").strip()
         gender = request.form.get("gender", "").strip()
         birthday = request.form.get("birthday", "").strip()
-        signup_rec.update(username,userps,useremail,userphone,gender,birthday)
+        signup_rec.update(username=username,userps=userps,useremail=useremail,userphone=userphone,gender=gender,birthday=birthday)
 
         print(f"📌 入力内容: {username}, {useremail}, {userphone}, {gender}, {birthday}")
         # 入力チェック
@@ -253,69 +248,67 @@ def confirmation():
             birth_date = datetime.strptime(birthday, "%Y-%m-%d")
             today = datetime.today()
             age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+            signup_rec["age"]=age
         except ValueError:
             etbl["birthday"] = "誕生日の形式が正しくありません（YYYY-MM-DD）"
             return render_template('newlogin.html', rec=request.form, etbl=etbl)
-        # ✅ 头像 & 注册时间
+        
         avatar_url = "https://th.bing.com/th/id/OIP.default_avatar.jpg"
+        signup_rec["avatar_url"]=avatar_url
         created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        signup_rec["created_at"]=created_at
 
 
 
         conn = con_db()
+        # try:
         if not conn:
             etbl["userid"] = "データベースに接続できません"
             return render_template('newlogin.html', rec=request.form, etbl=etbl)
+
+        cursor = conn.cursor(dictionary=True)
+        print("🔍 既存のユーザーIDを取得中...")
+        cursor.execute("SELECT userid FROM users WHERE userid LIKE 'test%'")
+        existing_users = cursor.fetchall()
+        existing_numbers = set()
+        for user in existing_users:
+            try:
+                num = int(user["userid"].replace("test", ""))
+                if num >= 4:
+                    existing_numbers.add(num)
+            except ValueError:
+                continue
+        new_number = 4
+        while new_number in existing_numbers:
+            new_number += 1  # 递增直到找到未使用的编
+        new_id = f"test{new_number:02d}"
+        # ✅ **并发检查，确保 `userid` 仍然唯一**
+        signup_rec["new_id"]=new_id
+        cursor.execute("SELECT COUNT(*) as count FROM users WHERE userid = %s", (new_id,))
+        result = cursor.fetchone()
+        if result["count"] > 0:
+            raise Exception(f"❌ ユーザーID {new_id} が既に存在します！")
         
-        # try:
-        #     cursor = conn.cursor(dictionary=True)
-        #     print("🔍 既存のユーザーIDを取得中..."
-        #     # ✅ 获取数据库中所有 `textXX` 格式的 `userid`
-        #     cursor.execute("SELECT userid FROM users WHERE userid LIKE 'test%'")
-        #     existing_users = cursor.fetchall(
-        #     # ✅ 提取所有已使用编号，并过滤掉 text01, text02, text03
-        #     existing_numbers = set()
-        #     for user in existing_users:
-        #         try:
-        #             num = int(user["userid"].replace("test", ""))
-        #             if num >= 4:  # 从 text04 开始
-        #                 existing_numbers.add(num)
-        #         except ValueError:
-        #             continue  # 格式错误，跳过
-                
-        #     # ✅ 找到最小的可用 `XX`（从 4 开始递增）
-        #     new_number = 4
-        #     while new_number in existing_numbers:
-        #         new_number += 1  # 递增直到找到未使用的编
-        #     new_id = f"test{new_number:02d}
-        #     print(f"✅ 新しいユーザーID: {new_id}"
-        #     # ✅ **并发检查，确保 `userid` 仍然唯一**
-        #     cursor.execute("SELECT COUNT(*) as count FROM users WHERE userid = %s", (new_id,))
-        #     result = cursor.fetchone()
-        #     if result["count"] > 0:
-        #         raise Exception(f"❌ ユーザーID {new_id} が既に存在します！")    
-        #     # メールアドレスを取得
-        #     email = useremail
-        #     code = generate_code()
-        #     # sessionに確認コードを設定
-        #     session["check"] = code
-        #     print(session["check"])
-        #     # メッセージの各種設定
-        #     # 最初の一文：メールヘッダ
-        #     # sender：送信元メールアドレス
-        #     # recipients：送信先メールアドレス
-        #     msg = Message('Carpling 登録認証コード',recipients=[email])
-
-        #     # メール本文の編集
-        #     msg.body = 'あなたの認証コード：{}　偽サイトへの入力誘導が発生しております。このメールに心当たりがない場合は削除してください。発行元：CarplingⒸⒸ'.format(code)
-
-        #     # メールを送信する一文
-        #     mail.send(msg)
-        #     # return 'Email sent!'
-        #     return render_template("confirmation.html",code=code)
+        email = useremail
+        code = generate_code()
+        # sessionに確認コードを設定
+        session["check"] = code
+        print(session["check"])
+        # メッセージの各種設定
+        # 最初の一文：メールヘッダ
+        # sender：送信元メールアドレス
+        # recipients：送信先メールアドレス
+        msg = Message('Carpling 登録認証コード',recipients=[email])
+        # メール本文の編集
+        msg.body = 'あなたの認証コード：{}　偽サイトへの入力誘導が発生しております。このメールに心当たりがない場合は削除してください。発行元：CarplingⒸ'.format(code)
+        # メールを送信する一文
+        mail.send(msg)
+        # return 'Email sent!'
+        return render_template("confirmation.html",code=code)
+    
         # except Exception:
         #     print("エラーが発生しました。")
-        #     return render_template("index.html")  
+        #     return render_template("newlogin.html",etbl=etbl)
 
 
 @app.route("/entry_fn" ,methods=["POST"])
@@ -326,95 +319,67 @@ def entry_fn():
         return render_template("newlogin.html")
     # セッションが存在している場合の処理
     else:
-        try:
-            # 取得したコードをスタックに格納
-            stack = request.form
-            print(stack)
-            # からの変数を作成
-            source = ""
-            for key,value in stack.items():
-                # 配列の確認コードを連結
-                source += value
-            print(source)
-            # coreにsessionから確認コードを取得
-            core = session["check"]
-            print(core)
-            print(core == source)
-            # 確認コードが一致していた場合に入る処理
-            # try:
-            if core == source:
-                etbl={}
-                # ✅ 连接数据库
-                conn = con_db()
-                if not conn:
-                    etbl["userid"] = "データベースに接続できません"
-                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
+        # try:
 
-                try:
-                    cursor = conn.cursor(dictionary=True)
-                    print("🔍 既存のユーザーIDを取得中...")
+        # 取得したコードをスタックに格納
+        stack = request.form
+        print(stack)
+        # からの変数を作成
+        source = ""
+        for key,value in stack.items():
+            # 配列の確認コードを連結
+            source += value
+        print(source)
+        # coreにsessionから確認コードを取得
+        core = session["check"]
+        print(core)
+        print(core == source)
+        # 確認コードが一致していた場合に入る処理
+        # try:
+        if core == source:
+            etbl={}
+            # ✅ 连接数据库
+            conn = con_db()
+            if not conn:
+                etbl["userid"] = "データベースに接続できません"
+                return render_template('newlogin.html', rec=request.form, etbl=etbl)
+            try:
+                cursor = conn.cursor(dictionary=True)
+                # ✅ 插入新用户数据
+                sql_insert = """
+                    INSERT INTO users (userid, username, password, email, phone, avatar, age, gender, birthday, created_at)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """
+                signup_1=signup_rec["new_id"]
+                signup_2=signup_rec["username"]
+                signup_3=signup_rec["userps"]
+                signup_4=signup_rec["useremail"]
+                signup_5=signup_rec["userphone"]
+                signup_6=signup_rec["avatar_url"]
+                signup_7=signup_rec["age"]
+                signup_8=signup_rec["gender"]
+                signup_9=signup_rec["birthday"]
+                signup_10=signup_rec["created_at"]
 
-                    # ✅ 获取数据库中所有 `textXX` 格式的 `userid`
-                    cursor.execute("SELECT userid FROM users WHERE userid LIKE 'test%'")
-                    existing_users = cursor.fetchall()
-
-                    # ✅ 提取所有已使用编号，并过滤掉 text01, text02, text03
-                    existing_numbers = set()
-                    for user in existing_users:
-                        try:
-                            num = int(user["userid"].replace("test", ""))
-                            if num >= 4:  # 从 text04 开始
-                                existing_numbers.add(num)
-                        except ValueError:
-                            continue  # 格式错误，跳过
-                        
-                    # ✅ 找到最小的可用 `XX`（从 4 开始递增）
-                    new_number = 4
-                    while new_number in existing_numbers:
-                        new_number += 1  # 递增直到找到未使用的编号
-
-                    new_id = f"test{new_number:02d}"
-
-                    print(f"✅ 新しいユーザーID: {new_id}")
-
-                    # ✅ **并发检查，确保 `userid` 仍然唯一**
-                    cursor.execute("SELECT COUNT(*) as count FROM users WHERE userid = %s", (new_id,))
-                    result = cursor.fetchone()
-                    if result["count"] > 0:
-                        raise Exception(f"❌ ユーザーID {new_id} が既に存在します！")
-
-                    # ✅ 插入新用户数据
-                    sql_insert = """
-                        INSERT INTO users (userid, username, password, email, phone, avatar, age, gender, birthday, created_at)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    """
-                    cursor.execute(sql_insert, (new_id, signup_rec["username"], signup_rec["userps"], signup_rec["useremail"], signup_rec["userphone"], signup_rec["avatar_url"], select_rec["age"], signup_rec["gender"], signup_rec["birthday"], signup_rec["created_at"]))
-                    conn.commit()
-                    print(f"✅ 新規ユーザー登録成功！userid: {new_id}")
-
-                    return redirect(url_for('login'))  # ✅ 登録後ログインページへリダイレクト
-
-                except mariadb.Error as err:
-                    print(f"❌ SQLエラー: {err}")
-                    etbl["userid"] = "データベースエラーが発生しました"
-                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
-
-                except Exception as e:
-                    print(str(e))
-                    etbl["userid"] = "ユーザーIDの生成中にエラーが発生しました"
-                    return render_template('newlogin.html', rec=request.form, etbl=etbl)
-
-                finally:
-                    cursor.close()
-                    conn.close()
-
-            else:
-                error = "確認コードが間違っています。もう一度お試しください"
-                return render_template("confirmation.html",error=error)
+                cursor.execute(sql_insert, (signup_1,signup_2,signup_3,signup_4,signup_5,signup_6,signup_7,signup_8,signup_9,signup_10))
+                conn.commit()
+                print(f"✅ 新規ユーザー登録成功！userid: {signup_rec['new_id']}")
+                login_success="登録に成功しました。あなたのIDは[ {} ]です。ログインしてください。".format(signup_1)
+                return render_template('login.html', login_success=login_success , rec=request.form, etbl=etbl)  # ✅ 登録後ログインページへリダイレクト
+            except mariadb.Error as err:
+                print(f"❌ SQLエラー: {err}")
+                etbl["userid"] = "データベースエラーが発生しました"
+                return render_template('newlogin.html', rec=request.form, etbl=etbl)
+            finally:
+                cursor.close()
+                conn.close()
+        else:
+            error = "確認コードが間違っています。もう一度お試しください"
+            return render_template("confirmation.html",error=error)
             
-        except Exception:
-            print("エラーが発生しました。")
-            return render_template("index.html")
+        # except Exception:
+        #     print("エラーが発生しました。")
+        #     return render_template("index.html")
 
 # ****************************************************
 # ** 新規登録ページ ('/newlogin') **
@@ -512,6 +477,8 @@ def newloginck():
         cursor.execute(sql_insert, (new_id, username, userps, useremail, userphone, avatar_url, age, gender, birthday, created_at))
         conn.commit()
         print(f"✅ 新規ユーザー登録成功！userid: {new_id}")
+
+
 
         return redirect(url_for('login'))  # ✅ 登録後ログインページへリダイレクト
 
@@ -637,6 +604,32 @@ def logout():
     session.clear()  # ✅ セッションをクリア
     return redirect(url_for('index'))  # ✅ ホームページに戻る
 
+def generate_code(length=6):
+    # 数字のみの確認コードを生成
+    digits = '0123456789'
+    return ''.join(random.choice(digits) for _ in range(length))
+
+@app.errorhandler(404)
+def error404(error):
+    error="page not found"
+    type="404"
+    text="ページが見つかりません"
+    return render_template("error.html",error=error,type=type,text=text),404
+
+@app.errorhandler(413)
+def error413(error):
+    error="error"
+    type="413"
+    text="ファイル容量は2MB以下にしてください"
+    return render_template("error.html",error=error,type=type,text=text),413
+
+
+@app.errorhandler(500)
+def error500(error):
+    error="server error"
+    type="500"
+    text="以下の連絡先にお問い合わせください"
+    return render_template("errorUser.html",error=error,type=type,text=text),500
 
 if __name__ == '__main__':
     app.run(debug=True)
