@@ -10,8 +10,8 @@ app.permanent_session_lifetime = timedelta(minutes=15)  # ✅ セッションの
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'serica.wx508@gmail.com'
-app.config['MAIL_PASSWORD'] = 'becotlkmjkaolfhc'
+app.config['MAIL_USERNAME'] = 'carpling.official@gmail.com'
+app.config['MAIL_PASSWORD'] = 'dignuqrdshzrkiso'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_DEFAULT_SENDER'] = app.config['MAIL_USERNAME']
@@ -30,8 +30,8 @@ def con_db():
         print("🛠️ データベース接続を試みています...")
         conn = mariadb.connect(
             host="localhost",
-            user="py24user",
-            password="py24pass",
+            user="root",
+            password="",
             #user="root",
             #password="",
             database="carpling_db",
