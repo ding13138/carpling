@@ -323,21 +323,21 @@ def entry_fn():
         # try:
 
         # 取得したコードをスタックに格納
-        stack = request.form
-        print(stack)
-        # からの変数を作成
-        source = ""
-        for key,value in stack.items():
-            # 配列の確認コードを連結
-            source += value
+        source = request.form
         print(source)
+        # からの変数を作成
+        # source = ""
+        # for key,value in stack.items():
+        #     # 配列の確認コードを連結
+        #     source += value
+        # print(source)
         # coreにsessionから確認コードを取得
         core = session["check"]
         print(core)
-        print(core == source)
+        print(core == source["code1"])
         # 確認コードが一致していた場合に入る処理
         # try:
-        if core == source:
+        if core == source["code1"]:
             etbl={}
             # ✅ 连接数据库
             conn = con_db()
