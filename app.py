@@ -30,8 +30,8 @@ def con_db():
         print("🛠️ データベース接続を試みています...")
         conn = mariadb.connect(
             host="localhost",
-            user="root",
-            password="",
+            user="py24user",
+            password="py24pass",
             #user="root",
             #password="",
             database="carpling_db",
