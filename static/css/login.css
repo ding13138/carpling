@@ -13,8 +13,7 @@ body {
     height: 100vh;            
 }
 h1{
-    /* font-size: 2.5rem; */
-    font-size: 3.3vw
+    font-size: 2.5rem;
 }
 table{
     width: 100%;
@@ -53,12 +52,13 @@ form ::placeholder{     /*未入力のテキストボックスに表示する文
 }
 
 .login_h2{
-    position: absolute;
+    position: relative;
     height: 20vh;
     width: 80vh;
     mix-blend-mode: multiply;
+    margin-top: 8vh;
     margin-left: 6vw;
-    top:11vw;
+    top:3vh;
     /* margin-bottom: px; */
 }
 #login_id_info{
