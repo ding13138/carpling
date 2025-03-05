@@ -9,13 +9,12 @@
 {% block content %}
 <div class="content">
     <div class="sizing">
-        <h2>確認コードを入力</h2>
+        <h2>登録認証コードを入力</h2>
         <p>
-            確認コードがお客様の電話番号宛てに送信されました。<br>
-            SMSに記載されている6桁のコードを入力してください。<br>
-            確認コードは５分経過すると自動的に無効となります
+            登録認証コードがお客様のメールアドレス宛てに送信されました。<br>
+            メールに記載されている、6桁の認証コードを入力してください。<br>
         </p>
-        <p><a href="https://www.google.com">確認コードが届かない場合はこちら</a></p>
+        <p><a href="https://www.google.com">認証コードが届かない場合はこちら</a></p>
         <form action="/entry_fn" method="POST" id="test">
             <div class="flex">
                 <input type="text" class="code-input" maxlength="1" id="code1" name="code1">
@@ -25,9 +24,9 @@
                 <input type="text" class="code-input" maxlength="1" id="code5" name="code5">
                 <input type="text" class="code-input" maxlength="1" id="code6" name="code6">
             </div>
-            <input type="submit" value="送信する">
+            <input type="submit" value="送信する" id="login_button">
         </form>
-        <button id="reloadButton">確認コードを再送信する</button>
+        <button id="reloadButton">認証コードを再送信する</button>
     </div>
 </div>
 {% endblock %}
