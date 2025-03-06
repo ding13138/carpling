@@ -20,10 +20,20 @@ body {
     width: min(180px,calc(100vw - (235px + max(170px,23vw))));
     font-weight: bold;
 }
+.user-name{
+    margin-top: 11px;
+    margin-bottom: 11px;
+    margin-left: 25px;
+    width: 50%;
+    text-align: center;
+}
 .usname{
-    position: absolute;
+    display: inline-block;
+    /* margin-top: 11px; */
+    /* margin-left: 25px; */
+    /* position: absolute;
     top: 16px;
-    left: 60px;
+    left: 60px; */
 }
 .userimg {
     width: 50px; 
