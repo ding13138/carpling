@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_edit.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="avatar-container">
+    <img src="{{ session['userimg'] }}" class="usimg" id="userAvatar">
+</div>
+
+<div class="mypage">
+    <p>氏名 : {{ session['usname'] }}
+        <form action="{{ url_for('edit_field', field='username') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+
+    <p>E-mail : {{ session['useremail'] }}
+        <form action="{{ url_for('edit_field', field='email') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+
+    <p>連絡 : {{ session['userphone'] }}
+        <form action="{{ url_for('edit_field', field='phone') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+
+    <p>年齢 : {{ session['userage'] }}歳
+        <form action="{{ url_for('edit_field', field='age') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+
+    <p>性別 : {{ session['usergender'] }}性
+        <form action="{{ url_for('edit_field', field='gender') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+
+    <p>誕生日 : {{ session['userbirthday'] }}
+        <form action="{{ url_for('edit_field', field='birthday') }}" method="get">
+            <button type="submit" class="edit">編集</button>
+        </form>
+    </p>
+</div>
+
+{% endblock %}
