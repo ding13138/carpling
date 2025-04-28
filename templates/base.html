@@ -28,7 +28,9 @@
                 <div class="login">
                     {% if session.get('userimg') %}
                     <div class="user-menu">
-                        <p class="usname">{{ session['usname'] }}</p>
+                        <div class="user-name">
+                            <p class="usname">{{ session['usname'] }}</p>
+                        </div>
                         <div class="avatar-container">
                             <img src="{{ session['userimg'] }}" class="userimg" id="userAvatar">
                             <div class="dropdown-menu" id="dropdownMenu">
