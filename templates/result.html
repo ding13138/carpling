@@ -26,6 +26,8 @@
         </li>
     </ul>
 </div>
+<!-- ここからの部分を複数にし、かつヒット件数(car_resultの個数)のみ出せるようにする。かつ、ヒット件数が多すぎる場合は(ランダムに)10件のみ出す。 -->
+<!-- app.py側からヒット件数を送ってもらって、その数値をもとに表示数を変える -->
 <div id="car_info">
     <h1 id="car_desc">{{car_result[0][16]}}</h1>
     <img src="{{car_result[0][1]}}" alt="" id="car_picture">
