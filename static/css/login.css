@@ -56,11 +56,17 @@ form ::placeholder{     /*未入力のテキストボックスに表示する文
     height: 20vh;
     width: 80vh;
     mix-blend-mode: multiply;
+    margin-top: 8vh;
     margin-left: 6vw;
-    top:3vh;
+    /* top:3vh; */
     /* margin-bottom: px; */
 }
-
+#login_id_info{
+    position: absolute;
+    top: 13vw;
+    left: 37vw;
+    font-size: 1.5rem;
+}
 .login_h2::before {
     content: "";
     position: absolute;
@@ -111,6 +117,12 @@ td{
 #regist a{
     color: brown;
     font-weight: 600;
+}
+
+#login_id_info{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
 }
 
 footer{
