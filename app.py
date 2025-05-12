@@ -3,6 +3,7 @@ import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import datetime, timedelta 
 from flask_mail import Mail, Message
 import random
+from app_dsp import appdsp
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
@@ -556,10 +557,13 @@ def loginck():
         session["userage"]=user["age"]
         session["usergender"]=user["gender"]
         session["userbirthday"]=user["birthday"].strftime("%Y年%m月%d日").lstrip("0").replace(" 0", " ")
+        session["usertype"]=user["user_type"]
         
         print(f"✅ ログイン成功！Session: {session}")
-
-        return redirect('/')  # ✅ ホームページにリダイレクト
+        if session["user_type"]=="n":
+            return redirect('/')  # ✅ ホームページにリダイレクト
+        elif session["user_type"]=="a":
+            return render_template('system.html', rec={"userid": userid, "userps": userps})
 
     except mariadb.Error as err:
         print(f"❌ SQLクエリエラー: {err}")
