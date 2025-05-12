@@ -3,7 +3,7 @@ body {
     background-size: 100% 200%;
     background-position: top; 
     background-repeat: no-repeat;  /* 确保图片不会重复 */
-    background-attachment: fixed;  /* 背景固定，不随滚动 */
+   /* background-attachment: fixed; */ /* 背景固定，不随滚动 */
     height: 100%;
     width: 100%;
 }
