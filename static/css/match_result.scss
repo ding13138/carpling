@@ -54,12 +54,13 @@ h2{
         background-size: cover;
         padding-top: 80px;
     }
+    #car_link {
+        width: 10px;
+        height: auto;
+    }
 }
 
-#car_link a {
-    width: 10px;
-    height: auto;
-}
+
 
 #car_name{
     position: relative;
