@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>system console</title>
     <link rel="stylesheet" href="../static/css/destyle.css">
+    <link rel="stylesheet" href="../static/css/system.css">
 </head>
 <body>
     <h1>Carpling management_system</h1>
     <h2>ようこそ {{session["username"]}}</h2>
-    <div>
+    <div id="main_menu">
         <h2>管理メニュー</h2>
-        <ul>
+        <ul id="button_list">
             <li>
-                <form action="/" method="get">
+                <form action="/system_2" method="get">
                     <button type="submit">ユーザーの管理</button>
                 </form>
                 

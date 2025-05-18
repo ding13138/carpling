@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- テーブルの構造 `cars`
 --
 
+CREATE DATABASE csrpling_db;
+
 CREATE TABLE `cars` (
   `car_id` char(5) NOT NULL,
   `car_picture` varchar(255) NOT NULL,

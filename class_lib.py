@@ -2,10 +2,10 @@ import mysql.connector
 
 class Py24db:
     def __init__(self):
-        self.__host = "localhost" # ホスト名
-        self.__user = "py24user" # ﾕｰｻﾞｰ名
-        self.__passwd = "py24pass" # パスワード
-        self.__db = "py24db" # DB名
+        self.__host = "192.168.3.34" # ホスト名
+        self.__user = "carpling_system_admin" # ﾕｰｻﾞｰ名
+        self.__passwd = "carpling_admin" # パスワード
+        self.__db = "" # DB名
         self.__reccnt = 0 # レコード数
         self.__con = mysql.connector.connect(
         host = self.__host,
