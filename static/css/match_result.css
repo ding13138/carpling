@@ -58,10 +58,10 @@ h2 {
   background-size: cover;
   padding-top: 80px;
 }
-#car_link {
-  width: 10px;
-    height: auto;
-  }
+#car_info #car_link {
+  width: 10%;
+  height: auto;
+}
 
 #car_name {
   position: relative;
