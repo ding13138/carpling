@@ -31,8 +31,9 @@ def con_db():
     try:
         print("🛠️ データベース接続を試みています...")
         conn = mariadb.connect(
-            host="192.168.3.34",
-            # host="localhost"
+            # host="192.168.3.34",
+            #接続出来なかった場合localhostに切り替える
+            host="localhost",
             user="carpling_system_admin",
             password="carpling_admin",
             #user="root",
