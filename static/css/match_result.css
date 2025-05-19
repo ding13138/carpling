@@ -61,7 +61,7 @@ h2 {
 #car_info #car_link {
   width: 10%;
   height: auto;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 #car_name {
