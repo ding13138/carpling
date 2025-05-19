@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<!--<h1 id="title">この車とマッチングしました！</h1>-->
+<h1 id="title">車両の詳細情報</h1>
 <div>
     <ul id="charactor">
         <li>
@@ -20,19 +20,14 @@
             <div id="fukidashi">
                 <img src="../static/image/fukidashi.png" alt="">
                 <div id="comment">
-                    <h1>この車とマッチングしました！</h1><br>
+                    <h1>あなたに合う車は<br>これです！</h1><br>
                 </div>
             </div>
         </li>
     </ul>
 </div>
 <div id="car_info">
-    <!--<h1 id="car_desc">{{car_result[0][16]}}</h1>-->
-    <div id="car_link">
-        <a href="result_detail.html">
-            <img src="../static/image/bookmark.png" alt="">
-        </a>
-    </div>
+    <h1 id="car_desc">{{car_result[0][16]}}</h1>
     <img src="{{car_result[0][1]}}" alt="" id="car_picture">
     <div id="car_name">
         <h2>{{car_result[0][2]}}</h2>
