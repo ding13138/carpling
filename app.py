@@ -616,81 +616,6 @@ def logout():
     session.clear()  # ✅ セッションをクリア
     return redirect(url_for('index'))  # ✅ ホームページに戻る
 
-<<<<<<< HEAD
-# ****************************************************
-# ** ユーザー編集ページ ('/user_edit') ****************
-# ****************************************************
-@app.route('/user_edit')
-def user_edit():
-    if not session:
-        return render_template('index.html')
-    else:
-        return render_template('user_edit.html')
-
-@app.route('/edit/<field>', methods=['GET', 'POST'])
-def edit_field(field):
-    allowed_fields = ['username', 'email', 'phone', 'age', 'gender', 'birthday']
-    if field not in allowed_fields:
-        return "不正なリクエストです", 400
-
-    if 'userid' not in session or 'usname' not in session:
-        return redirect(url_for('login'))
-
-    error = None
-
-    if request.method == 'POST':
-        new_value = request.form['new_value'].strip()
-
-        import re
-        from datetime import datetime
-
-        if field == 'email' and not re.match(r"^[^@]+@[^@]+\.[^@]+$", new_value):
-            error = "メール形式が不正です。"
-        elif field == 'phone' and not re.match(r"^\d{10,11}$", new_value):
-            error = "電話番号形式が不正です。"
-        elif field == 'birthday':
-            try:
-                datetime.strptime(new_value, "%Y-%m-%d")
-            except ValueError:
-                error = "誕生日の形式が不正です（YYYY-MM-DD）"
-
-        if error:
-            return render_template('edit_field.html', field=field, current_value=session.get(f'user{field}', ''), error=error)
-
-        try:
-            conn = con_db()
-            cursor = conn.cursor()
-            user_id = session['userid']
-
-            cursor.execute(f"UPDATE users SET {field} = %s WHERE userid = %s", (new_value, user_id))
-            conn.commit()
-
-            # session 更新
-            session_update_map = {
-                'username': 'usname',
-                'email': 'useremail',
-                'phone': 'userphone',
-                'age': 'userage',
-                'gender': 'usergender',
-                'birthday': 'userbirthday'
-            }
-
-            session[session_update_map[field]] = new_value
-
-        except mariadb.Error as err:
-            print(f"❌ SQLエラー: {err}")
-            error = "更新時にエラーが発生しました"
-            return render_template('edit_field.html', field=field, current_value=session.get(f'user{field}', ''), error=error)
-
-        finally:
-            cursor.close()
-            conn.close()
-
-        return redirect(url_for('mypage'))
-
-    return render_template('edit_field.html', field=field, current_value=session.get(f'user{field}', ''))
-
-=======
 def generate_code(length=6):
     # 数字のみの確認コードを生成
     digits = '0123456789'
@@ -717,7 +642,6 @@ def error500(error):
     type="500"
     text="以下の連絡先にお問い合わせください"
     return render_template("errorUser.html",error=error,type=type,text=text),500
->>>>>>> 111f515cad466a8dcdbd5a63fab163812901581d
 
 if __name__ == '__main__':
     app.run(debug=True)
