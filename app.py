@@ -192,9 +192,17 @@ def match_result():
             print(sql)
             cursor.execute(sql)
             car_result = cursor.fetchall()
-            print(car_result)            
-
-        return render_template('result.html',car_result=car_result)
+            print(car_result)
+        hit_count=len(car_result)
+        while len(car_result) < 10:
+            car_result.append((0,0,0,0,0,0,0,0,0,0,0))
+        if hit_count >= 11:
+            pass
+            # passではなく、11件以上からランダムに10件取り出しcar_resultに入れなおすプログラムを作る。
+        
+        # ヒット数が11件以上ならランダムに被りなく10件だけ取り出してcar_resultに入れなおすプログラムを追加
+        return render_template('result.html',car_result=car_result, hit_count=hit_count)
+        # ↑ヒット数hit_countをhit_countに入れて送る
     
     else:
         return render_template('match_ages.html',e_tbl=e_tbl,select_rec=select_rec)
