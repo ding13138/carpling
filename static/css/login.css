@@ -58,12 +58,12 @@ form ::placeholder{     /*未入力のテキストボックスに表示する文
     mix-blend-mode: multiply;
     margin-top: 8vh;
     margin-left: 6vw;
-    top:3vh;
+    /* top:3vh; */
     /* margin-bottom: px; */
 }
 #login_id_info{
     position: absolute;
-    top: 16vw;
+    top: 13vw;
     left: 37vw;
     font-size: 1.5rem;
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user management</title>
+</head>
+<body>
+    <div>
+        <h1>商品一覧</h1>
+            <table border="1">
+               <tr>
+                  <td>商品画像</td>
+                  <td>商品名</td>
+                  <td>販売価格</td>
+                  <td>商品説明</td>
+                  <td>商品画像</td>
+               </tr>
+    
+               {% for tbl in rec %}
+               <tr>
+                  <td>{{tbl[0]}}</td>
+                  <td>{{tbl[1]}}</td>
+                  <td>{{tbl[2]}}</td>
+                  <td>{{tbl[3]}}</td>
+                  <td><img src="..{{tbl[4]}}" alt=""></td>
+                  <td>
+                    <form action="/dsp/detail/{{tbl[0]}}" method="get">
+                        <input type="submit" value="詳細">
+                    </form>
+                  </td>
+               </tr>
+               {% endfor %}
+            </table>
+    </div>
+</body>
+</html>

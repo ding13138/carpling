@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<h1 id="title">この車とマッチングしました！</h1>
+<!--<h1 id="title">この車とマッチングしました！</h1>-->
 <div>
     <ul id="charactor">
         <li>
@@ -20,18 +20,16 @@
             <div id="fukidashi">
                 <img src="../static/image/fukidashi.png" alt="">
                 <div id="comment">
-                    <h1>あなたに合う車は<br>これです！</h1><br>
+                    <h1>この車とマッチングしました！</h1><br>
                 </div>
             </div>
         </li>
     </ul>
 </div>
 <h1>デバッグ用ヒット数：{{hit_count}}</h1>
-<!-- ここからの部分を複数にし、かつヒット件数(car_resultの個数)のみ出せるようにする。かつ、ヒット件数が多すぎる場合は(ランダムに)10件のみ出す。 -->
-<!-- app.py側からヒット件数を送ってもらって、その数値をもとに表示数を変える(例：2以上なら表示など) -->
- <!-- 1つめ -->
 <div class="car_info" id="car_info_1">
-    <h1 class="car_desc">{{car_result[0][16]}}</h1>
+    <!--<h1 class="car_desc">{{car_result[0][16]}}</h1>-->
+    <img src="../static/image/bookmark.png" alt="" id="car_link">
     <img src="{{car_result[0][1]}}" alt="" class="car_picture">
     <div class="car_name">
         <h2>{{car_result[0][2]}}</h2>

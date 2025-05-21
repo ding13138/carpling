@@ -3,6 +3,7 @@ import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import datetime, timedelta 
 from flask_mail import Mail, Message
 import random
+from app_dsp import appdsp
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
@@ -30,9 +31,11 @@ def con_db():
     try:
         print("🛠️ データベース接続を試みています...")
         conn = mariadb.connect(
+            # host="192.168.3.34",
+            #接続出来なかった場合localhostに切り替える
             host="localhost",
-            user="py24user",
-            password="py24pass",
+            user="carpling_system_admin",
+            password="carpling_admin",
             #user="root",
             #password="",
             database="carpling_db",
@@ -504,10 +507,7 @@ def newloginck():
     finally:
         cursor.close()
         conn.close()
-
-
-
-
+        
 # ****************************************************
 # ** ログイン認証 ('/loginck') **
 # ****************************************************
@@ -564,10 +564,13 @@ def loginck():
         session["userage"]=user["age"]
         session["usergender"]=user["gender"]
         session["userbirthday"]=user["birthday"].strftime("%Y年%m月%d日").lstrip("0").replace(" 0", " ")
+        session["usertype"]=user["user_type"]
         
         print(f"✅ ログイン成功！Session: {session}")
-
-        return redirect('/')  # ✅ ホームページにリダイレクト
+        if session["usertype"]=="n":
+            return redirect('/')  # ✅ ホームページにリダイレクト
+        elif session["usertype"]=="a":
+            return render_template('system.html', rec={"userid": userid, "userps": userps})
 
     except mariadb.Error as err:
         print(f"❌ SQLクエリエラー: {err}")
@@ -577,6 +580,7 @@ def loginck():
     finally:
         cursor.close()
         conn.close()
+
 @app.route('/search')
 def search():
     car_type = request.args.get("type", "")  # ✅ 获取 URL 参数
@@ -604,6 +608,13 @@ def search():
         cursor.close()
         conn.close()
 
+# ****************************************************
+# ** 管理機能 ('/system') **
+# ****************************************************
+
+@app.route("/system_2" ,methods=["GET"])
+def system_2():
+    return render_template("system_2.html")
 
 # ****************************************************
 # ** ログアウト ('/logout') **
@@ -650,3 +661,4 @@ if __name__ == '__main__':
 def match_result():
     return render_template('result.html')
 # ****************************************************
+

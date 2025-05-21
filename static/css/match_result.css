@@ -32,6 +32,7 @@ h2 {
   width: 35vw;
 }
 #charactor #comment {
+  font-size: 1.6rem;
   text-align: center;
   position: relative;
   margin-top: -200px;
@@ -56,6 +57,13 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 80px;
+}
+#car_info #car_link {
+  position: absolute;
+  width: 10%;
+  height: auto;
+  margin-top: 30px; 
+  right: 20%; 
 }
 
 .car_name {

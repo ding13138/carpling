@@ -24,10 +24,20 @@ body {
     margin-top: max(1vw,8px);
     display: flex;
 }
+.user-name{
+    margin-top: 11px;
+    margin-bottom: 11px;
+    margin-left: 25px;
+    width: 50%;
+    text-align: center;
+}
 .usname{
-    position: absolute;
+    display: inline-block;
+    /* margin-top: 11px; */
+    /* margin-left: 25px; */
+    /* position: absolute;
     top: 16px;
-    left: 60px;
+    left: 60px; */
 }
 .userimg {
     width: 50px; 
