@@ -20,6 +20,10 @@ body {
     width: min(180px,calc(100vw - (235px + max(170px,23vw))));
     font-weight: bold;
 }
+.navbar{
+    margin-top: max(1vw,8px);
+    display: flex;
+}
 .usname{
     position: absolute;
     top: 16px;
@@ -128,9 +132,8 @@ p{
 }
 .logo img {
     margin-left: 1vw;
-    margin-top: max(2.073vw,15px);
-    width: 23vw; /* 控制 Logo 图片的宽度 */
-    min-width: 170px;
+    margin-top: max(1.074vw,7px);
+    width: max(23vw,170px); /* 控制 Logo 图片的宽度 */
     /* ロゴ画像のheightが405 widthが2640  比率は27:176*/
     display: block; /* 避免多余的空白 */
     mix-blend-mode: multiply; 
