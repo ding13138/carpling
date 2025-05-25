@@ -59,11 +59,7 @@ h2 {
   padding-top: 80px;
 }
 #car_info #car_link {
-  position: absolute;
-  width: 10%;
-  height: auto;
-  margin-top: 30px; 
-  right: 20%; 
+  
 }
 
 .car_name {
