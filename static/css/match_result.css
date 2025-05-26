@@ -62,6 +62,7 @@ h2 {
   position: relative;
   width: 10%;
   height: auto;
+  display: block;
 }
 
 .car_info .car_link img{
