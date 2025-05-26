@@ -12,8 +12,10 @@
 <div class="car-list">
     {% for car in cars %}
     <div class="car-item">
-        <img class="car_img" src="{{ car['car_picture'] }}" alt="{{ car['model'] }}">
-
+        <a href="{{ url_for('detail', car_id=car[0]) }}">
+            <img class="car_img" src="{{ car[1] }}" alt="{{ car[2] }}">
+        </a>
+    </div>
     <div class="car_message">
         <p>
             <svg width="40" height="40" class="icon" viewBox="0 0 64 45" xmlns="http://www.w3.org/2000/svg">

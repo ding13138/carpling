@@ -608,6 +608,33 @@ def search():
         conn.close()
 
 # ****************************************************
+# ** 詳細画面 ('/detail') **
+# ****************************************************
+@app.route('/detail/<int:car_id>')
+def detail(car_id):
+    conn = con_db()
+    if conn is None:
+        return "DB接続エラー", 500
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM cars WHERE id = %s", (car_id,))
+        car = cursor.fetchone()
+    except mariadb.Error as e:
+        print(f"❌ クエリエラー: {e}")
+        return "データ取得エラー", 500
+    finally:
+        cursor.close()
+        conn.close()
+
+    if car is None:
+        return "該当する車が見つかりません", 404
+
+    car_result = [car]  # detail.html の仕様に合わせてリスト形式で渡す
+
+    return render_template("detail.html", car_result=car_result)
+
+# ****************************************************
 # ** 管理機能 ('/system') **
 # ****************************************************
 
