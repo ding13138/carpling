@@ -26,29 +26,30 @@
         </li>
     </ul>
 </div>
-<div id="car_info">
-    <!--<h1 id="car_desc">{{car_result[0][16]}}</h1>-->
-    <div id="car_link">
-        <a href="result_detail.html">
-            <img src="../static/image/bookmark.png" alt="">
-        </a>
+<!--<h1>デバッグ用ヒット数：{{hit_count}}</h1>-->
+<div class="car_info" id="car_info_1">
+    <div class="car_desc">
+        <h1>{{car_result[0][16]}}</h1>
     </div>
-    <img src="{{car_result[0][1]}}" alt="" id="car_picture">
-    <div id="car_name">
+    <a href="./detail.html" class="">
+        <img src="../static/image/bookmark.png" alt="" class="car_link">
+    </a>
+    <img src="{{car_result[0][1]}}" alt="" class="car_picture">
+    <div class="car_name">
         <h2>{{car_result[0][2]}}</h2>
         <h1>{{car_result[0][3]}}</h1>
-        <ul id="car_tag">
+        <ul class="car_tag">
             <li><h2># <span>{{car_result[0][19]}}</span></h2></li>
             <li><h2># <span>{{car_result[0][20]}}</span></h2></li>
         </ul>
     </div>
-    <div id="car_price">
+    <div class="car_price">
         <h1>価格：　<span>{{car_result[0][7]}}円 ~ {{car_result[0][8]}}円</span></h1>
     </div>
-    <div id="car_disp">
+    <div class="car_disp">
         <h1>この車のプロフィール</h1>
-        <div id="car_disp_content">
-            <ul id="statement">
+        <div class="car_disp_content">
+            <ul class="statement">
                 <li>
                     <ul>
                         <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[0][12]}}</span> mm</h2></li>
@@ -69,16 +70,442 @@
             <div>
                 <h1>この車はどんな車？</h1>
             </div>
-            <div id="car_disp_main">
+            <div class="car_disp_main">
                 {{car_result[0][17]}}
             </div>
-            <a href="{{car_result[0][21]}}" target="_blank"><div id="official_url">
+            <a href="{{car_result[0][21]}}" target="_blank">
+                <div class="official_url">
+                    <p>購入する！</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- 2つめ。car_resultの引数を変更する必要がある。 -->
+<div class="car_info" id="car_info_2">
+    <h1 class="car_desc">{{car_result[1][16]}}</h1>
+    <img src="{{car_result[1][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[1][2]}}</h2>
+        <h1>{{car_result[1][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[1][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[1][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[1][7]}}円 ~ {{car_result[1][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[1][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[1][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[1][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[1][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[1][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[1][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[1][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[1][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[1][17]}}
+            </div>
+            <a href="{{car_result[1][21]}}" target="_blank"><div class="official_url">
                 <p>購入する！</p>
             </div></a>
         </div>
     </div>
 </div>
-
+<div class="car_info" id="car_info_3">
+    <h1 class="car_desc">{{car_result[2][16]}}</h1>
+    <img src="{{car_result[2][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[2][2]}}</h2>
+        <h1>{{car_result[2][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[2][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[2][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[2][7]}}円 ~ {{car_result[2][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[2][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[2][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[2][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[2][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[2][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[2][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[2][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[2][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[2][17]}}
+            </div>
+            <a href="{{car_result[2][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_4">
+    <h1 class="car_desc">{{car_result[3][16]}}</h1>
+    <img src="{{car_result[3][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[3][2]}}</h2>
+        <h1>{{car_result[3][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[3][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[3][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[3][7]}}円 ~ {{car_result[3][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[3][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[3][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[3][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[3][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[3][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[3][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[3][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[3][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[3][17]}}
+            </div>
+            <a href="{{car_result[3][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_5">
+    <h1 class="car_desc">{{car_result[4][16]}}</h1>
+    <img src="{{car_result[4][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[4][2]}}</h2>
+        <h1>{{car_result[4][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[4][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[4][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[4][7]}}円 ~ {{car_result[4][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[4][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[4][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[4][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[4][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[4][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[4][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[4][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[4][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[4][17]}}
+            </div>
+            <a href="{{car_result[4][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_6">
+    <h1 class="car_desc">{{car_result[5][16]}}</h1>
+    <img src="{{car_result[5][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[5][2]}}</h2>
+        <h1>{{car_result[5][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[5][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[5][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[5][7]}}円 ~ {{car_result[5][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[5][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[5][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[5][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[5][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[5][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[5][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[5][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[5][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[5][17]}}
+            </div>
+            <a href="{{car_result[5][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_7">
+    <h1 class="car_desc">{{car_result[6][16]}}</h1>
+    <img src="{{car_result[6][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[6][2]}}</h2>
+        <h1>{{car_result[6][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[6][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[6][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[6][7]}}円 ~ {{car_result[6][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[6][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[6][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[6][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[6][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[6][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[6][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[6][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[6][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[6][17]}}
+            </div>
+            <a href="{{car_result[6][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_8">
+    <h1 class="car_desc">{{car_result[7][16]}}</h1>
+    <img src="{{car_result[7][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[7][2]}}</h2>
+        <h1>{{car_result[7][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[7][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[7][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[7][7]}}円 ~ {{car_result[7][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[7][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[7][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[7][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[7][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[7][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[7][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[7][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[7][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[7][17]}}
+            </div>
+            <a href="{{car_result[7][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_9">
+    <h1 class="car_desc">{{car_result[8][16]}}</h1>
+    <img src="{{car_result[8][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[8][2]}}</h2>
+        <h1>{{car_result[8][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[8][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[8][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[8][7]}}円 ~ {{car_result[8][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[8][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[8][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[8][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[8][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[8][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[8][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[8][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[8][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[8][17]}}
+            </div>
+            <a href="{{car_result[8][21]}}" target="_blank"><div class="official_url">
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+<div class="car_info" id="car_info_10">
+    <!--<h1 class="car_desc">{{car_result[9][16]}}</h1>-->
+    <img src="{{car_result[9][1]}}" alt="" class="car_picture">
+    <div class="car_name">
+        <h2>{{car_result[9][2]}}</h2>
+        <h1>{{car_result[9][3]}}</h1>
+        <ul class="car_tag">
+            <li><h2># <span>{{car_result[9][19]}}</span></h2></li>
+            <li><h2># <span>{{car_result[9][20]}}</span></h2></li>
+        </ul>
+    </div>
+    <div class="car_price">
+        <h1>価格：　<span>{{car_result[9][7]}}円 ~ {{car_result[9][8]}}円</span></h1>
+    </div>
+    <div class="car_disp">
+        <h1>この車のプロフィール</h1>
+        <div class="car_disp_content">
+            <ul class="statement">
+                <li>
+                    <ul>
+                        <li><img src="../static/image/car_2.png" alt=""><h2>全長：<span>{{car_result[9][12]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_1.png" alt=""><h2>全幅：<span>{{car_result[9][13]}}</span> mm</h2></li>
+                        <li><img src="../static/image/car_3.png" alt=""><h2>全高：<span>{{car_result[9][14]}}</span> mm</h2></li>
+                        <li><img src="../static/image/weight.png" alt=""><h2>重量：<span>{{car_result[9][15]}}</span> kg</h2></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><img src="../static/image/fuel_2.png" alt=""><h2>燃料タイプ：<span>{{car_result[9][9]}}</span></h2></li>
+                        <li><img src="../static/image/turbo.png" alt=""><h2>ターボ搭載：<span>{{car_result[9][10]}}</span></h2></li>
+                        <li><img src="../static/image/4WD.png" alt=""><h2>駆動方式：<span>{{car_result[9][11]}}</span></h2></li>
+                        <li><img src="../static/image/mans.png" alt=""><h2>乗車定員：<span>{{car_result[9][18]}}</span> 名</h2></li>
+                    </ul>
+                </li>
+            </ul>
+            <div>
+                <h1>この車はどんな車？</h1>
+            </div>
+            <div class="car_disp_main">
+                {{car_result[9][17]}}
+            </div>
+            <a href="{{car_result[9][21]}}" target="_blank"><div class="official_url">
+                <!-- 現状、car_result配列の存在しない部分を参照してしまう項目がある時エラーが起こる -->
+                <p>購入する！</p>
+            </div></a>
+        </div>
+    </div>
+</div>
 <div id="return">
     <ul class="nav_button">
         <li>
@@ -93,4 +520,8 @@
         </li>
     </ul>
 </div>
+<script>
+    const hitCount = "{{hit_count}}"
+</script>
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
 {% endblock %}
