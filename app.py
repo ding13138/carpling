@@ -22,23 +22,22 @@ mail = Mail(app)
 type={"body_type":""}
 select_rec=[]
 signup_rec={}
-
+my_gip="118.27.30.198"
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
 # ****************************************************
 def con_db():
     try:
-        print("🛠️ データベース接続を試みています...")
+        print(my_gip+"🛠️ データベース接続を試みています...")
         conn = mariadb.connect(
-            host="192.168.3.34",
-            # host="localhost"
+            # host=my_gip,
+            host="localhost",
             user="carpling_system_admin",
             password="carpling_admin",
             #user="root",
             #password="",
             database="carpling_db",
-
             port=3306  # ✅ MariaDBのデフォルトポート
         )
         print("✅ データベース接続成功！")
@@ -605,6 +604,10 @@ def search():
 # ****************************************************
 # ** 管理機能 ('/system') **
 # ****************************************************
+
+@app.route("/system" ,methods=["GET"])
+def system():
+    return render_template("system.html",session=session)
 
 @app.route("/system_2" ,methods=["GET"])
 def system_2():
