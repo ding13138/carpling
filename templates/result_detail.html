@@ -12,8 +12,13 @@
 <div class="car-list">
     {% for car in cars %}
     <div class="car-item">
-        <img class="car_img" src="{{ car['car_picture'] }}" alt="{{ car['model'] }}">
-
+        <form action="/detail" method="post">
+            <input type="hidden" name="car_id" value="{{ car[0] }}">
+            <button type="submit" style="border: none; background: none; padding: 0;">
+                <img class="car_img" src="{{ car[1] }}" alt="{{ car[2] }}">
+            </button>
+        </form>
+    </div>
     <div class="car_message">
         <p>
             <svg width="40" height="40" class="icon" viewBox="0 0 64 45" xmlns="http://www.w3.org/2000/svg">
