@@ -34,11 +34,11 @@ h2{
         margin-top: -200px;
     }
 }
-.car_info #car_link {
+.car_info .car_link {
     position: absolute;
     width: 10%;
     height: auto;
-    margin-top: 30px; 
+    margin-top: 30px;
     right: 20%; 
 }
 .car_info{
@@ -59,9 +59,6 @@ h2{
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 80px;
-    }
-    .car_link{
-        
     }
 }
 
