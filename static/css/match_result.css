@@ -62,9 +62,12 @@ h2 {
   position: relative;
   width: 10%;
   height: auto;
-  margin-top: 30%;
 }
 
+.car_info .car_link img{
+  position: absolute;
+  top: 20%;
+}
 .car_name {
   position: relative;
   margin-top: -85px;
