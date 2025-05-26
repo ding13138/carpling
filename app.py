@@ -608,32 +608,35 @@ def search():
         conn.close()
 
 # ****************************************************
-# ** 詳細画面 ('/detail') **
+# ** 車の詳細情報表示 ('/detail') **
 # ****************************************************
-@app.route('/detail/<int:car_id>')
-def detail(car_id):
+@app.route('/detail', methods=["POST"])
+def detail():
+    car_id = request.form.get('car_id')
+    
+    if not car_id:
+        return render_template("error.html", error="Invalid Request", type="400", text="車両IDがありません"), 400
+
     conn = con_db()
     if conn is None:
-        return "DB接続エラー", 500
+        return render_template("error.html", error="DB Error", type="500", text="DB接続に失敗しました"), 500
 
     try:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM cars WHERE id = %s", (car_id,))
         car = cursor.fetchone()
-    except mariadb.Error as e:
-        print(f"❌ クエリエラー: {e}")
-        return "データ取得エラー", 500
-    finally:
         cursor.close()
         conn.close()
+    except Exception as e:
+        print("❌ SQLエラー:", e)
+        return render_template("error.html", error="DB Error", type="500", text="データ取得エラーが発生しました"), 500
 
-    if car is None:
-        return "該当する車が見つかりません", 404
+    if not car:
+        return render_template("error.html", error="Not Found", type="404", text="車両が見つかりません"), 404
 
-    car_result = [car]  # detail.html の仕様に合わせてリスト形式で渡す
+    car_result = [car]  # テンプレート側が car_result[0][n] 形式で使っているためリスト化
 
     return render_template("detail.html", car_result=car_result)
-
 # ****************************************************
 # ** 管理機能 ('/system') **
 # ****************************************************
