@@ -58,6 +58,11 @@ h2 {
   padding-top: 80px;
 }
 
+#car_link a {
+  width: 10px;
+  height: auto;
+}
+
 #car_name {
   position: relative;
   margin-top: -85px;
