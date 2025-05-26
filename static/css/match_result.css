@@ -45,6 +45,7 @@ h2 {
 .car_info .car_picture {
   border-radius: 50px;
   border: solid 3px #000000;
+  display: block;
 }
 .car_info .car_desc {
   width: 80%;
@@ -62,7 +63,6 @@ h2 {
   position: relative;
   width: 10%;
   height: auto;
-  display: block;
 }
 
 .car_info .car_link img{
