@@ -36,8 +36,8 @@ def con_db():
             host="localhost",
             user="carpling_system_admin",
             password="carpling_admin",
-            #user="root",
-            #password="",
+            # user="root",
+            # password="",
             database="carpling_db",
             port=3306  # ✅ MariaDBのデフォルトポート
         )
@@ -117,7 +117,7 @@ def match_result():
     print(e_tbl)
 
     print(gender)
-
+    select_sql = 0  #マッチング結果が溜まっていくバグが発生したので初期化
     if count==7:
         print("OK")
         print(type["body_type"])

@@ -14,6 +14,7 @@ html {
 .comment h1{
   font-size: 2.0rem;
 }
+
 h2 {
   font-size: 1.6rem;
 }
@@ -36,10 +37,17 @@ h2 {
   width: 35vw;
 }
 #charactor #comment {
-  font-size: 1.6rem;
   text-align: center;
   position: relative;
   margin-top: -200px;
+}
+
+.car_info .car_link {
+  position: absolute;
+  width: 10%;
+  height: auto;
+  margin-top: 30px;
+  right: 20%;
 }
 
 .car_info {
@@ -62,15 +70,9 @@ h2 {
   background-size: cover;
   padding-top: 80px;
 }
-.car_info .car_link{
-  position: relative;
-  width: 10%;
-  height: auto;
-  top: 160px;
-  left: 1100px;
-}
 
 .car_name {
+  position: relative;
   margin-top: -85px;
   margin-left: 30px;
 }
