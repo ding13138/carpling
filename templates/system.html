@@ -9,32 +9,63 @@
 </head>
 <body>
     <h1>Carpling management_system</h1>
-    <h2>ようこそ {{session["username"]}}</h2>
+    <div id="header">
+        <h2>ようこそ {{session["usname"]}}</h2>
+        <form action="/" method="get">
+            <button type="submit">メインシステムへ戻る</button>
+        </form>
+    </div>
     <div id="main_menu">
-        <h2>管理メニュー</h2>
-        <ul id="button_list">
-            <li>
-                <form action="/system_2" method="get">
-                    <button type="submit">ユーザーの管理</button>
-                </form>
-                
-            </li>
-            <li>
-                <form action="/" method="get">
-                    <button type="submit">ダミー機能</button>
-                </form>
-            </li>
-            <li>
-                <form action="/" method="get">
-                    <button type="submit">ダミー機能</button>
-                </form>
-            </li>
-            <li>
-                <form action="/" method="get">
-                    <button type="submit">ダミー機能</button>
-                </form>
-            </li>
-        </ul>
+        <div id="manage_menu">
+            <h2>管理メニュー</h2>
+            <ul class="button_list">
+                <li>
+                    <form action="/system_2" method="get">
+                        <button type="submit">ユーザーの管理</button>
+                    </form>
+
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">車両データ管理</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+                </li>
+            </ul>
+            <ul class="button_list">
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/" method="get">
+                        <button type="submit">ダミー機能</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </body>
 </html>
