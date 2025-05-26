@@ -59,16 +59,17 @@ h2 {
   background-size: cover;
   padding-top: 80px;
 }
-.car_info .car_link{
+.car_link{
+  position: absolute;
   position: relative;
   width: 10%;
   height: auto;
+  top: 10px;
 }
 
-.car_info .car_link img{
-  position: absolute;
-  top: 20%;
-  color: #000;
+.car_info img{
+  width: 100%;
+  height: auto;
 }
 .car_name {
   position: relative;
