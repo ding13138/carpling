@@ -22,7 +22,7 @@ mail = Mail(app)
 type={"body_type":""}
 select_rec=[]
 signup_rec={}
-my_gip="118.27.230.198"
+my_gip="126.145.171.79"
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -33,7 +33,7 @@ def con_db():
         conn = mariadb.connect(
             # host="192.168.3.34",
             #接続出来なかった場合localhostに切り替える
-            host="localhost",
+            host=my_gip,
             user="carpling_system_admin",
             password="carpling_admin",
             # user="root",
