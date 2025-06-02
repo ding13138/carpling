@@ -3,7 +3,7 @@ import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import datetime, timedelta 
 from flask_mail import Mail, Message
 import random
-from app_dsp import appdsp
+# from app_dsp import appdsp
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
