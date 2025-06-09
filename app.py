@@ -86,6 +86,12 @@ def match_ages():
     return render_template('match_ages.html',e_tbl={},select_rec=select_rec)
 
 @app.route('/match_result', methods=["POST"])
+    # アキネイター形式にする場合、質問1回ごとにsqlを実行し件数を取り出す必要がある。
+    # また、htmlに送る情報に「次の質問」を追加する必要がある。
+    # 件数が1になるか質問が無くなるか、ユーザーが終了を選べば強制終了。必要な場合のみORDER BYを書き、;を最後に加える。
+    # 最初にsqlの変数がNULLである時、SELECT とFROMを書き加える。
+    # どちらでもいい（わからない）（こだわりはない）の選択肢を追加する。
+    # 戻るボタンの挙動は？
 def match_result():
     e_tbl={}
     rec2=[]
@@ -202,7 +208,6 @@ def match_result():
             pass
             # passではなく、11件以上からランダムに10件取り出しcar_resultに入れなおすプログラムを作る。
         
-        # ヒット数が11件以上ならランダムに被りなく10件だけ取り出してcar_resultに入れなおすプログラムを追加
         return render_template('result.html',car_result=car_result, hit_count=hit_count)
         # ↑ヒット数hit_countをhit_countに入れて送る
     
