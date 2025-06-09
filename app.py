@@ -620,7 +620,7 @@ def detail():
     car_id = request.form.get('car_id')
     
     if not car_id:
-        return render_template("error.html", error="Invalid Request", type="400", text="車両IDがありません"), 400
+        return render_template("error.html", error="Invalid Request", type="404", text="車両IDがありません"), 404
 
     conn = con_db()
     if conn is None:
