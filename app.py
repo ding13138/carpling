@@ -23,6 +23,7 @@ type={"body_type":""}
 select_rec=[]
 signup_rec={}
 my_gip="126.145.171.79"
+# my_gip = "localhost"
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -90,8 +91,8 @@ def match_ages():
     # また、htmlに送る情報に「次の質問」を追加する必要がある。
     # 件数が1になるか質問が無くなるか、ユーザーが終了を選べば強制終了。必要な場合のみORDER BYを書き、;を最後に加える。
     # 最初にsqlの変数がNULLである時、SELECT とFROMを書き加える。
-    # どちらでもいい（わからない）（こだわりはない）の選択肢を追加する。
-    # 戻るボタンの挙動は？
+    # どちらでもいい（もしくは、わからない）（もしくは、こだわりはない）の選択肢を追加する。
+    # 戻るボタンの挙動は？これまでの質問のみ記録しておき遡り、sqlを部分的に消す必要が出てくる？
 def match_result():
     e_tbl={}
     rec2=[]
@@ -205,7 +206,7 @@ def match_result():
         while len(car_result) < 10:
             car_result.append((0,0,0,0,0,0,0,0,0,0,0))
         if hit_count >= 11:
-            pass
+            car_result = random.sample(car_result,10)
             # passではなく、11件以上からランダムに10件取り出しcar_resultに入れなおすプログラムを作る。
         
         return render_template('result.html',car_result=car_result, hit_count=hit_count)
