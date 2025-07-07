@@ -2,7 +2,8 @@ body {
     background-image: url('/static/image/note.png'); 
     background-size: 100% 200%;
     background-position: top; 
-    background-repeat: no-repeat;  /* 确保图片不会重复 */
+    background-repeat: no-repeat repeat;  /* 确保图片不会重复 */
+    /* ↑大量の車データを入力した際に下の方の背景が真っ白になってしまうためrepeatに変更 */
    /* background-attachment: fixed; */ /* 背景固定，不随滚动 */
     height: 100%;
     width: 100%;
@@ -60,16 +61,22 @@ h2 {
 .return {
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    width: 100px;
+    height: 100px;
 }
+/* 矢印ボタンの当たり判定が巨大なreturnクラス全体になってしまっているかつ、
+位置が最下部にならない（データ数が多い場合に？）ため応急処置 */
 
-.return>img {
+/* .return>img {
     margin-left: 50%;
     margin-top: 83%;
     height: 10%;
     width: 6%;
     cursor: pointer;
-}
+} */
 
 footer {
 
