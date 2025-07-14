@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/css/destyle.css">
+    <link rel="stylesheet" href="../static/css/system_2.css">
 </head>
 <body>
+    <div>
+        <form action="/data_insert" method="get">
+            <div id="car_info">
+                <label for="car_id">ID</label>
+                <input type="text" name="car_id" id="1">
+
+                <label for="car_picture">車両画像(URL)</label>
+                <input type="text" name="car_picture" id="2">
+
+                <label for="brand">メーカー名</label>
+                <input type="text" name="brand" id="3">
+
+                <label for="model">車種名</label>
+                <input type="text" name="model" id="4">
+                <input type="text" name="class" id="5">
+                <input type="text" name="category" id="6">
+                <input type="text" name="body_type" id="7">
+                <input type="text" name="min_price" id="8">
+                <input type="text" name="max_price" id="9">
+                <input type="text" name="fuel_type" id="10">
+                <input type="text" name="turbo" id="11">
+                <input type="text" name="drive" id="12">
+                <input type="text" name="length" id="13">
+                <input type="text" name="width" id="14">
+                <input type="text" name="height" id="15">
+                <input type="text" name="weight" id="16">
+                <input type="text" name="description_title" id="17">
+                <input type="text" name="description" id="18">
+                <input type="text" name="capacity" id="19">
+                <input type="text" name="tag_1" id="20">
+                <input type="text" name="tag_2" id="21">
+                <input type="text" name="maker_url" id="22">                                
+            </div>
+            <div>
+                <button type="submit">車両情報登録</button>
+            </div>
+        </form>
+    </div>
     <div>
         <form action="/system" method="get">
             <button type="submit">TOPへ戻る</button>
