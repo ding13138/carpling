@@ -3,7 +3,7 @@ import mariadb  # ✅ MariaDB（MySQL 互换性あり）
 from datetime import datetime, timedelta 
 from flask_mail import Mail, Message
 import random
-from app_dsp import appdsp
+# from app_dsp import appdsp
 
 app = Flask(__name__)
 app.secret_key = 'IH12xPY24_No08'  # ✅ セッションのセキュリティキー
@@ -23,6 +23,7 @@ type={"body_type":""}
 select_rec=[]
 signup_rec={}
 my_gip="126.145.171.79"
+# my_gip = "localhost"
 
 # ****************************************************
 # ** データベース接続関数 (DBに接続する) **
@@ -86,6 +87,12 @@ def match_ages():
     return render_template('match_ages.html',e_tbl={},select_rec=select_rec)
 
 @app.route('/match_result', methods=["POST"])
+    # アキネイター形式にする場合、質問1回ごとにsqlを実行し件数を取り出す必要がある。
+    # また、htmlに送る情報に「次の質問」を追加する必要がある。
+    # 件数が1になるか質問が無くなるか、ユーザーが終了を選べば強制終了。必要な場合のみORDER BYを書き、;を最後に加える。
+    # 最初にsqlの変数がNULLである時、SELECT とFROMを書き加える。
+    # どちらでもいい（もしくは、わからない）（もしくは、こだわりはない）の選択肢を追加する。
+    # 戻るボタンの挙動は？これまでの質問のみ記録しておき遡り、sqlを部分的に消す必要が出てくる？
 def match_result():
     e_tbl={}
     rec2=[]
@@ -199,10 +206,9 @@ def match_result():
         while len(car_result) < 10:
             car_result.append((0,0,0,0,0,0,0,0,0,0,0))
         if hit_count >= 11:
-            pass
+            car_result = random.sample(car_result,10)
             # passではなく、11件以上からランダムに10件取り出しcar_resultに入れなおすプログラムを作る。
         
-        # ヒット数が11件以上ならランダムに被りなく10件だけ取り出してcar_resultに入れなおすプログラムを追加
         return render_template('result.html',car_result=car_result, hit_count=hit_count)
         # ↑ヒット数hit_countをhit_countに入れて送る
     
@@ -615,7 +621,7 @@ def detail():
     car_id = request.form.get('car_id')
     
     if not car_id:
-        return render_template("error.html", error="Invalid Request", type="400", text="車両IDがありません"), 400
+        return render_template("error.html", error="Invalid Request", type="404", text="車両IDがありません"), 404
 
     conn = con_db()
     if conn is None:
